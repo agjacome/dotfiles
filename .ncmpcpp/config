@@ -1,0 +1,63 @@
+# mpd
+mpd_communication_mode = "notifications"
+mpd_connection_timeout = "5"
+mpd_crossfade_time     = "3"
+mpd_host               = "Caronte"
+mpd_music_dir          = "/home/agjacome/music"
+mpd_port               = "6600"
+
+# bars
+statusbar_visibility = "yes"
+header_visibility    = "no"
+
+# misc
+playlist_disable_highlight_delay = "1"
+message_delay_time               = "1"
+
+# format
+song_list_format         = "$3%a$9 $3»$7»$8»$9 $8%t$9 $R $5%b$9"
+song_columns_list_format = "(40)[white]{t} (20)[green]{a} (30)[cyan]{b} "
+song_window_title_format = "{%a - }{%t}{ [%b]}"
+song_status_format       = "$b{$8%a$9 $3:$9 }{$8%t$9}{ $3:$9 $8%b$9}$/b"
+now_playing_prefix       = "$b$8»$7»$3»$9 "
+now_playing_suffix       = "$/b"
+
+# colors
+colors_enabled              = "yes"
+color1                      = "white"
+color2                      = "green"
+empty_tag_color             = "red"
+main_window_color           = "white"
+main_window_highlight_color = "cyan"
+active_column_color         = "green"
+active_window_border        = "black"
+window_border_color         = "black"
+statusbar_color             = "green"
+header_window_color         = "white"
+
+# progress bar
+progressbar_color = "green"
+progressbar_look  = "◾◾◽"
+
+# misc
+playlist_separate_albums          = "no"
+cyclic_scrolling                  = "yes"
+fancy_scrolling                   = "yes"
+display_screens_numbers_on_start  = "no"
+regular_expressions               = "extended"
+external_editor                   = "/usr/bin/vim"
+ignore_leading_the                = "no"
+lyrics_database                   = "1"
+clock_display_seconds             = "yes"
+display_bitrate                   = "no"
+state_line_color                  = "white"
+state_flags_color                 = "cyan"
+state_window_color                = "cyan"
+empty_tag_marker                  = "<empty>"
+jump_to_now_playing_song_at_start = "yes"
+ask_before_clearing_main_playlist = "no"
+enable_window_title               = "yes"
+display_remaining_time            = "no"
+display_volume_level              = "yes"
+volume_color                      = "red"
+

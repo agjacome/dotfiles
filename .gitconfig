@@ -1,0 +1,35 @@
+[user]
+    name = Alberto G. Jácome
+    email = agjacome@gmail.com
+[core]
+    editor = vim
+    pager = less
+    autocrlf = input
+    whitespace = trailing-space,space-before-tab,indent-with-non-tab
+    excludesfile = /home/agjacome/.gitignore_global
+[merge]
+    tool = vimdiff
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[commit]
+    template = /home/agjacome/.gitmessage
+[push]
+    default = simple
+[help]
+    autocorrect = 1
+[color]
+    ui = true
+[color "branch"]
+    current = green bold
+    remote = red bold
+[color "diff"]
+    meta = yellow
+    frag = cyan bold
+    old = red bold
+    new = green bold
+[alias]
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+[github]
+    user = agjacome

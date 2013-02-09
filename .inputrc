@@ -1,0 +1,14 @@
+$include /etc/inputrc
+
+set completion-ignore-case on
+set completion-display-width 0
+set echo-control-characters off
+set expand-tilde off
+set page-completions off
+set visible-stats on
+set show-all-if-ambiguous on
+set mark-symlinked-directories on
+set match-hidden-files on
+
+"\e[B": history-search-forward
+"\e[A": history-search-backward

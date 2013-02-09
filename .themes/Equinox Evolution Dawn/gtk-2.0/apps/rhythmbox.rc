@@ -1,0 +1,6 @@
+#Rhythmbox toolbar near the search entry.
+widget_class "*RBSourceHeader*<GtkToolbar>"	          style:highest "theme-toolbar"
+widget_class "*RBSourceHeader*<GtkButton>"	          style:highest "theme-button"
+widget_class "*RBSourceHeader*<GtkButton>*<GtkLabel>"	style:highest "theme-default"
+
+

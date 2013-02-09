@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+[[ "$1" =~ xt=urn:btih:([^&/]+) ]] && t_hash=${BASH_REMATCH[1]} || exit
+[[ "$1" =~ dn=([^&/]+) ]] && filename=${BASH_REMATCH[1]} || filename=$t_hash
+
+echo "d10:magnet-uri${#1}:${1}e" > ~/downloads/torrents/"$filename.torrent"

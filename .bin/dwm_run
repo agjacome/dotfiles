@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# source xinitc.d scripts
+if [ -d /et/X11/xinit/xinitrc.d ]; then
+    for f in /etc/X11/xinitrc.d/*; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
+
+# load .Xresources
+[[ -f $HOME/.Xresources ]] && xrdb -merge $HOME/.Xresources
+
+# add font paths
+xset fp default
+[[ -d /usr/share/fonts/local ]] && xset +fp /usr/share/fonts/local
+[[ -d $HOME/.fonts ]] && xset +fp $HOME/.fonts
+xset fp rehash
+
+# Java workaround
+wmname LG3d
+
+# set background and statusbar
+$HOME/.bin/background &
+$HOME/.bin/dwm_status &
+
+# start daemons
+/usr/bin/urxvtd -q -o -f
+/usr/bin/syndaemon -t -k -i 1 -d &
+[[ -z $(pgrep -x dwm) ]] && /usr/bin/tmux start-server
+
+# start DWM
+/usr/bin/dwm 2> /tmp/dwm.log

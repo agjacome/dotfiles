@@ -1,0 +1,27 @@
+alias ls="ls --group-directories-first --color=auto -hv"
+alias grep="grep --color=auto -I"
+
+alias ..="cd .."
+alias ...="cd ../../"
+alias uni="cd ~/documents/college/2012-2013"
+
+alias df="df -hT"
+alias mkdir="mkdir -pv"
+alias l="ls"
+alias ll="ls -l"
+alias la="ls -a"
+alias cp="cp -ir"
+alias mv="mv -i"
+alias rm="rm -Iv"
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+
+alias syu="yaourt -Syu --aur"
+alias i="sudo pacman -S"
+alias s="pacman -Ss"
+
+alias ta="tmux attach-session"
+alias myip="curl ifconfig.me/{ip,host}"
+alias fixperm="chmod -R u=rwX,g=rX,o=rX"
+alias adjclock="ntpd -qg && hwclock --systohc"
+
+# vim: ft=sh

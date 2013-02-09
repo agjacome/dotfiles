@@ -1,0 +1,22 @@
+
+To enable breadcrumbs in Nautilus Elementary, uncomment the following line at the end of the gtkrc file (in gtk-2.0/):
+
+#include "apps/nautilus-elementary.rc"
+
+To enable support of global menu, uncomment the following line at the end of the gtkrc file:
+
+#include "apps/globalmenu.rc"
+
+Known issue
+===========
+
+By default, the menu of Network Manager Applet does not appear in dark.
+You can enforce this behaviour from the gnome-session-properties application. Locate the item corresponding to the Network Manager and change its command line from :
+  
+  nm-applet --sm-disable
+
+To:
+  
+  bash -c 'GTK2_RC_FILEs=/usr/share/themes/Equinox\ Evolution/gtk-2.0/apps/nm-applet.gtkrc nm-applet --sm-disable'
+
+Of course, you may change the path above if the Equinox Evolution theme is installed into your personnal folder (~/.themes).

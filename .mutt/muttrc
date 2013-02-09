@@ -1,0 +1,81 @@
+# settings
+  set alias_file        = ~/.mutt/aliases
+  set alias_format      = "%4n %t %-20a %r"
+  set askcc
+  set beep_new
+  set date_format       = "%d/%m/%y at %I:%M%P"
+  set edit_headers
+  set editor            = "vim +:silent+?^$"
+  set fast_reply
+  set folder            = ~/.mutt/maildir
+  set forward_format    = "Fwd: %s"
+  set forward_quote
+unset mime_forward
+  set include
+  set index_format      = "%2C | [%Z] | %[!%d/%m] | %-20.20F | %s"
+  set ispell            = "aspell -e -c"
+  set mail_check        = 0
+  set mailcap_path      = ~/.mutt/mailcap
+  set move
+  set delete
+unset confirmappend
+  set quit
+unset mark_old
+unset markers
+  set mbox_type         = Maildir
+  set menu_scroll
+  set pager_context     = 5
+  set pager_index_lines = 5
+  set pager_stop
+  set smart_wrap
+  set pipe_decode
+  set quote_regexp      = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+  set reply_regexp      = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+  set reply_to
+  set reverse_alias
+  set sort              = threads
+  set sort_aux          = reverse-last-date-received
+  set sort_re
+  set spoolfile         = "+gmail/inbox"
+  set thorough_search
+  set thread_received
+  set tilde
+  set timeout           = 3
+  set tmpdir            = ~/.mutt/temp
+unset wait_key
+
+# enriched messages
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# override with account specific folder-hooks
+folder-hook gmail/*  source ~/.mutt/accounts/gmail
+
+# headers to show
+ignore *
+unignore from: to: cc: date: subject:
+hdr_order from: to: cc: date: subject:
+
+# vim-like key bindings
+bind index        <Space>  collapse-thread
+bind index        gg       first-entry
+bind index        G        last-entry
+bind pager        /        search
+bind pager        j        next-line
+bind pager        k        previous-line
+bind pager        gg       top
+bind pager        G        bottom
+bind pager        <Space>  toggle-quoted
+bind index,pager  \#       noop
+bind index,pager  \&       noop
+bind index,pager  R        group-reply
+
+# shortcut macros
+macro index ,gi "<change-folder> =gmail/inbox<enter>" "go to Gmail Inbox"
+macro index \Cr "<tag-pattern>all<enter><tag-prefix><clear-flag>N<untag-pattern>all<enter>" "mark all as read"
+
+# source files
+source $alias_file
+source ~/.mutt/colors
+source ~/.mutt/mailboxes
+source ~/.mutt/accounts/gmail

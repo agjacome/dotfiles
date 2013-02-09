@@ -1,0 +1,20 @@
+style "chrome-gtk-frame" = "theme-default" {
+
+    ChromeGtkFrame::frame-color	= "#333333"
+    ChromeGtkFrame::inactive-frame-color = "#333333"
+    ChromeGtkFrame::incognito-frame-color = "#333333"
+    ChromeGtkFrame::incognito-inactive-frame-color = "#333333"
+
+    ChromeGtkFrame::frame-gradient-size		= 0
+    ChromeGtkFrame::frame-gradient-color		= "#333333"
+    ChromeGtkFrame::inactive-frame-gradient-color	= "#333333"
+
+    ChromeGtkFrame::scrollbar-trough-color 	= "#DDDDDD"
+    ChromeGtkFrame::scrollbar-slider-normal-color 		= "#EBEBEB"
+    ChromeGtkFrame::scrollbar-slider-prelight-color 	= "#F5F5F5"
+}
+
+class "ChromeGtkFrame" style "chrome-gtk-frame"
+widget "*Chrome*Button*" style:highest "theme-button"
+
+

@@ -1,0 +1,20 @@
+#widget "*ManagementPanel.GtkVBox.GtkEventBox.GtkVBox.GtkHBox.GtkHSeparator"   style "test"
+
+widget "*ManagementPanel.GtkVBox.GtkNotebook.GtkVBox.GtkEventBox*"            style "theme-toolbar"
+widget "*ManagementPanel*DevicesPanel.GtkEventBox*"                           style "theme-toolbar"
+widget "*ManagementPanel.GtkVBox.GtkEventBox*"                                style "theme-toolbar"
+widget "*OverviewPanel.GtkVBox.GtkEventBox*"                                  style "theme-toolbar"
+
+
+widget "*ManagementPanel.GtkVBox.GtkEventBox.GtkVBox.GtkHBox.GtkHBox*Button"  style "theme-toolbar-button"
+widget "*ManagementPanel.GtkVBox.GtkEventBox.*GtkHButtonBox*Button"           style "theme-toolbar-button"
+widget "*ManagementPanel.GtkVBox.GtkEventBox.*GtkHButtonBox*ModeLeft*"        style "theme-toolbar-button"
+widget "*ManagementPanel.GtkVBox.GtkEventBox.*GtkHButtonBox*ModeRight*"       style "theme-toolbar-button"
+widget "*ManagementPanel.GtkVBox.GtkEventBox.*GtkHButtonBox*"                 style:highest "theme-toolbar-button"
+
+style "theme-ubuntuone-progressbar" = "theme-progressbar" {
+  bg[NORMAL]   = shade (1.15, @bg_color)
+}
+
+widget "*ManagementPanel.GtkVBox.GtkEventBox.GtkVBox.GtkHBox.*GtkProgressBar"   style:highest "theme-ubuntuone-progressbar"
+

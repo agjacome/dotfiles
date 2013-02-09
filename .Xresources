@@ -1,0 +1,42 @@
+! X settings
+Xft.dpi       : 96
+Xft.antialias : true
+Xft.hinting   : full
+Xft.rgba      : rgb
+Xcursor.theme : Simple-and-Soft
+
+! Colorscheme
+#include "/home/agjacome/.config/term_colors"
+
+! URxvt settings
+URxvt.scrollstyle        : rxvt
+URxvt.scrollBar          : off
+URxvt.urgentOnBell       : true
+URxvt.visualBell         : false
+URxvt.cursorBlink        : false
+URxvt.cursorUnderline    : false
+
+! URxvt extensions
+URxvt.perl-ext-common      : default,clipboard,keyboard-select,url-select
+URxvt.keysym.M-c           : perl:clipboard:copy
+URxvt.keysym.M-v           : perl:clipboard:paste
+URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape      : perl:keyboard-select:activate
+URxvt.keysym.M-s           : perl:keyboard-select:search
+URxvt.keysym.M-u           : perl:url-select:select_next
+URxvt.clipboard.copycmd    : xsel -ib
+URxvt.clipboard.pastecmd   : xsel -ob
+URxvt.url-select.autocopy  : true
+URxvt.url-select.button    : 1
+URxvt.url-select.launcher  : /usr/bin/firefox
+URxvt.url-select.underline : true
+
+! URxvt font-style
+URxvt.colorBD        : #e8e8d3
+URxvt.colorIT        : #b5bd68
+URxvt.colorUL        : #81a2be
+URxvt.font           : xft:monaco:size=10:antialias=true:hinting=true
+URxvy.italicFont     : xft:monaco:italic:size=10:antialias=true:hinting=true
+URxvt.boldFont       : xft:monaco:bold:size=10:antialias=true:hinting=true
+URxvt.bolditalicFont : xft:monaco:italic:bold:size=10:antialias=true:hinting=true
+URxvt.letterSpace    : -1

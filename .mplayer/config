@@ -1,0 +1,22 @@
+# video settings
+vo = vaapi
+monitoraspect = 16:9
+
+# audio settings
+ao = alsa
+mixer-channel = Master
+
+# default language
+slang = en,eng
+alang = en,eng
+
+# osd settings
+use-filename-tittle = yes
+osdlevel = 3
+subfont-osd-scale = 2
+subfont-text-scale = 5
+
+# misc settings
+msgmodule = 1
+msgcolor = 1
+

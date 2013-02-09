@@ -1,0 +1,24 @@
+1.50
+====
+* Gtkrc: new engine option resizegripstyle
+* Gtkrc: support of global menu (see README file)
+* Gtkrc: better support of Ubuntu One Client
+1.40
+====
+* Gtkrc: new engine options menubaritemstyle, scrollbartrough, textstyle and textshade
+* Gtkrc: scrollbars style changed to flat
+* Gtkrc: applets menus are displayed in dark
+* Gtkrc: support of Nautilus Elementary breadcrumbs
+* Gtkrc: resize grip in statusbars is replaced by a pixmap
+1.30.2
+======
+* Gtkrc: fix colour of scrolling buttons when main menu panel is too long
+* Gtkrc: GtkScrollbar::min_slider_length reduced from 50 to 30
+1.30.1
+======
+* Gtkrc: icons size changed to 24x24 in Gnome menu
+* Gtkrc: added GtkEntry::state-hint = 0
+* Gtkrc: added GtkMenuBar::window-dragging = 1
+1.30
+====
+* First public release

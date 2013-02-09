@@ -1,0 +1,25 @@
+#widget "*ManagementPanel.GtkVBox.GtkEventBox.GtkVBox.GtkHBox.GtkHSeparator"   style "test"
+
+widget "*ManagementPanel.GtkVBox.GtkNotebook.GtkVBox.GtkEventBox*"            style "theme-dark"
+widget "*ManagementPanel*DevicesPanel.GtkEventBox*"                           style "theme-dark"
+widget "*ManagementPanel.GtkVBox.GtkEventBox*"                                style "theme-dark"
+widget "*OverviewPanel.GtkVBox.GtkEventBox*"                                  style "theme-dark"
+
+
+widget "*ManagementPanel.GtkVBox.GtkEventBox.GtkVBox.GtkHBox.GtkHBox*Button"  style "theme-toolbar-button-dark"
+widget "*ManagementPanel.GtkVBox.GtkEventBox.*GtkHButtonBox*Button"           style "theme-toolbar-button-dark"
+widget "*ManagementPanel.GtkVBox.GtkEventBox.*GtkHButtonBox*ModeLeft*"        style "theme-toolbar-button-dark"
+widget "*ManagementPanel.GtkVBox.GtkEventBox.*GtkHButtonBox*ModeRight*"       style "theme-toolbar-button-dark"
+widget "*ManagementPanel.GtkVBox.GtkEventBox.*GtkHButtonBox*"                 style:highest "theme-toolbar-button-dark"
+
+style "theme-ubuntuone-progressbar" = "theme-dark" {
+  xthickness   = 2
+  ythickness   = 2
+  font_name    = "Bold"
+  bg[NORMAL]   = shade (1.20, @bg_color_dark)
+  bg[SELECTED] = mix(0.2, @bg_color_dark, shade(1.10, @selected_bg_color))
+  fg[PRELIGHT] = shade(1.30, @selected_fg_color)
+}
+
+widget "*ManagementPanel.GtkVBox.GtkEventBox.GtkVBox.GtkHBox.*GtkProgressBar"   style:highest "theme-ubuntuone-progressbar"
+

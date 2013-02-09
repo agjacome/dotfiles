@@ -1,0 +1,16 @@
+#!/bin/bash
+
+WDAY=$(date +%u)
+HOUR=$(date +%-H)
+
+if [[ $WDAY > 5 ]]; then
+  WALLPAPER="$HOME/pictures/wallpapers/weekend.jpg"
+elif [[ $HOUR -gt 5 && $HOUR -lt 14 ]]; then
+  WALLPAPER="$HOME/pictures/wallpapers/morning.jpg"
+elif [[ $HOUR -gt 13 && $HOUR -lt 22 ]]; then
+  WALLPAPER="$HOME/pictures/wallpapers/afternoon.jpg"
+else
+  WALLPAPER="$HOME/pictures/wallpapers/night.jpg"
+fi
+
+feh --no-xinerama --bg-fill $WALLPAPER

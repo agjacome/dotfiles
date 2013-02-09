@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.40
+Encoding=UTF-8
+Name=Equinox Evolution Dawn
+Type=X-GNOME-Metatheme
+Comment=Gtk 2.0 Equinox Evolution Dawn theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Equinox Evolution Dawn
+MetacityTheme=Equinox Evolution Dawn
+IconTheme=Faenza-Darkest
+CursorTheme=DMZ-Black
+ButtonLayout=close,minimize,maximize:menu

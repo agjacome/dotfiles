@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.40
+Encoding=UTF-8
+Name=Equinox Evolution Dusk
+Type=X-GNOME-Metatheme
+
+[X-GNOME-Metatheme]
+GtkTheme=Equinox Evolution Dusk
+MetacityTheme=Equinox Evolution Dusk
+IconTheme=Faenza-Darkest
+CursorTheme=DMZ-White
+ButtonLayout=close,minimize,maximize:menu

@@ -1,0 +1,32 @@
+[general]
+ui = ttyui
+accounts = gmail
+maxsyncaccounts = 1
+pythonfile = ~/.mutt/nametrans.py
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+[Account gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
+
+[Repository gmail-local]
+type = Maildir
+localfolders = ~/.mutt/maildir/gmail
+nametrans = nt_local
+
+[Repository gmail-remote]
+type = Gmail
+remoteuser = agjacome@gmail.com
+remotepass = PASSWORD
+realdelete = no
+postsynchook = notmuch new
+maxconnections = 3
+nametrans = nt_remote
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt

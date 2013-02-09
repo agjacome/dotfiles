@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Equinox Evolution Light
+Comment=Gtk 2.0 Equinox Evolution Light theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Equinox Evolution Light
+MetacityTheme=Equinox Evolution Rounded
+IconTheme=Faenza
+CursorTheme=DMZ-White
+ButtonLayout=menu:minimize,maximize,close

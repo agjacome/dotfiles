@@ -1,0 +1,58 @@
+# General:
+encoding          UTF-8
+term              'screen-256color'
+terminfo          rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+startup_message   off
+defutf8           on
+nonblock          on
+vbell             off
+defbce            on
+msgwait           2
+altscreen         on
+autodetach        on
+
+# Combinaciones de teclas:
+bindkey     "^[Od"      focus left                  # ctrl+left     cambia foco hacia izquierda
+bindkey     "^[Oc"      focus right                 # ctrl+right    cambia foco hacia derecha
+bindkey     "^[Oa"      focus up                    # ctrl+up       cambia foco hacia arriba
+bindkey     "^[Ob"      focus down                  # ctrl+down     cambia foco hacia abajo
+bind        -k k7       hardstatus alwayslastline
+bind        -k k8       hardstatus alwaysignore
+bind        'd'         detach
+bind        'k'         kill
+bind        'w'         windowlist
+bind        'v'         split -v
+bind         =          resize =
+bind         +          resize +1
+bind         -          resize -1
+bind         _          resize max
+bind         c          screen 1                  # empieza a numerar por 1
+bind         0          select 10
+
+# Barra de estado y títulos 
+backtick    1 0 0           /home/agjacome/.bin/netstats wlan0
+hardstatus  alwayslastline  '%{= c}date:%{= w} %c, %d/%m/%Y | %{= c}load:%{= w} %l | %{= c}wlan0:%{= w} %1` %= %{= w}%-w%{+b r}%n*%t%{-b r}%{w}%+w'
+caption     always          '%{= Bw}%n-%t'
+
+# Ventanas al incio:
+split
+split
+resize  -4
+split   -v
+screen  -t proc   2 htop
+focus   right
+screen  -t logs   1 sudo journalctl -fn60
+screen  -t p2p    7 rtorrent -o http_capath=/etc/ssl/certs
+focus   down
+resize  -4
+split   -v
+resize  -12
+screen  -t music  4 ncmpcpp
+focus   right
+screen  -t mail   5 mutt
+focus   down
+split   -v
+resize  +5
+screen  -t chat   6 irssi
+focus   right
+screen  -t shell  3

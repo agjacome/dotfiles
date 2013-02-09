@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.40
+Encoding=UTF-8
+Name=Equinox Evolution
+Type=X-GNOME-Metatheme
+Comment=Gtk 2.0 Equinox Evolution theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Equinox Evolution
+MetacityTheme=Equinox Evolution Squared
+IconTheme=Faenza-Dark
+CursorTheme=DMZ-Black
+ButtonLayout=menu:minimize,maximize,close

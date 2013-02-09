@@ -1,0 +1,22 @@
+style "theme-toolbar" = "theme-default" { 
+  bg[NORMAL] = shade(1.075, @bg_color_alt)
+}
+
+style "theme-default" {
+  engine "equinox" {
+    menubarborders      = 0
+    menubarstyle        = 0
+  }
+}
+
+style "theme-ubuntuone" = "theme-default" {
+  bg[NORMAL] = @bg_color_alt
+}
+
+widget "*ManagementPanel.GtkVBox.GtkNotebook.GtkVBox.GtkEventBox*"            style "theme-ubuntuone"
+widget "*ManagementPanel*DevicesPanel.GtkEventBox*"                           style "theme-ubuntuone"
+widget "*ManagementPanel.GtkVBox.GtkEventBox*"                                style "theme-ubuntuone"
+widget "*OverviewPanel.GtkVBox.GtkEventBox*"                                  style "theme-ubuntuone"
+
+
+
