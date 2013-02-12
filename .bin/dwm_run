@@ -27,7 +27,7 @@ $HOME/.bin/dwm_status &
 # start daemons
 /usr/bin/urxvtd -q -o -f
 /usr/bin/syndaemon -t -k -i 1 -d &
-[[ -z $(pgrep -x dwm) ]] && /usr/bin/tmux start-server
+[[ -z $(pgrep -x tmux) ]] && /usr/bin/tmux start-server
 
 # start DWM
 /usr/bin/dwm 2> /tmp/dwm.log
