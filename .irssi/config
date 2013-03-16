@@ -8,7 +8,10 @@ servers = (
   {
     address = "irc.freenode.net";
     chatnet = "Freenode";
-    port = "6667";
+    port = "7000";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs";
     autoconnect = "yes";
   },
   {
@@ -180,22 +183,12 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#archlinux";
-        tag = "freenode";
+        name = "&bitlbee";
+        tag = "bitlbee";
       }
     );
   };
   3 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "##c";
-        tag = "freenode";
-      }
-    );
-  };
-  4 = {
     items = (
       {
         type = "CHANNEL";
@@ -205,13 +198,33 @@ windows = {
       }
     );
   };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#archlinux";
+        tag = "freenode";
+      }
+    );
+  };
   5 = {
     items = (
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "&bitlbee";
-        tag = "bitlbee";
+        name = "##c";
+        tag = "freenode";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "##c++";
+        tag = "freenode";
       }
     );
   };
