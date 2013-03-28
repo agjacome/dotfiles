@@ -6,7 +6,11 @@
     "f" : "http://www.feedly.com/home#latest",
     "F" : "http://faitic.uvigo.es",
     "g" : "http://class2go.stanford.edu",
+    "G" : "http://www.github.com",
+    "h" : "http://news.ycombinator.com",
+    "i" : "http://www.instapaper.com",
     "m" : "http://www.meneame.net",
     "r" : "http://www.reddit.com",
+    "s" : "http://stackoverflow.com",
     "u" : "http://udacity.com"
 }
