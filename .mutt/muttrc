@@ -44,6 +44,11 @@ unset markers
   set tmpdir            = ~/.mutt/temp
 unset wait_key
 
+# cache header and body
+set read_inc=1000
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+
 # enriched messages
 auto_view text/html
 alternative_order text/plain text/enriched text/html
