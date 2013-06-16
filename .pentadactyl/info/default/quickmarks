@@ -1,16 +1,16 @@
 {
-    "c" : "http://www.coursera.org",
+    "c" : "https://coursera.org",
     "C" : "https://www.google.com/calendar",
-    "e" : "https://www.edx.org",
-    "E" : "http://esei.uvigo.es",
-    "f" : "http://www.feedly.com/home#latest",
-    "F" : "http://faitic.uvigo.es",
-    "g" : "http://class2go.stanford.edu",
-    "G" : "http://www.github.com",
+    "e" : "http://edx.org",
+    "E" : "https://esei.uvigo.es",
+    "f" : "http://feedly.com/home",
+    "F" : "https://faitic.uvigo.es",
+    "g" : "https://github.com",
     "h" : "http://news.ycombinator.com",
-    "i" : "http://www.instapaper.com",
-    "m" : "http://www.meneame.net",
-    "r" : "http://www.reddit.com",
+    "m" : "http://meneame.net",
+    "r" : "http://reddit.com",
+    "R" : "https://readability.com",
     "s" : "http://stackoverflow.com",
-    "u" : "http://udacity.com"
+    "S" : "https://class.stanford.edu",
+    "u" : "https://udacity.com"
 }
