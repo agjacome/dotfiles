@@ -1,9 +1,9 @@
 ArchLinux dotfiles
 ==================
 
-These are my config files for Linux's $HOME. There are designed to use with
-Arch Linux, but are probably suitable for any other distro (after installing
-all required packages).
+These are my config files for Linux's $HOME. They are designed to use with Arch
+Linux, but are probably suitable for any other distro (after installing all
+required packages, of course).
 
 Installation:
 
