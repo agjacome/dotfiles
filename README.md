@@ -7,7 +7,7 @@ required packages, of course).
 
 Installation:
 
-    git clone --recursive git@github.com:agjacome/dotfiles.git
+    git clone --recursive https://github.com/agjacome/dotfiles.git
     cd dotfiles
     for file in $(ls -a | grep -v "^.\{1,2\}$\|^.git$\|^README.md$"); do \
         ln -sf $(pwd)/$file ~/$file; \
