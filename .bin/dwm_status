@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+WAIT_SECONDS=5
+WAIT_NETWORK=$[1024 * WAIT_SECONDS]
+
+# mpd playing status
 function print_song()
 {
     song_info="$(ncmpcpp --now-playing '{{{{%t \uE01B }%a}}|{%f}}')"
@@ -11,10 +15,11 @@ function print_song()
     echo -ne "\x04\uE01A\x0B \uE00E ${song_info}"
 }
 
+# unread emails
 function print_email()
 {
     echo -ne "\x05\uE01A\x0C \uE014"
-    for maildir in $(find $HOME/.mutt/maildir/*/inbox/new -type d); do
+    for maildir in $(find $HOME/.mutt/maildir/*/Recibidos/new -type d); do
         unread_count="$(ls "${maildir}" | wc -l)"
         if [[ $unread_count -ne 0 ]]; then
             echo -ne " ${unread_count}"
@@ -24,36 +29,35 @@ function print_email()
     done
 }
 
+# last message
 function print_msg()
 {
     last_msg="$(cat $HOME/.logs/irssi_pipe)"
     echo -ne "\uE01B \uE013 ${last_msg}"
 }
 
-function print_cpu()
-{
-    cpu_usage="$(mpstat | awk '$12 ~ /[0-9.]+/ {print 100 - $12}')"
-    echo -ne "\x04\uE01A\x09 \uE00F ${cpu_usage}%"
-}
-
+# memory usage
 function print_mem()
 {
     mem_used="$(free -m | awk '/buffers\/cache/ {print $3}')"
     echo -ne "\uE01B \uE010 ${mem_used}M"
 }
 
+# current volume
 function print_volume()
 {
     volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
     echo -ne "\x04\uE01A\x06 \uE015 ${volume}%"
 }
 
+# current battery
 function print_battery()
 {
     battery="$(acpi -b | cut -d ',' -f 2 | tr -d ' ')"
     echo -ne "\uE01B \uE01E ${battery}"
 }
 
+# current date
 function print_date()
 {
     datetime="$(date "+%a %d %b \uE01B %H:%M")"
@@ -62,25 +66,35 @@ function print_date()
 
 rx_old=$(cat /sys/class/net/wlan0/statistics/rx_bytes)
 tx_old=$(cat /sys/class/net/wlan0/statistics/tx_bytes)
+
 while true; do
+    # cpu usage
+    eval $(awk '/^cpu /{print "cpu_idle_now=" $5 "; cpu_total_now=" $2+$3+$4+$5 }' /proc/stat)
+    cpu_interval=$((cpu_total_now-${cpu_total_old:-0}))
+    let cpu_used="100 * ($cpu_interval - ($cpu_idle_now-${cpu_idle_old:-0})) / $cpu_interval"
+
+    # network rate
     rx_now=$(cat /sys/class/net/wlan0/statistics/rx_bytes)
     tx_now=$(cat /sys/class/net/wlan0/statistics/tx_bytes)
+    let rx_rate="($rx_now - $rx_old) / $WAIT_NETWORK"
+    let tx_rate="($tx_now - $tx_old) / $WAIT_NETWORK"
 
-    let rx_rate=($rx_now - $rx_old)/1024
-    let tx_rate=($tx_now - $tx_old)/1024
-
+    # generate statusbar
     statstring="$(print_song) $(print_email) $(print_msg)"
-    statstring="${statstring} $(print_cpu) $(print_mem)"
-
+    statstring="${statstring} $(printf "%-13b" "\x04\uE01A\x09 \uE00F ${cpu_used}%")"
+    statstring="${statstring} $(print_mem)"
     statstring="${statstring} $(printf "%-14b" "\x05\uE01A\x08 \uE011 ${rx_rate}K")"
     statstring="${statstring} $(printf "%-13b" "\x01\uE01B\x07 \uE012 ${tx_rate}K")"
     statstring="${statstring} $(print_volume) $(print_battery) $(print_date)"
-
     xsetroot -name "${statstring}"
 
+    # reset rates
+    cpu_idle_old=$cpu_idle_now
+    cpu_total_old=$cpu_total_now
     rx_old=$rx_now
     tx_old=$tx_now
 
-    sleep 1
+    # loop every WAIT_SECONDS
+    sleep $WAIT_SECONDS
 done
 
