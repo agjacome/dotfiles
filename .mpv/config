@@ -1,0 +1,20 @@
+# video settings
+vo = vdpau
+monitoraspect = 16:9
+
+# audio settings
+ao = alsa
+
+# default language
+slang = en,eng
+alang = en,eng
+
+# osd settings
+osd-level = 3
+osd-font-size=30
+sub-scale = 2
+
+# misc settincs
+msgmodule
+
+# vim: ft=mplayerconf
