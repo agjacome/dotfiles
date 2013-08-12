@@ -7,11 +7,15 @@ export HISTIGNORE="&:pwd:cd:~:[bf]g:history *:l:l[sla]:exit:\:q:su:clear:genpwd 
 
 export EDITOR=vim
 export BROWSER=firefox
+export GREP_COLOR="1;31"
+export LESS="-R"
+
+# java workarounds
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsun.java2d.xrender=true'
 
-export GREP_COLOR="1;31"
-export LESS="-R"
+# vaapi backend for vdpau (libvdpau-va-gl)
+export VDPAU_DRIVER=va_gl
 
 shopt -s cdspell
 shopt -s checkwinsize
