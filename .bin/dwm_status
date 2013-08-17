@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WAIT_SECONDS=5
+WAIT_SECONDS=10
 WAIT_NETWORK=$[1024 * WAIT_SECONDS]
 
 # mpd playing status
