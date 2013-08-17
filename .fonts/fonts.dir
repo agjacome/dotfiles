@@ -1,4 +1,4 @@
-20
+21
 Monaco_Linux.ttf -misc-monaco-medium-r-normal--0-0-0-0-p-0-adobe-standard
 Monaco_Linux.ttf -misc-monaco-medium-r-normal--0-0-0-0-p-0-ascii-0
 Monaco_Linux.ttf -misc-monaco-medium-r-normal--0-0-0-0-p-0-iso10646-1
@@ -18,4 +18,5 @@ Monaco_Linux.ttf -misc-monaco-medium-r-normal--0-0-0-0-p-0-koi8-ru
 Monaco_Linux.ttf -misc-monaco-medium-r-normal--0-0-0-0-p-0-koi8-u
 Monaco_Linux.ttf -misc-monaco-medium-r-normal--0-0-0-0-p-0-koi8-uni
 Monaco_Linux.ttf -misc-monaco-medium-r-normal--0-0-0-0-p-0-microsoft-cp1252
+PowerlineSymbols.otf -misc-powerlinesymbols-medium-r-normal--0-0-0-0-m-0-adobe-fontspecific
 xbmicons.pcf -misc-xbmicons-medium-r-normal--12-120-72-72-c-60-iso10646-1
