@@ -5,6 +5,8 @@ yellow='\[\e[0;33m\]'
 cyan='\[\e[0;36m\]'
 white='\[\e[0;37m\]'
 
+## PROMPT
+
 function prompt_git()
 {
     git branch &> /dev/null || return 1
@@ -47,6 +49,40 @@ function prompt()
 
     PS2="${white}╾─────╼${color_off} "
 }
+
+## MARKPATH
+
+function jump()
+{
+    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+
+function mark()
+{
+    mkdir -p $MARKPATH; ln -s "$(pwd)" $MARKPATH/$1
+}
+
+function unmark()
+{
+    rm -if $MARKPATH/$1
+}
+
+function marks()
+{
+    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+
+_completemarks()
+{
+  local curw=${COMP_WORDS[COMP_CWORD]}
+  local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+  return 0
+}
+
+complete -F _completemarks jump unmark
+
+## COMMON
 
 function extract()
 {

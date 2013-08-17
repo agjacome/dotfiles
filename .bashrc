@@ -17,6 +17,9 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsu
 # vaapi backend for vdpau (libvdpau-va-gl)
 export VDPAU_DRIVER=va_gl
 
+# path for marks (see .bash_functions)
+export MARKPATH=$HOME/.marks
+
 shopt -s cdspell
 shopt -s checkwinsize
 shopt -s cmdhist

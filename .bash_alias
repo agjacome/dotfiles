@@ -3,7 +3,6 @@ alias grep="grep --color=auto -I"
 
 alias ..="cd .."
 alias ...="cd ../../"
-alias uni="cd ~/documents/college/2012-2013"
 
 alias df="df -hT"
 alias mkdir="mkdir -pv"
