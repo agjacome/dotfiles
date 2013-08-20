@@ -104,3 +104,5 @@ style -name minitabs chrome://* <<EOM
     color: #f0c674 !important;
   }
 EOM
+
+" vim: ft=vim
