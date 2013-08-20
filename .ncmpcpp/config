@@ -3,7 +3,7 @@ mpd_communication_mode = "notifications"
 mpd_connection_timeout = "5"
 mpd_crossfade_time     = "3"
 mpd_host               = "Caronte"
-mpd_music_dir          = "/home/agjacome/music"
+mpd_music_dir          = "/home/agjacome/media/music"
 mpd_port               = "6600"
 
 # bars
