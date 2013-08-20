@@ -9,7 +9,7 @@ Installation:
 
     git clone --recursive https://github.com/agjacome/dotfiles.git
     cd dotfiles
-    for file in $(ls -a | grep -v "^.\{1,2\}$\|^.git$\|^README.md$"); do \
+    for file in $(ls -a | grep -v "^.\{1,2\}$\|^.git$\|^.gitmodules$\|^README.md$"); do \
         ln -sf $(pwd)/$file ~/$file; \
     done
 
