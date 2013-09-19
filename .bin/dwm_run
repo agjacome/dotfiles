@@ -27,7 +27,7 @@ $HOME/.bin/dwm_status &
 # start daemons
 /usr/bin/urxvtd -q -o -f
 /usr/bin/syndaemon -t -k -i 1 -d &
-[[ -z $(pgrep -x tmux) ]] && /usr/bin/tmux start-server
+# [[ -z $(pgrep -x tmux) ]] && /usr/bin/tmux start-server
 [[ -z $(pgrep -x mpdscribble) ]] && /usr/bin/mpdscribble &
 
 # start DWM
