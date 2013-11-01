@@ -1,7 +1,7 @@
 [ -z "$PS1" ] && return
 
-# binary executables (add .bin/ and rvm binaries)
-export PATH=$PATH:$HOME/.bin:$HOME/.rvm/bin
+# binary executables
+export PATH=$PATH:$HOME/.bin
 
 # bash history control
 export HISTCONTROL=erasedups
@@ -39,9 +39,6 @@ shopt -s nocaseglob
 # source bash files, rvm files and virtualenvwrapper
 source "$HOME/.bash_alias"
 source "$HOME/.bash_functions"
-source "$HOME/.rvm/scripts/rvm"
-source "$HOME/.rvm/scripts/completion"
-source "/usr/bin/virtualenvwrapper.sh"
 
 # set the prompt (defined in .bash_functions)
 PROMPT_COMMAND=prompt
