@@ -18,8 +18,14 @@ alias syu="yaourt -Syu --aur"
 alias i="sudo pacman -S"
 alias s="pacman -Ss"
 
+alias vu="vagrant up"
+alias vs="vagrant ssh"
+alias vd="vagrant destroy"
+alias vp="vagrant suspend"
+
 alias ta="tmux attach-session"
 alias tn="tmux new-session"
+
 alias myip="curl ifconfig.me/{ip,host}"
 alias fixperm="chmod -R u=rwX,g=rX,o=rX"
 alias adjclock="ntpd -qg && hwclock --systohc"
