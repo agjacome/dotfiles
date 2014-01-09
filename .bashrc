@@ -13,16 +13,6 @@ export BROWSER=firefox
 export GREP_COLOR="1;31"
 export LESS="-R"
 
-# java workarounds
-export _JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsun.java2d.xrender=true'
-
-# path for marks (see .bash_functions)
-export MARKPATH=$HOME/.marks
-
-# vaapi backend for vdpau (libvdpau-va-gl)
-export VDPAU_DRIVER=va_gl
-
 # shell options
 shopt -s cdspell
 shopt -s checkwinsize
@@ -39,3 +29,24 @@ source "$HOME/.bash_functions"
 
 # set the prompt (defined in .bash_functions)
 PROMPT_COMMAND=prompt
+
+# path for marks (see .bash_functions)
+export MARKPATH=$HOME/.marks
+
+# tmuxinator completion
+source "$HOME/.bin/tmuxinator_completion"
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
+
+# Virtualenv
+export WORKON_HOME="$HOME/.virtualenvs"
+source /usr/bin/virtualenvwrapper.sh
+
+# java workarounds
+export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsun.java2d.xrender=true'
+
+# vaapi backend for vdpau (libvdpau-va-gl)
+export VDPAU_DRIVER=va_gl

@@ -1,0 +1,24 @@
+# ~/.tmuxinator/default.yml
+
+name: default
+root: ~/
+
+windows:
+  - sys:
+      layout: main-horizontal
+      panes:
+        - sudo journalctl -fn60
+        - htop
+        - clear && syu
+  - net:
+      layout: main-horizontal
+      panes:
+        - irssi
+        - rtorrent
+        - mutt
+  - music:
+      layout: main-horizontal
+      panes:
+        - ncmpcpp
+        - cd media/music && clear && ls
+        - alsamixer
