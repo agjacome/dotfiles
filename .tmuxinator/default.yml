@@ -5,11 +5,11 @@ root: ~/
 
 windows:
   - sys:
-      layout: main-horizontal
+      layout: even-vertical
       panes:
-        - sudo journalctl -fn60
         - htop
         - clear && syu
+        - sudo journalctl -fn60
   - net:
       layout: main-horizontal
       panes:
