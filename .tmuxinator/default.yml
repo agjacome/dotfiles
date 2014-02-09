@@ -17,7 +17,7 @@ windows:
         - rtorrent
         - mutt
   - music:
-      layout: main-horizontal
+      layout: main-vertical
       panes:
         - ncmpcpp
         - cd media/music && clear && ls
