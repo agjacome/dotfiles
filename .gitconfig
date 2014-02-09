@@ -1,11 +1,11 @@
 [user]
-    name = Alberto G. Jácome
+    name  = Alberto G. Jácome
     email = agjacome@gmail.com
 [core]
-    editor = vim
-    pager = less
-    autocrlf = input
-    whitespace = trailing-space,space-before-tab,indent-with-non-tab
+    editor       = vim
+    pager        = less
+    autocrlf     = input
+    whitespace   = trailing-space,space-before-tab,indent-with-non-tab
     excludesfile = /home/agjacome/.gitignore_global
 [merge]
     tool = vimdiff
@@ -23,13 +23,17 @@
     ui = true
 [color "branch"]
     current = green bold
-    remote = red bold
+    remote  = red bold
 [color "diff"]
     meta = yellow
     frag = cyan bold
-    old = red bold
-    new = green bold
+    old  = red bold
+    new  = green bold
 [alias]
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+    aa     = add --all
+    amend  = commit --amend
+    lg     = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+    noff   = merge --no-ff
+    pullff = pull --ff-only
 [github]
     user = agjacome
