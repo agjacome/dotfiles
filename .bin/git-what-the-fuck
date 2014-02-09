@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+function log()
+{
+    git --no-pager log --graph --pretty=short -1 $1
+}
+
+ref=${1:-"HEAD"}
+new=$ref
+old=$ref@{1}
+
+echo "Old revision:"
+log $old
+echo
+echo "New revision:"
+log $new
+echo
+echo "Changes:"
+git --no-pager diff --stat --summary $old $new
