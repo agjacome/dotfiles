@@ -1,0 +1,27 @@
+# ~/.tmuxinator/tfg.yml
+
+name: TFG
+root: ~/projects/smart-drug-search
+
+windows:
+  - source:
+      layout: baa3,239x61,0,0[239x42,0,0,9,239x18,0,43,12]
+      panes:
+        - vim
+        - scala
+  - config: vim -O conf/application.conf conf/db-default.conf
+  - build: vim -O build.sbt project/Build.scala
+  - sbt: ./sbt.sh
+  - logs: tail -F logs/application.log
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - tig
+  - bash:
+      layout: main-vertical
+      panes:
+        -  # empty
+        -  # empty
+        -  # empty
+
