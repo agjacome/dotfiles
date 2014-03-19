@@ -24,7 +24,7 @@ function prompt_git()
 
 function prompt_pwd()
 {
-    local path="${PWD/#$HOME/~}"
+    local path="${PWD/#$HOME/\~}"
     local git="$(prompt_git)"
     local maxlen="$(($(tput cols) - ${#USER} - ${#HOSTNAME} - ${#git} - 14))"
 
