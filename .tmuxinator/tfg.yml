@@ -19,8 +19,9 @@ windows:
         - git status
         - tig
   - bash:
-      layout: main-vertical
+      layout: tiled
       panes:
+        -  # empty
         -  # empty
         -  # empty
         -  # empty
