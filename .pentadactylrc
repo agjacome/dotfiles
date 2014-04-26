@@ -29,15 +29,10 @@ nmap J :tp<CR>
 nmap <S-C-k> :tabmove +1<CR>
 nmap <S-C-j> :tabmove -1<CR>
 nmap -builtin <Leader>, :noh<CR>
-nmap -builtin <Leader>p :set private!<CR>
+nmap -builtin <Leader>p :private winopen<CR>
 nmap -builtin <Leader>d :dialog downloads<CR>
 nmap -builtin <Leader>z :js window.content.document.toggleImageSize();<CR>
 map -builtin <F3> :styletoggle<Space>-name<Space>hybrid<CR>
-
-" NoScript
-set noscript-list=address
-map -builtin <Leader>a :set nst!=<A-Tab>
-map -builtin <Leader>A :set nss!=<A-Tab>
 
 " Useful stuff
 set editor='urxvt -e vim -f +<line> <file>'
