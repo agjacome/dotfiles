@@ -9,9 +9,9 @@ windows:
       panes:
         - vim
         - scala
-  - config: vim -O conf/application.conf conf/db-default.conf
+  - config: vim conf/annotators.conf -c 'split conf/database.conf' -c 'vsplit conf/application.conf' -c 'wincmd j' -c 'vsplit conf/logger.conf'
   - build: vim -O build.sbt project/Build.scala
-  - sbt: ./sbt.sh
+  - sbt: sbt
   - logs: tail -F logs/application.log
   - git:
       layout: even-horizontal
