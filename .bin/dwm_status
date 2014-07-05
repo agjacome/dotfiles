@@ -64,8 +64,8 @@ function print_date()
     echo -ne "\x05\uE01A\x02 \uE016 ${datetime}"
 }
 
-rx_old=$(cat /sys/class/net/wlan0/statistics/rx_bytes)
-tx_old=$(cat /sys/class/net/wlan0/statistics/tx_bytes)
+rx_old=$(cat /sys/class/net/wlp3s0/statistics/rx_bytes)
+tx_old=$(cat /sys/class/net/wlp3s0/statistics/tx_bytes)
 
 while true; do
     # cpu usage
@@ -74,8 +74,8 @@ while true; do
     let cpu_used="100 * ($cpu_interval - ($cpu_idle_now-${cpu_idle_old:-0})) / $cpu_interval"
 
     # network rate
-    rx_now=$(cat /sys/class/net/wlan0/statistics/rx_bytes)
-    tx_now=$(cat /sys/class/net/wlan0/statistics/tx_bytes)
+    rx_now=$(cat /sys/class/net/wlp3s0/statistics/rx_bytes)
+    tx_now=$(cat /sys/class/net/wlp3s0/statistics/tx_bytes)
     let rx_rate="($rx_now - $rx_old) / $WAIT_NETWORK"
     let tx_rate="($tx_now - $tx_old) / $WAIT_NETWORK"
 
