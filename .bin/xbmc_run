@@ -11,4 +11,7 @@ fi
 xrandr | grep HDMI1 | grep " connected"
 [[ $? -eq 0 ]] && xrandr --output HDMI1 --primary --auto --output LVDS1 --off
 
+# start devmon daemon
+[[ -z $(pgrep -x devmon) ]] && /usr/bin/devmon > /dev/null 2> /dev/null &
+
 /usr/bin/xbmc-standalone
