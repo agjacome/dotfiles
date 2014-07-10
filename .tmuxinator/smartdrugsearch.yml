@@ -1,6 +1,6 @@
-# ~/.tmuxinator/tfg.yml
+# ~/.tmuxinator/smartdrugsearch.yml
 
-name: TFG
+name: smartdrugsearch
 root: ~/projects/smart-drug-search
 
 windows:

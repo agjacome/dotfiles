@@ -1,0 +1,14 @@
+# ~/.tmuxinator/algo-rust.yml
+
+name: algo-rust
+root: ~/projects/intro-algorithms-rust
+
+windows:
+  - source: vim
+  - build: # empty
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - tig
+  - bash: # empty

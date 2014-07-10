@@ -1,6 +1,6 @@
-# ~/.tmuxinator/default.yml
+# ~/.tmuxinator/media.yml
 
-name: default
+name: media
 root: ~/
 
 windows:
