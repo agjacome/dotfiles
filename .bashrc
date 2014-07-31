@@ -11,7 +11,7 @@ export HISTIGNORE="&:pwd:cd:~:[bf]g:history *:l:l[sla]:exit:\:q:su:clear:genpwd 
 export EDITOR=vim
 export BROWSER=firefox
 export GREP_COLOR="1;31"
-export LESS="-R"
+export LESS="-R -X"
 
 # shell options
 shopt -s cdspell
