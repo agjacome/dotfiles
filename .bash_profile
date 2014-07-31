@@ -1,15 +1,10 @@
-if [[ $(tty) = /dev/tty1 && -z "$DISPLAY" ]]; then
-
-    if [[ -z "$(pgrep -x dwm)" ]]; then
-        setsid /usr/bin/xinit $HOME/.bin/dwm_run -- :0 -nolisten tcp &> /dev/null &
-        sleep 3
-        exit
-    elif [[ -z "$(pgrep -x xbmc)" ]]; then
-        setsid /usr/bin/xinit $HOME/.bin/xbmc_run -- :1 -nolisten tcp &> /dev/null &
-        sleep 3
-        exit
+# dwm in vt1, xbmc in vt2
+if [[ -z $DISPLAY ]]; then
+    if   [[ $XDG_VTNR -eq 1 && -z $(pgrep -x dwm)  ]]; then
+        exec /usr/bin/xinit $HOME/.bin/dwm_run  -- vt1 :0 -nolisten tcp
+    elif [[ $XDG_VTNR -eq 2 && -z $(pgrep -x xbmc) ]]; then
+        exec /usr/bin/xinit $HOME/.bin/xbmc_run -- vt2 :1 -nolisten tcp
     fi
-
 fi
 
 source $HOME/.bashrc
