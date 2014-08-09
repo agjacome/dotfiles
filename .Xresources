@@ -38,9 +38,5 @@ URxvt.url-select.underline : true
 URxvt.colorBD        : #e8e8d3
 URxvt.colorIT        : #b5bd68
 URxvt.colorUL        : #81a2be
-URxvt.font           : xft:monaco for Powerline:regular:size=11:antialias=true:hinting=true
-URxvt.imFont         : xft:monaco for Powerline:regular:size=11:antialias=true:hinting=true
-URxvy.italicFont     : xft:monaco for Powerline:italic:size=11:antialias=true:hinting=true
-URxvt.boldFont       : xft:monaco for Powerline:bold:size=11:antialias=true:hinting=true
-URxvt.bolditalicFont : xft:monaco for Powerline:italic:bold:size=11:antialias=true:hinting=true
+URxvt.font           : xft:Monaco for Powerline:size=12
 URxvt.letterSpace    : -1
