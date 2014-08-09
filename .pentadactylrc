@@ -18,9 +18,9 @@ set wildmode=list:longest,full
 set maxitems=3
 
 " Font
-hi FontCode -a font-family: Monaco !important; font-size: 10pt !important;
-hi FontFixed -a font-family: Monaco !important; font-size: 10pt !important;
-hi Normal -a font-family: Monaco !important; font-size: 10pt !important;
+hi FontCode -a font-family: Monaco for Powerline !important; font-size: 11pt !important;
+hi FontFixed -a font-family: Monaco for Powerline !important; font-size: 11pt !important;
+hi Normal -a font-family: Monaco for Powerline !important; font-size: 11pt !important;
 
 " Mappings
 map , <Leader>
@@ -30,7 +30,7 @@ nmap <S-C-k> :tabmove +1<CR>
 nmap <S-C-j> :tabmove -1<CR>
 nmap -builtin <Leader>, :noh<CR>
 nmap -builtin <Leader>p :private winopen<CR>
-nmap -builtin <Leader>d :dialog downloads<CR>
+nmap -builtin <Leader>d :downloads<CR>
 nmap -builtin <Leader>z :js window.content.document.toggleImageSize();<CR>
 map -builtin <F3> :styletoggle<Space>-name<Space>hybrid<CR>
 
