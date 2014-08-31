@@ -1,21 +1,127 @@
-20
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-adobe-standard
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-ascii-0
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso10646-1
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-1
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-10
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-13
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-15
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-16
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-2
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-3
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-4
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-5
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-9
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-koi8-e
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-koi8-r
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-koi8-ru
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-koi8-u
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-koi8-uni
-monaco for powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-microsoft-cp1252
+126
+inconsolata_for_powerline.otf -misc-inconsolata for powerline-medium-r-normal--0-0-0-0-p-0-ascii-0
+inconsolata_for_powerline.otf -misc-inconsolata for powerline-medium-r-normal--0-0-0-0-p-0-iso10646-1
+inconsolata_for_powerline.otf -misc-inconsolata for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-1
+inconsolata_for_powerline.otf -misc-inconsolata for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-15
+inconsolata_for_powerline.otf -misc-inconsolata for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-2
+inconsolata_for_powerline.otf -misc-inconsolata for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-9
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-adobe-standard
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-ascii-0
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-ibm-cp437
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-ibm-cp850
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-ibm-cp852
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-ibm-cp866
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso10646-1
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-1
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-10
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-13
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-15
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-16
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-2
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-3
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-4
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-5
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-8
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-iso8859-9
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-koi8-e
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-koi8-r
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-koi8-ru
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-koi8-u
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-koi8-uni
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-microsoft-cp1252
+literation_mono_for_powerline.ttf -misc-literation mono powerline-medium-r-normal--0-0-0-0-p-0-suneu-greek
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-adobe-standard
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-ascii-0
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-ibm-cp437
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-ibm-cp850
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-ibm-cp852
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-ibm-cp866
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso10646-1
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-1
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-10
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-13
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-15
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-16
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-2
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-3
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-4
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-5
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-8
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-iso8859-9
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-koi8-e
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-koi8-r
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-koi8-ru
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-koi8-u
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-koi8-uni
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-microsoft-cp1252
+literation_mono_for_powerline_bold.ttf -misc-literation mono powerline-bold-r-normal--0-0-0-0-p-0-suneu-greek
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-adobe-standard
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-ascii-0
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-ibm-cp437
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-ibm-cp850
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-ibm-cp852
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-ibm-cp866
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso10646-1
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-1
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-10
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-13
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-15
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-16
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-2
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-3
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-4
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-5
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-8
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-iso8859-9
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-koi8-e
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-koi8-r
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-koi8-ru
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-koi8-u
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-koi8-uni
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-microsoft-cp1252
+literation_mono_for_powerline_bold_italic.ttf -misc-literation mono powerline-bold-i-normal--0-0-0-0-p-0-suneu-greek
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-adobe-standard
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-ascii-0
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-ibm-cp437
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-ibm-cp850
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-ibm-cp852
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-ibm-cp866
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso10646-1
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-1
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-10
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-13
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-15
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-16
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-2
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-3
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-4
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-5
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-8
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-iso8859-9
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-koi8-e
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-koi8-r
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-koi8-ru
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-koi8-u
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-koi8-uni
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-microsoft-cp1252
+literation_mono_for_powerline_italic.ttf -misc-literation mono powerline-medium-i-normal--0-0-0-0-p-0-suneu-greek
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-adobe-standard
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-ascii-0
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso10646-1
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-1
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-10
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-13
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-15
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-16
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-2
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-3
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-4
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-5
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-iso8859-9
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-koi8-e
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-koi8-r
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-koi8-ru
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-koi8-u
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-koi8-uni
+monaco_for_powerline.otf -b&h-monaco for powerline-medium-r-normal--0-0-0-0-p-0-microsoft-cp1252
 xbmicons.pcf -misc-xbmicons-medium-r-normal--12-120-72-72-c-60-iso10646-1
