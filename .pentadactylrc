@@ -18,9 +18,9 @@ set wildmode=list:longest,full
 set maxitems=3
 
 " Font
-hi FontCode -a font-family: Monaco for Powerline !important; font-size: 11pt !important;
-hi FontFixed -a font-family: Monaco for Powerline !important; font-size: 11pt !important;
-hi Normal -a font-family: Monaco for Powerline !important; font-size: 11pt !important;
+hi FontCode -a font-family: Dejavu Sans Mono !important; font-size: 10pt !important;
+hi FontFixed -a font-family: Dejavu Sans Mono !important; font-size: 10pt !important;
+hi Normal -a font-family: Dejavu Sans Mono !important; font-size: 10pt !important;
 
 " Mappings
 map , <Leader>
@@ -32,6 +32,8 @@ nmap -builtin <Leader>, :noh<CR>
 nmap -builtin <Leader>p :private winopen<CR>
 nmap -builtin <Leader>d :downloads<CR>
 nmap -builtin <Leader>z :js window.content.document.toggleImageSize();<CR>
+nmap -builtin <Leader>i :open instapaper-read-later<CR>
+nmap -builtin <Leader>m :open mendeley-save<CR>
 map -builtin <F3> :styletoggle<Space>-name<Space>hybrid<CR>
 
 " Useful stuff
