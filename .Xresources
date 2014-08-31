@@ -12,15 +12,17 @@ Xcursor.theme : Simple-and-Soft
 #include "/home/agjacome/.config/term_colors"
 
 ! URxvt settings
-URxvt.scrollstyle        : rxvt
-URxvt.scrollBar          : off
-URxvt.urgentOnBell       : true
-URxvt.visualBell         : false
-URxvt.cursorBlink        : false
-URxvt.cursorUnderline    : false
+URxvt.scrollstyle     : rxvt
+URxvt.scrollBar       : off
+URxvt.urgentOnBell    : true
+URxvt.visualBell      : false
+URxvt.cursorBlink     : false
+URxvt.cursorUnderline : false
 
 ! URxvt extensions
 URxvt.perl-ext-common      : default,clipboard,keyboard-select,url-select
+URxvt*keysym.Home          : \033[1~
+URxvt*keysym.End           : \033[4~
 URxvt.keysym.M-c           : perl:clipboard:copy
 URxvt.keysym.M-v           : perl:clipboard:paste
 URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped
@@ -35,8 +37,5 @@ URxvt.url-select.launcher  : /usr/bin/firefox
 URxvt.url-select.underline : true
 
 ! URxvt font-style
-URxvt.colorBD        : #e8e8d3
-URxvt.colorIT        : #b5bd68
-URxvt.colorUL        : #81a2be
-URxvt.font           : xft:Monaco for Powerline:size=12
-URxvt.letterSpace    : -1
+URxvt.font        : xft:Liberation Mono for Powerline:size=12
+URxvt.letterSpace : -2
