@@ -31,9 +31,11 @@
 *.pyc
 *.swp
 
+# Exhuberant ctags
+.tags
+
 # OS bullshit
 .DS_Store*
 ehthumbs.db
 Icon?
 Thumbs.db
-
