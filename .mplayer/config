@@ -4,7 +4,7 @@ va = vaapi
 monitoraspect = 16:9
 
 # audio settings
-ao = alsa
+ao = pulse
 mixer-channel = Master
 
 # default language

@@ -39,7 +39,7 @@ function print_msg()
 # memory usage
 function print_mem()
 {
-    mem_used="$(free -m | awk '/buffers\/cache/ {print $3}')"
+    mem_used="$(free -m | awk '/Mem/ {print $3}')"
     echo -ne "\uE01B \uE010 ${mem_used}M"
 }
 

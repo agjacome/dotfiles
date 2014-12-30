@@ -9,8 +9,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # check if HDMI connected and set output to it
-xrandr | grep HDMI1 | grep " connected"
+xrandr | grep HDMI1 | grep -v "disconnected"
 [[ $? -eq 0 ]] && xrandr --output HDMI1 --primary --auto --output LVDS1 --off
+
+# check if VGA1 connected adn set output to it
+xrandr | grep VGA1 | grep -v "disconnected"
+[[ $? -eq 0 ]] && xrandr --output VGA1 --primary --auto --output LVDS1 --off
 
 # load .Xresources
 [[ -f $HOME/.Xresources ]] && xrdb -merge $HOME/.Xresources
@@ -31,8 +35,9 @@ $HOME/.bin/dwm_status &
 # start daemons
 /usr/bin/urxvtd -q -o -f
 /usr/bin/syndaemon -t -k -i 1 -d &
-[[ -z $(pgrep -x devmon) ]] && /usr/bin/devmon > /dev/null 2> /dev/null &
-[[ -z $(pgrep -x mpdscribble) ]] && /usr/bin/mpdscribble &
+[[ -z $(pgrep -af devmon)      ]] && /usr/bin/devmon > /dev/null 2> /dev/null &
+[[ -z $(pgrep -af mpdscribble) ]] && /usr/bin/mpdscribble &
+[[ -z $(pgrep -af pulseaudio)  ]] && /usr/bin/start-pulseaudio-x11 &
 
 # start DWM
 /usr/bin/dwm 2> /tmp/dwm.log
