@@ -44,6 +44,9 @@ source "$HOME/.bin/tmuxinator_completion"
 export WORKON_HOME="$HOME/.virtualenvs"
 source /usr/bin/virtualenvwrapper.sh
 
+# Cabal
+export PATH=$PATH:$HOME/.cabal/bin:$HOME/.cabal-sandbox/bin
+
 # java workarounds
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsun.java2d.xrender=true'
