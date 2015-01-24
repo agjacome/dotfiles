@@ -1,7 +1,7 @@
 # ~/.tmuxinator/smartdrugsearch.yml
 
 name: smartdrugsearch
-root: ~/projects/smart-drug-search
+root: ~/projects/sing/smart-drug-search
 
 windows:
   - source:

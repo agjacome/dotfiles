@@ -1,7 +1,7 @@
 # ~/.tmuxinator/codeeval-scala.yml
 
 name: codeeval-scala
-root: ~/projects/codeeval
+root: ~/projects/learning/codeeval
 
 windows:
   - vim:
