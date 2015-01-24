@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+    for f in /etc/X11/xinit/xinitrc.d/*; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
+
+# output throug active monitor
+$HOME/.bin/hotplug-mon
+
+# start devmon daemon
+[[ -z $(pgrep -af devmon)     ]] && /usr/bin/devmon > /dev/null 2> /dev/null &
+[[ -z $(pgrep -af pulseaudio) ]] && /usr/bin/start-pulseaudio-x11 &
+
+/usr/bin/kodi-standalone
