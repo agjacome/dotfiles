@@ -1,0 +1,18 @@
+#!/bin/bash
+
+export DISPLAY=:0
+export XAUTHORITY=/home/agjacome/.Xauthority
+
+xrandr | grep HDMI1 | grep -v "disconnected" > /dev/null 2> /dev/null
+declare -r hdmi=$?
+
+xrandr | grep VGA1  | grep -v "disconnected" > /dev/null 2> /dev/null
+declare -r vga=$?
+
+if [[ hdmi -eq 0 ]]; then
+    xrandr --output HDMI1 --primary --auto --output LVDS1 --off
+elif [[ vga -eq 0 ]]; then
+    xrandr --output VGA1 --primary --auto --output LVDS1 --off
+else
+    xrandr --output LVDS1 --primary --auto --output VGA1 --off --output HDMI1 --off
+fi
