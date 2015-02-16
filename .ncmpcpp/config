@@ -42,7 +42,7 @@ progressbar_look  = "◾◾◽"
 # misc
 playlist_separate_albums          = "no"
 cyclic_scrolling                  = "yes"
-fancy_scrolling                   = "yes"
+fancy_scrolling                   = "no"
 display_screens_numbers_on_start  = "no"
 regular_expressions               = "extended"
 external_editor                   = "/usr/bin/vim"
