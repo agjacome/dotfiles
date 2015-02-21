@@ -6,11 +6,12 @@
 # window (can be toggled) and to put up a timestamp.
 #
 
+use strict;
 use Irssi;
 use POSIX;
 use vars qw($VERSION %IRSSI); 
 
-$VERSION = "0.02";
+$VERSION = "0.03";
 %IRSSI = (
     authors     => "Timo \'cras\' Sirainen, Mark \'znx\' Sangster",
     contact     => "tss\@iki.fi, znxster\@gmail.com", 
@@ -34,7 +35,7 @@ sub sig_printtext {
         ($dest->{level} & ($opt)) &&
         ($dest->{level} & MSGLEVEL_NOHILIGHT) == 0
     ) {
-        $window = Irssi::window_find_name('hilight');
+        my $window = Irssi::window_find_name('hilight');
         
         if ($dest->{level} & MSGLEVEL_PUBLIC) {
             $text = $dest->{target}.": ".$text;
@@ -43,11 +44,12 @@ sub sig_printtext {
             Irssi::settings_get_str('timestamp_format')." ",
             localtime
         ).$text;
+        $text =~ s/%/%%/g;
         $window->print($text, MSGLEVEL_NEVER) if ($window);
     }
 }
 
-$window = Irssi::window_find_name('hilight');
+my $window = Irssi::window_find_name('hilight');
 Irssi::print("Create a window named 'hilight'") if (!$window);
 
 Irssi::settings_add_bool('hilightwin','hilightwin_showprivmsg',1);
