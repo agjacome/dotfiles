@@ -19,5 +19,7 @@ schedule        = watch_directory,5,5,load_start=/home/agjacome/media/downloads/
 
 system.method.set_key = event.download.finished,move_complete,"d.set_directory=/home/agjacome/media/downloads/;execute=mv,-u,$d.get_base_path=,/home/agjacome/media/downloads/"
 
-# done_fg_color   = 2
-# active_fg_color = 1
+color_active_fg   = 3
+color_dead_fg     = 1
+color_finished_fg = 2
+color_inactive_fg = 7
