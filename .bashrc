@@ -23,7 +23,7 @@ shopt -s hostcomplete
 shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
 
-# source bash files, rvm files and virtualenvwrapper
+# source bash files
 source "$HOME/.bash_alias"
 source "$HOME/.bash_functions"
 
@@ -35,14 +35,6 @@ export MARKPATH=$HOME/.marks
 
 # tmuxinator completion
 source "$HOME/.bin/tmuxinator_completion"
-
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-[[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
-
-# Virtualenv
-export WORKON_HOME="$HOME/.virtualenvs"
-source /usr/bin/virtualenvwrapper.sh
 
 # Cabal
 export PATH=$PATH:$HOME/.cabal/bin:$HOME/.cabal-sandbox/bin
