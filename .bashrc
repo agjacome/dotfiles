@@ -1,7 +1,7 @@
 [ -z "$PS1" ] && return
 
 # binary executables
-export PATH=$PATH:$HOME/.bin
+export PATH=$HOME/.bin:$PATH
 
 # bash history control
 export HISTCONTROL=erasedups
@@ -23,21 +23,14 @@ shopt -s hostcomplete
 shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
 
-# source bash files
-source "$HOME/.bash_alias"
-source "$HOME/.bash_functions"
-
-# set the prompt (defined in .bash_functions)
-PROMPT_COMMAND=prompt
-
-# path for marks (see .bash_functions)
-export MARKPATH=$HOME/.marks
+# cabal
+export PATH=$PATH:$HOME/.cabal/bin:$HOME/.cabal-sandbox/bin
 
 # tmuxinator completion
 source "$HOME/.bin/tmuxinator_completion"
 
-# Cabal
-export PATH=$PATH:$HOME/.cabal/bin:$HOME/.cabal-sandbox/bin
+# path for marks (see .bash_functions)
+export MARKPATH=$HOME/.marks
 
 # java workarounds
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -45,3 +38,10 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsu
 
 # vaapi backend for vdpau (libvdpau-va-gl)
 export VDPAU_DRIVER=va_gl
+
+# source bash files
+source "$HOME/.bash_alias"
+source "$HOME/.bash_functions"
+
+# set the prompt (defined in .bash_functions)
+PROMPT_COMMAND=prompt
