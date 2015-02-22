@@ -3,7 +3,7 @@ vo = vdpau
 monitoraspect = 16:9
 
 # audio settings
-ao = alsa
+ao = pulse
 
 # default language
 slang = en,eng
