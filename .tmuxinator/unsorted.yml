@@ -1,0 +1,19 @@
+# ~/.tmuxinator/unsorted.yml
+
+name: unsorted
+root: ~/
+
+windows:
+  - sys:
+      layout: tiled
+      panes:
+        - htop
+        - yaourt -Syu --aur
+        - sudo journalctl -fn60
+  - net:
+      layout: main-horizontal
+      panes:
+        - irssi
+        - rtorrent
+        - mutt
+  - music: ncmpcpp
