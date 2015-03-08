@@ -1,4 +1,0 @@
-#Triggers file version 1.0
--publics -nocase -masks 'root*@*' -regexp '(agja)(come)' -replace 'agjacøme' 
--publics -nocase -regexp 'agjacome_?' -command 'exec - echo -e "$N \x07$Z" > ~/.logs/irssi_pipe' 
--privmsgs -command 'exec - echo -e "$N \x07$Z" > ~/.logs/irssi_pipe' 
