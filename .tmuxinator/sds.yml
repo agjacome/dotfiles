@@ -1,7 +1,7 @@
 # ~/.tmuxinator/sds.yml
 
 name: sds
-root: ~/projects/sing/smart-drug-search
+root: ~/projects/sing/sds
 
 windows:
   - vim  : vim -c 'set wildignore=*target*'
