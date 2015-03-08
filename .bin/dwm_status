@@ -1,16 +1,16 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-WAIT_SECONDS=10
-WAIT_NETWORK=$[1024 * WAIT_SECONDS]
+declare -r wait_seconds=10
+declare -r wait_network=$(echo "1024 * $wait_seconds" | bc)
 
 # mpd playing status
 function print_song()
 {
-    song_info="$(ncmpcpp --now-playing '{{{{%t \uE01B }%a}}|{%f}}')"
+    song_info=$(mpc current -f '%title% \uE01B %artist%')
     if [[ ! $song_info ]]; then
         song_info="off"
     elif [[ ${#song_info} > 50 ]]; then
-        song_info="$(echo ${song_info} | head -c 50)..."
+        song_info="$(echo $song_info | head -c 50)..."
     fi
     echo -ne "\x04\uE01A\x0B \uE00E ${song_info}"
 }
@@ -27,13 +27,6 @@ function print_email()
             echo -ne " 0"
         fi
     done
-}
-
-# last message
-function print_msg()
-{
-    last_msg="$(cat $HOME/.logs/irssi_pipe)"
-    echo -ne "\uE01B \uE013 ${last_msg}"
 }
 
 # memory usage
@@ -76,11 +69,11 @@ while true; do
     # network rate
     rx_now=$(cat /sys/class/net/wlp3s0/statistics/rx_bytes)
     tx_now=$(cat /sys/class/net/wlp3s0/statistics/tx_bytes)
-    let rx_rate="($rx_now - $rx_old) / $WAIT_NETWORK"
-    let tx_rate="($tx_now - $tx_old) / $WAIT_NETWORK"
+    let rx_rate="($rx_now - $rx_old) / $wait_network"
+    let tx_rate="($tx_now - $tx_old) / $wait_network"
 
     # generate statusbar
-    statstring="$(print_song) $(print_email) $(print_msg)"
+    statstring="$(print_song) $(print_email)"
     statstring="${statstring} $(printf "%-13b" "\x04\uE01A\x09 \uE00F ${cpu_used}%")"
     statstring="${statstring} $(print_mem)"
     statstring="${statstring} $(printf "%-14b" "\x05\uE01A\x08 \uE011 ${rx_rate}K")"
@@ -94,7 +87,7 @@ while true; do
     rx_old=$rx_now
     tx_old=$tx_now
 
-    # loop every WAIT_SECONDS
-    sleep $WAIT_SECONDS
+    # loop every wait_seconds
+    sleep $wait_seconds
 done
 
