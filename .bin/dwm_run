@@ -11,14 +11,14 @@ fi
 # output throug active monitor
 $HOME/.bin/hotplug-mon
 
-# load .Xresources
-[[ -f $HOME/.Xresources ]] && xrdb -merge $HOME/.Xresources
-
 # add font paths
 xset fp default
 [[ -d /usr/share/fonts/local ]] && xset +fp /usr/share/fonts/local
 [[ -d $HOME/.fonts ]] && xset +fp $HOME/.fonts
 xset fp rehash
+
+# load .Xresources
+[[ -f $HOME/.Xresources ]] && xrdb -merge $HOME/.Xresources
 
 # Java workaround
 wmname LG3D
@@ -26,13 +26,6 @@ wmname LG3D
 # set background and statusbar
 $HOME/.bin/background &
 $HOME/.bin/dwm_status &
-
-# start daemons
-/usr/bin/urxvtd -q -o -f
-/usr/bin/syndaemon -t -k -i 1 -d &
-[[ -z $(pgrep -af devmon)      ]] && /usr/bin/devmon > /dev/null 2> /dev/null &
-[[ -z $(pgrep -af mpdscribble) ]] && /usr/bin/mpdscribble &
-[[ -z $(pgrep -af pulseaudio)  ]] && /usr/bin/start-pulseaudio-x11 &
 
 # start DWM
 /usr/bin/dwm 2> /tmp/dwm.log

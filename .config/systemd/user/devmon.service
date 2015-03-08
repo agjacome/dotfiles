@@ -1,0 +1,8 @@
+[Unit]
+Description=Devmon Udevil Daemon
+
+[Service]
+ExecStart=/usr/bin/devmon
+
+[Install]
+WantedBy=default.target
