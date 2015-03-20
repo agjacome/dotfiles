@@ -1,93 +1,98 @@
 #!/bin/bash
+set -euo pipefail
+shopt -s extglob
+IFS=$'\n\t'
 
-declare -r wait_seconds=10
-declare -r wait_network=$(echo "1024 * $wait_seconds" | bc)
-
-# mpd playing status
-function print_song()
-{
-    song_info=$(mpc current -f '%title% \uE01B %artist%')
-    if [[ ! $song_info ]]; then
-        song_info="off"
-    elif [[ ${#song_info} > 50 ]]; then
-        song_info="$(echo $song_info | head -c 50)..."
-    fi
-    echo -ne "\x04\uE01A\x0B \uE00E ${song_info}"
+function mpd_song() {
+    echo $(mpc current -f '%artist% – %title%')
 }
 
-# unread emails
-function print_email()
-{
-    echo -ne "\x05\uE01A\x0C \uE014"
+function spotify_song() {
+    echo $(xprop -name "Spotify Premium - Linux Preview" _NET_WM_ICON_NAME 2> /dev/null | cut -d'"' -f2 | cut -b 11-)
+}
+
+function current_playing_song() {
+    local song=$(mpd_song)
+    local song=${song:-$(spotify_song)}
+
+    local song=$([[ -z $song ]] && echo "off" || echo $song | awk -F' – ' '{ print $2 " \\uE01B " $1 }' | head -c 100)
+    echo -ne "\x04\uE01A\x0B \uE00E $song"
+}
+
+function current_unread_emails() {
+    local -i unread=0
     for maildir in $(find $HOME/.mutt/maildir/*/Recibidos/new -type d); do
-        unread_count="$(ls "${maildir}" | wc -l)"
-        if [[ $unread_count -ne 0 ]]; then
-            echo -ne " ${unread_count}"
-        else
-            echo -ne " 0"
-        fi
+        local -i unread=$((unread + $(ls -1 $maildir | wc -l)))
     done
+
+    echo -ne "\x05\uE01A\x0C \uE014 $unread"
 }
 
-# memory usage
-function print_mem()
-{
-    mem_used="$(free -m | awk '/Mem/ {print $3}')"
-    echo -ne "\uE01B \uE010 ${mem_used}M"
+function current_volume_level() {
+    local -r vol=$(amixer get Master | tail -1 | sed -r 's/.*\[([0-9%]{2,4})\].*/\1/')
+    echo -ne "\x04\uE01A\x06 \uE015 $vol"
 }
 
-# current volume
-function print_volume()
-{
-    volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
-    echo -ne "\x04\uE01A\x06 \uE015 ${volume}%"
+function current_battery_level() {
+    local -r batt=$(acpi -b | cut -d',' -f2 | tr -d ' ')
+    echo -ne "\uE01B \uE01E $batt"
 }
 
-# current battery
-function print_battery()
-{
-    battery="$(acpi -b | cut -d ',' -f 2 | tr -d ' ')"
-    echo -ne "\uE01B \uE01E ${battery}"
+function current_cpu_usage() {
+    local -r usage=$(mpstat | grep 'all' | awk -F' ' '{ gsub(",", ".", $12); print 100 - $12 }')
+    echo -ne "\x04\uE01A\x09 \uE00F ${usage}%"
 }
 
-# current date
-function print_date()
-{
-    datetime="$(date "+%a %d %b \uE01B %H:%M")"
-    echo -ne "\x05\uE01A\x02 \uE016 ${datetime}"
+function current_memory_usage() {
+    local -r mem=$(free -m | awk '/Mem/ { print $3 }')
+    echo -ne "\uE01B \uE010 ${mem}MiB"
 }
 
-rx_old=$(cat /sys/class/net/wlp3s0/statistics/rx_bytes)
-tx_old=$(cat /sys/class/net/wlp3s0/statistics/tx_bytes)
+function current_downloaded_bytes() {
+    echo $(paste -d'+' /sys/class/net/!(lo)/statistics/rx_bytes | bc)
+}
 
+function current_uploaded_bytes() {
+    echo $(paste -d'+' /sys/class/net/!(lo)/statistics/tx_bytes | bc)
+}
+
+function current_download_rate() {
+    local -r rate=$(echo "($1 - $2) / $3" | bc)
+    echo -ne "\x05\uE01A\x08 \uE011 ${rate}K"
+}
+
+function current_upload_rate() {
+    local -r rate=$(echo "($1 - $2) / $3" | bc)
+    echo -ne "\x01\uE01B\x07 \uE012 ${rate}K"
+}
+
+function current_date_hour() {
+    local -r datetime=$(date "+%a %d %b \\uE01B %H:%M")
+    echo -ne "\x05\uE01A\x02 \uE016 $datetime"
+}
+
+declare -r wait_seconds=$1
+declare -r wait_network=$((1024 * $wait_seconds))
+
+declare -i down_bytes_old=$(current_downloaded_bytes)
+declare -i upld_bytes_old=$(current_uploaded_bytes)
 while true; do
-    # cpu usage
-    eval $(awk '/^cpu /{print "cpu_idle_now=" $5 "; cpu_total_now=" $2+$3+$4+$5 }' /proc/stat)
-    cpu_interval=$((cpu_total_now-${cpu_total_old:-0}))
-    let cpu_used="100 * ($cpu_interval - ($cpu_idle_now-${cpu_idle_old:-0})) / $cpu_interval"
+    declare -i down_bytes_now=$(current_downloaded_bytes)
+    declare -i upld_bytes_now=$(current_uploaded_bytes)
 
-    # network rate
-    rx_now=$(cat /sys/class/net/wlp3s0/statistics/rx_bytes)
-    tx_now=$(cat /sys/class/net/wlp3s0/statistics/tx_bytes)
-    let rx_rate="($rx_now - $rx_old) / $wait_network"
-    let tx_rate="($tx_now - $tx_old) / $wait_network"
+    declare song=$(current_playing_song)
+    declare email=$(current_unread_emails)
+    declare cpu=$(current_cpu_usage)
+    declare memory=$(current_memory_usage)
+    declare downloaded=$(current_download_rate $down_bytes_now $down_bytes_old $wait_network)
+    declare uploaded=$(current_upload_rate $upld_bytes_now $upld_bytes_old $wait_network)
+    declare volume=$(current_volume_level)
+    declare battery=$(current_battery_level)
+    declare date=$(current_date_hour)
 
-    # generate statusbar
-    statstring="$(print_song) $(print_email)"
-    statstring="${statstring} $(printf "%-13b" "\x04\uE01A\x09 \uE00F ${cpu_used}%")"
-    statstring="${statstring} $(print_mem)"
-    statstring="${statstring} $(printf "%-14b" "\x05\uE01A\x08 \uE011 ${rx_rate}K")"
-    statstring="${statstring} $(printf "%-13b" "\x01\uE01B\x07 \uE012 ${tx_rate}K")"
-    statstring="${statstring} $(print_volume) $(print_battery) $(print_date)"
-    xsetroot -name "${statstring}"
+    xsetroot -name "$song $email $cpu $memory $downloaded $uploaded $volume $battery $date"
 
-    # reset rates
-    cpu_idle_old=$cpu_idle_now
-    cpu_total_old=$cpu_total_now
-    rx_old=$rx_now
-    tx_old=$tx_now
-
-    # loop every wait_seconds
+    declare -i down_bytes_old=$down_bytes_now
+    declare -i upld_bytes_old=$upld_bytes_now
     sleep $wait_seconds
 done
-
