@@ -71,7 +71,7 @@ function current_date_hour() {
     echo -ne "\x05\uE01A\x02 \uE016 $datetime"
 }
 
-declare -r wait_seconds=$1
+declare -r wait_seconds=${1:-5}
 declare -r wait_network=$((1024 * $wait_seconds))
 
 declare -i down_bytes_old=$(current_downloaded_bytes)
