@@ -1,0 +1,30 @@
+#!/bin/bash
+set -euo pipefail
+
+pushd "$(mktemp -dt)"
+cat > build.sbt <<EOM
+scalaVersion := "2.11.6"
+
+scalacOptions ++= Seq(
+  "-deprecation",
+  "-feature",
+  "-language:existentials",
+  "-language:higherKinds",
+  "-language:implicitConversions",
+  "-unchecked"
+)
+
+libraryDependencies ++= Seq(
+  "org.scalaz" %% "scalaz-core"               % "7.1.1",
+  "org.scalaz" %% "scalaz-effect"             % "7.1.1",
+  "org.scalaz" %% "scalaz-concurrent"         % "7.1.1",
+  "org.scalaz" %% "scalaz-scalacheck-binding" % "7.1.1"
+)
+
+initialCommands := "import scalaz._, Scalaz._"
+
+shellPrompt := { _ => "scalaz » " }
+EOM
+
+sbt console
+popd
