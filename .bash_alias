@@ -12,7 +12,6 @@ alias la="ls -a"
 alias cp="cp -ir"
 alias mv="mv -i"
 alias rm="rm -Iv"
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 alias syu="yaourt -Syu --aur"
 alias i="sudo pacman -S"
