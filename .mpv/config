@@ -1,5 +1,6 @@
 # video settings
-vo = vdpau
+vo = opengl-hq
+hwdec = vaapi
 monitoraspect = 16:9
 
 # audio settings
