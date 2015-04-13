@@ -6,6 +6,6 @@ root: ~/projects/sing/sds
 windows:
   - vim  : vim -c 'set wildignore=*target*'
   - sbt  : export SBT_OPTS=$(cat .sbtopts) && sbt
-  - log  : tail -F logs/application.log
+  - log  : less +F logs/application.log
   - git  : git status
   - bash : ls
