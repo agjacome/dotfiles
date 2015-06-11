@@ -54,5 +54,5 @@ URxvt.url-select.launcher  : /usr/bin/firefox
 URxvt.url-select.underline : true
 
 ! URxvt font-style
-URxvt.font        : xft:Liberation Mono for Powerline:size=12
-URxvt.letterSpace : -2
+URxvt.font        : xft:Monofur for Powerline:size=14
+URxvt.letterSpace : -1
