@@ -36,6 +36,11 @@ function current_volume_level() {
     echo -ne "\x04\uE01A\x06 \uE015 $vol"
 }
 
+function current_battery_level() {
+    local -r battery=$(acpi -b | cut -d',' -f2 | tr -d ' ')
+    echo -ne "\uE01B \uE01E ${battery}"
+}
+
 function current_cpu_usage() {
     local -r usage=$(mpstat | grep 'all' | awk -F' ' '{ gsub(",", ".", $12); print 100 - $12 }')
     echo -ne "\x04\uE01A\x09 \uE00F ${usage}%"
@@ -85,9 +90,10 @@ while true; do
     declare downloaded=$(current_download_rate $down_bytes_now $down_bytes_old $wait_network)
     declare uploaded=$(current_upload_rate $upld_bytes_now $upld_bytes_old $wait_network)
     declare volume=$(current_volume_level)
+    declare battery=$(current_battery_level)
     declare date=$(current_date_hour)
 
-    xsetroot -name "$song $email $cpu $memory $downloaded $uploaded $volume $date"
+    xsetroot -name "$song $email $cpu $memory $downloaded $uploaded $volume $battery $date"
 
     declare -i down_bytes_old=$down_bytes_now
     declare -i upld_bytes_old=$upld_bytes_now
