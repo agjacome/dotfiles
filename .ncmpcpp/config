@@ -23,6 +23,7 @@ playlist_disable_highlight_delay  = 1
 playlist_display_mode             = classic
 regular_expressions               = extended
 statusbar_visibility              = no
+user_interface                    = alternative
 
 now_playing_prefix       = "$b$8»$7»$3»$9 "
 now_playing_suffix       = "$/b"
