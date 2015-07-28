@@ -63,3 +63,6 @@ style -name hybrid http://*,https://*,file://*,about:blank <<EOM
   }
 EOM
 styledisable -name=hybrid
+
+" uBlock origin fix in pentadactyl-bar (panel visibility)
+style -name ublick * #nav-bar * { visibility: visible; }

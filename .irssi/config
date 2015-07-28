@@ -38,8 +38,8 @@ chatnets = {
     autosendcmd = "/^msg &bitlbee identify PASSWORD;";
   };
   Freenode = { type = "IRC"; };
-  Mozilla  = { type = "IRC"; };
-  Hispano  = { type = "IRC"; };
+  Mozilla = { type = "IRC"; };
+  Hispano = { type = "IRC"; };
 };
 
 channels = (
@@ -141,7 +141,7 @@ settings = {
     hilight_nick_matches = "no";
     hilight_act_color = "%R";
     hilight_color = "%Y";
-    autolog_path = "~/.logs/irc/$tag/${0}-%y%m%d.log";
+    autolog_path = "~/var/log/irc/$tag/${0}-%y%m%d.log";
     autolog = "yes";
     show_names_on_join = "no";
   };
@@ -298,6 +298,6 @@ windows = {
 };
 
 mainwindows = {
-  1  = { first_line = "4"; lines = "80"; };
+  1 = { first_line = "4"; lines = "80"; };
   99 = { first_line = "1"; lines = "3"; };
 };

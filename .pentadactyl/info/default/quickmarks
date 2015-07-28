@@ -1,1 +1,20 @@
-{"c":"https://coursera.org","C":"https://calendar.live.com","e":"http://edx.org","E":"http://esei.uvigo.es","f":"http://feedly.com/home","F":"http://faitic.uvigo.es","g":"https://github.com","h":"http://news.ycombinator.com","m":"http://meneame.net","r":"http://reddit.com","R":"https://readability.com","s":"http://stackoverflow.com","S":"https://class.stanford.edu","u":"https://udacity.com"}
+{
+    "c": "https://coursera.org",
+    "C": "https://calendar.live.com",
+    "e": "http://edx.org",
+    "E": "http://esei.uvigo.es",
+    "f": "http://feedly.com/home",
+    "F": "http://faitic.uvigo.es",
+    "g": "https://github.com",
+    "h": "http://news.ycombinator.com",
+    "i": "http://instapaper.com",
+    "l": "http://lobste.rs",
+    "m": "http://meneame.net",
+    "r": "http://reddit.com",
+    "R": "https://readability.com",
+    "s": "http://stackoverflow.com",
+    "S": "https://class.stanford.edu",
+    "t": "https://twitter.com",
+    "u": "https://udacity.com",
+    "U": "http://uvigo.es"
+}

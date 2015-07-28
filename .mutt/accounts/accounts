@@ -1,0 +1,13 @@
+# Account Settings
+source ~/.mutt/accounts/gmail # default account is gmail
+
+folder-hook gmail/*    source ~/.mutt/accounts/gmail # use gmail account in any gmail folder
+folder-hook gmail/ESEI source ~/.mutt/accounts/esei  # use esei account in gmail/ESEI folder
+
+macro index ga "<change-folder> =gmail/All<enter>"    "go to All"
+macro index gd "<change-folder> =gmail/Drafts<enter>" "go to Drafts"
+macro index ge "<change-folder> =gmail/ESEI<enter>"   "go to ESEI"
+macro index gi "<change-folder> =gmail/Inbox<enter>"  "go to Inbox"
+macro index gs "<change-folder> =gmail/Sent<enter>"   "go to Sent"
+
+# vim: ft=muttrc

@@ -35,11 +35,13 @@ URxvt.urgentOnBell    : true
 URxvt.visualBell      : false
 URxvt.cursorBlink     : false
 URxvt.cursorUnderline : false
+URxvt.secondaryScreen : 1
+URxvt.secondaryScroll : 0
 
 ! URxvt extensions
 URxvt.perl-ext-common      : default,clipboard,keyboard-select,url-select
-URxvt*keysym.Home          : \033[1~
-URxvt*keysym.End           : \033[4~
+URxvt.keysym.Home          : \033[1~
+URxvt.keysym.End           : \033[4~
 URxvt.keysym.M-c           : perl:clipboard:copy
 URxvt.keysym.M-v           : perl:clipboard:paste
 URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped
@@ -54,5 +56,5 @@ URxvt.url-select.launcher  : /usr/bin/firefox
 URxvt.url-select.underline : true
 
 ! URxvt font-style
-URxvt.font        : xft:Monofur for Powerline:size=14
+URxvt.font        : xft:Literation Mono Powerline:size=12
 URxvt.letterSpace : -1

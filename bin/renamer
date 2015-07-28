@@ -1,0 +1,21 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\t\n'
+
+declare -r find_match=$1
+declare -r sed_match=$2
+declare -r sed_replace=$3
+
+find . -regextype posix-extended -regex $find_match | while read name; do
+    renamed=$(
+        echo $name                           |
+        sed -r "s/$sed_match/$sed_replace/g" |
+        tr [:blank:] _                       |
+        tr [:upper:] [:lower:]               |
+        tr -d \'\"?
+    )
+
+    if [[ $name != $renamed ]]; then
+        mv $name $renamed
+    fi
+done

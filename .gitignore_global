@@ -24,7 +24,7 @@
 
 # Logs and DB
 *.log
-# *.sql
+*.sql
 *.sqlite
 
 # Temp files

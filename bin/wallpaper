@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+
+declare -r walldir="$HOME/media/pictures/wallpapers"
+
+declare -r wday=$(date +%u)
+declare -r hour=$(date +%-H)
+
+if [[ $wday -gt 5 ]]; then
+  wallfile="weekend.jpg"
+elif [[ $hour -gt 5 && $hour -lt 14 ]]; then
+  wallfile="morning.jpg"
+elif [[ $hour -gt 13 && $hour -lt 22 ]]; then
+  wallfile="afternoon.jpg"
+else
+  wallfile="night.jpg"
+fi
+
+feh --bg-fill "$walldir/$wallfile"

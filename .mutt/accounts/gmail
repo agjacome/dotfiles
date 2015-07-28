@@ -1,9 +1,11 @@
-  set realname  = "Alberto Gutiérrez Jácome"
-  set from      = "agjacome@gmail.com"
-  set sendmail  = "/usr/bin/msmtp -a gmail"
-  set mbox      = "+gmail/all_mail"
-  set postponed = "+gmail/drafts"
-  set signature = ~/.mutt/accounts/gmail_sig
+set   realname      = "Alberto Gutiérrez Jácome"
+set   from          = "agjacome@gmail.com"
+set   spoolfile     = "+gmail/Inbox"
+set   mbox          = "+gmail/All"
+set   postponed     = "+gmail/Drafts"
+set   signature     = ~/.mutt/accounts/gmail_sig
+set   sendmail      = "/usr/bin/msmtp -a gmail"
+set   sendmail_wait = 0
 unset record
 
 color status green default

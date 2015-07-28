@@ -1,10 +1,10 @@
 # video settings
-vo = opengl-hq
-hwdec = vaapi
+vo = vdpau
+vc = ffmpeg12vdpau,ffwmv3vdpau,ffvc1vdpau,ffh264vdpau,ffodivxvdpau
 monitoraspect = 16:9
 
 # audio settings
-ao = pulse
+ao = alsa
 
 # default language
 slang = en,eng
@@ -13,7 +13,7 @@ alang = en,eng
 # osd settings
 osd-level     = 3
 osd-font-size = 30
-sub-scale     = 0.75
+sub-scale     = 2
 
 # misc settincs
 msgmodule

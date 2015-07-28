@@ -1,7 +1,7 @@
 # ~/.tmuxinator/unsorted.yml
 
 name: unsorted
-root: ~/
+root: ~/tmp
 
 windows:
   - sys:

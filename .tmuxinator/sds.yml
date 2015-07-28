@@ -1,10 +1,10 @@
 # ~/.tmuxinator/sds.yml
 
 name: sds
-root: ~/projects/sing/sds
+root: ~/src/sing/sds
 
 windows:
-  - vim  : vim -c 'set wildignore=*target*'
+  - vim  : vim -c 'set wildignore=target,lib,logs,share,doc'
   - sbt  : export SBT_OPTS=$(cat .sbtopts) && sbt
   - log  : less +F logs/application.log
   - git  : git status

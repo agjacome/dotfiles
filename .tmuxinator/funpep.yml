@@ -1,10 +1,11 @@
 # ~/.tmuxinator/funpep.yml
 
 name: funpep
-root: /home/agjacome/projects/sing/funpep
+root: ~/src/sing/funpep
 
 windows:
-  - vim: vim -c 'set wildignore=*target*'
-  - sbt: ./sbt
-  - git: git status
+  - vim:  vim -c 'set wildignore=target,log,database'
+  - sbt:  ./sbt
+  - git:  git status
+  - log:  less +F log/funpep.log
   - bash: ls -la

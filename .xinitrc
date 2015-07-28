@@ -8,9 +8,6 @@ for file in /etc/X11/xinit/xinitrc.d/*; do
 done
 unset file
 
-# set output to active monitor
-$HOME/.bin/hotplug-mon
-
 # add font paths
 xset +fp $HOME/.fonts
 xset fp rehash
@@ -20,22 +17,21 @@ xset -dpms
 xset s off
 
 # load .Xresources
-xrdb -merge $HOME/.Xresources
+xrdb -load $HOME/.Xresources
 
 # Java workaround
 wmname LG3D
 
 # set background and statusbar
-$HOME/.bin/background &
-$HOME/.bin/dwm_status 10 &
+$HOME/bin/wallpaper &
+$HOME/bin/dwm-statusbar 10 &
 
 # start daemons
-[[ -z $(pgrep -af urxvtd)     ]] && /usr/bin/urxvtd -q -o -f
-[[ -z $(pgrep -af syndaemon)  ]] && /usr/bin/syndaemon -R -K -t -i 1 -d
-[[ -z $(pgrep -af pulseaudio) ]] && /usr/bin/start-pulseaudio-x11
-[[ -z $(pgrep -af mpd)        ]] && /usr/bin/mpd > /dev/null 2> /dev/null
-[[ -z $(pgrep -af mpdas)      ]] && /usr/bin/mpdas -c $HOME/.config/mpdasrc > /dev/null 2> /dev/null &
-[[ -z $(pgrep -af devmon)     ]] && /usr/bin/devmon > /dev/null 2> /dev/null &
+[[ -z $(pgrep -af urxvtd)    ]] && urxvtd -q -o -f
+[[ -z $(pgrep -af syndaemon) ]] && /usr/bin/syndaemon -R -K -t -i 1 -d
+[[ -z $(pgrep -af mpd)       ]] && mpd > /dev/null 2> /dev/null
+[[ -z $(pgrep -af mpdas)     ]] && mpdas -c $HOME/.config/mpdasrc > /dev/null 2> /dev/null &
+[[ -z $(pgrep -af devmon)    ]] && devmon > /dev/null 2> /dev/null &
 
 # start DWM
-/usr/bin/dwm 2> /tmp/dwm.log
+dwm 2> $HOME/var/log/dwm.log

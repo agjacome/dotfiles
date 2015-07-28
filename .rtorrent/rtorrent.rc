@@ -5,9 +5,9 @@ max_peers_seed  = 100
 max_uploads     = 13
 peer_exchange   = yes
 port_random     = no
-port_range      = 49166-49166
+port_range      = 49168-49169
 dht             = auto
-dht_port        = 49167
+dht_port        = 49170
 
 check_hash      = yes
 encoding_list   = UTF-8
@@ -15,9 +15,9 @@ encoding_list   = UTF-8
 directory       = /home/agjacome/.rtorrent
 session         = /home/agjacome/.rtorrent
 schedule        = low_diskspace,5,60,close_low_diskspace=5000M
-schedule        = watch_directory,5,5,load_start=/home/agjacome/media/downloads/torrents/*.torrent
+schedule        = watch_directory,5,5,load_start=/home/agjacome/share/torrents/*.torrent
 
-system.method.set_key = event.download.finished,move_complete,"d.set_directory=/home/agjacome/media/downloads/;execute=mv,-u,$d.get_base_path=,/home/agjacome/media/downloads/"
+system.method.set_key = event.download.finished,move_complete,"d.set_directory=/home/agjacome/tmp/;execute=mv,-u,$d.get_base_path=,/home/agjacome/tmp/"
 
 color_active_fg   = 3
 color_dead_fg     = 1

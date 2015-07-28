@@ -1,11 +1,9 @@
-color_off='\[\e[0m\]'
-red='\[\e[0;31m\]'
-green='\[\e[0;32m\]'
-yellow='\[\e[0;33m\]'
-cyan='\[\e[0;36m\]'
-white='\[\e[0;37m\]'
-
-## PROMPT
+declare -r color_off='\[\e[0m\]'
+declare -r red='\[\e[0;31m\]'
+declare -r green='\[\e[0;32m\]'
+declare -r yellow='\[\e[0;33m\]'
+declare -r cyan='\[\e[0;36m\]'
+declare -r white='\[\e[0;37m\]'
 
 function prompt_git()
 {
@@ -41,16 +39,14 @@ function prompt()
 
     local git=$(prompt_git)
     local path=$(prompt_pwd)
-    [[ $EUID -eq 0 ]] && local root=${red} || local root=${yellow}
+    [[ $EUID -eq 0 ]] && local user=${red} || local user=${yellow}
 
-    PS1="${white}┌─[${root}\u${white}]─[${cyan}\h${white}]─"
+    PS1="${white}┌─[${user}\u${white}]─[${cyan}\h${white}]─"
     PS1="${PS1}[${green}${path}${white}]${git}${white}\n"
     PS1="${PS1}└─[${status}${white}]─╼${color_off} "
 
     PS2="${white}╾─────╼${color_off} "
 }
-
-## MARKPATH
 
 function jump()
 {
@@ -80,6 +76,25 @@ _completemarks()
   return 0
 }
 
+_completemux() {
+    COMPREPLY=()
+    local word="${COMP_WORDS[COMP_CWORD]}"
+
+    if [ "$COMP_CWORD" -eq 1 ]; then
+        local commands="$(compgen -W "$(tmuxinator commands)" -- "$word")"
+        local projects="$(compgen -W "$(tmuxinator completions start)" -- "$word")"
+
+        COMPREPLY=( $commands $projects )
+    else
+        local words=("${COMP_WORDS[@]}")
+        unset words[0]
+        unset words[$COMP_CWORD]
+        local completions=$(tmuxinator completions "${words[@]}")
+        COMPREPLY=( $(compgen -W "$completions" -- "$word") )
+    fi
+}
+
 complete -F _completemarks jump unmark
+complete -F _completemux tmuxinator mux
 
 # vim: ft=sh

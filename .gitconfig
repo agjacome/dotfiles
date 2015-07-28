@@ -6,7 +6,7 @@
     pager        = less
     autocrlf     = input
     whitespace   = trailing-space,space-before-tab,indent-with-non-tab
-    excludesfile = /home/agjacome/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [merge]
     tool = vimdiff
 [diff]
@@ -14,7 +14,7 @@
 [difftool]
     prompt = false
 [commit]
-    template = /home/agjacome/.gitmessage
+    template = ~/.gitmessage
 [push]
     default = simple
 [help]
