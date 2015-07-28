@@ -1,7 +1,7 @@
 [general]
 ui         = TTY.TTYUI
 accounts   = gmail
-pythonfile = ~/var/mail/offlineimap.py
+pythonfile = ~/.offlineimap.py
 fsync      = false
 
 [mbnames]

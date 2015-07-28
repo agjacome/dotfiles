@@ -7,7 +7,7 @@ packages are installed.
 
 My home directory is usually structured as follows:
 
-    $HOME
+    /home/agjacome
     ├── bin
     ├── doc
     │   ├── books
