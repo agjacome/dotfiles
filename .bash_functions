@@ -17,7 +17,7 @@ function prompt_git()
     fi
 
     local git="${red}${BRANCH-unknown}${STATUS}"
-    echo "${white}─[${git}${white}]"
+    echo "${color_off}─[${git}${color_off}]"
 }
 
 function prompt_pwd()
@@ -41,11 +41,11 @@ function prompt()
     local path=$(prompt_pwd)
     [[ $EUID -eq 0 ]] && local user=${red} || local user=${yellow}
 
-    PS1="${white}┌─[${user}\u${white}]─[${cyan}\h${white}]─"
-    PS1="${PS1}[${green}${path}${white}]${git}${white}\n"
-    PS1="${PS1}└─[${status}${white}]─╼${color_off} "
+    PS1="${color_off}┌─[${user}\u${color_off}]─[${cyan}\h${color_off}]─"
+    PS1="${PS1}[${green}${path}${color_off}]${git}${color_off}\n"
+    PS1="${PS1}└─[${status}${color_off}]─╼${color_off} "
 
-    PS2="${white}╾─────╼${color_off} "
+    PS2="${color_off}╾─────╼${color_off} "
 }
 
 function jump()
