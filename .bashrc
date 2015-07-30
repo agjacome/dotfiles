@@ -28,7 +28,7 @@ shopt -s nocaseglob
 [[ -d $HOME/.cabal/bin         ]] && export PATH=$PATH:$HOME/.cabal/bin
 
 # nix
-[[ -e $HOME/.nix-profile/etc/profile.d/nix.hs ]] && $HOME/.nix-profile/etc/profile.d/nix.sh
+[[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
 
 # path for marks (see .bash_functions)
 export MARKPATH=$HOME/etc/marks
