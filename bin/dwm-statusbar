@@ -4,7 +4,7 @@ shopt -s extglob
 IFS=$'\n\t'
 
 function mpd_song() {
-    echo $(mpc current -f '%artist% – %title%')
+    echo $(mpc current -f '%artist% – %title%' 2> /dev/null)
 }
 
 function spotify_song() {
