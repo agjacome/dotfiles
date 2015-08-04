@@ -7,40 +7,42 @@ packages are installed.
 
 My home directory is usually structured as follows:
 
-    /home/agjacome
-    ├── bin
-    ├── doc
-    │   ├── books
-    │   ├── papers
-    │   └── ...
-    ├── etc
-    │   ├── dotfiles
-    │   ├── dwm
-    │   ├── marks
-    │   ├── vimfiles
-    │   └── ...
-    ├── media
-    │   ├── films
-    │   ├── music
-    │   └── ...
-    ├── share
-    │   ├── college
-    │   ├── courses
-    │   ├── torrents
-    │   └── ...
-    ├── src
-    │   ├── arch
-    │   │   ├── build
-    │   │   ├── packages
-    │   │   ├── sources
-    │   │   ├── srcpackages
-    │   │   └── yaourt
-    │   └── ...
-    ├── tmp
-    └── var
-        ├── log
-        ├── mail
-        └── ...
+```
+/home/agjacome
+├── bin
+├── doc
+│   ├── books
+│   ├── papers
+│   └── ...
+├── etc
+│   ├── dotfiles
+│   ├── dwm
+│   ├── marks
+│   ├── vimfiles
+│   └── ...
+├── media
+│   ├── films
+│   ├── music
+│   └── ...
+├── share
+│   ├── college
+│   ├── courses
+│   ├── torrents
+│   └── ...
+├── src
+│   ├── arch
+│   │   ├── build
+│   │   ├── packages
+│   │   ├── sources
+│   │   ├── srcpackages
+│   │   └── yaourt
+│   └── ...
+├── tmp
+└── var
+    ├── log
+    ├── mail
+    └── ...
+```
 
 All configuration files assume that directory structure.
 
@@ -53,13 +55,17 @@ symlinked in the same way.
 
 The usual way to install everything:
 
-    mkdir -p $HOME/{doc,etc,media,share,src,tmp,var} $HOME/etc/marks $HOME/var/{log,mail}
-    git clone https://github.com/agjacome/dotfiles.git $HOME/etc/dotfiles
-    pushd $HOME/etc/dotfiles
-    for file in $(ls -a | grep -v "^.\{1,2\}$\|^.git$\|^.gitmodules$\|^README.md$"); do
-        ln -sf $(pwd)/$file ~/$file;
-    done
-    popd
+```bash
+mkdir -p $HOME/{doc,etc,media,share,src,tmp,var}
+mkdir -p $HOME/var/{log,mail}
+mkdir -p $HOME/etc/marks
+
+git clone https://github.com/agjacome/dotfiles.git $HOME/etc/dotfiles
+
+for file in $(ls -a $HOME/etc/dotfiles | grep -v "^.\{1,2\}$\|^.git$\|^.gitmodules$\|^README.md$"); do
+    ln -sf $HOME/etc/dotfiles/$file $HOME/$file
+done
+```
 
 There are things that will probably require some tweaking after that linking is
 executed, and they should be solved case by case.
