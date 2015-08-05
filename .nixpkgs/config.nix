@@ -5,6 +5,7 @@
       self.cabal2nix
       self.cabal-install
       self.hoogle
+      self.hlint
       self.pandoc
       self.mtl
       self.text
