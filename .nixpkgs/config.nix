@@ -16,7 +16,7 @@
         '';
       });
 
-      haskellNGPackage s= with self.haskell-ng.lib; self.haskell-ng.packages.ghc7101.override {
+      haskellNGPackages = with self.haskell-ng.lib; self.haskell-ng.packages.ghc7101.override {
         overrides = self: super: {
           ghc-mod = overrideCabal super.ghc-mod (drv: {
             broken = false;
