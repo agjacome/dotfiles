@@ -9,7 +9,14 @@
         inherit (lib)    overrideDerivation concatMapStringsSep;
     in rec {
 
-      haskellNGPackages = with self.haskell-ng.lib; self.haskell-ng.packages.ghc7101.override {
+      exposePkgs = names: ghcPackages: ghcPackages.overrideDerivation (drv: {
+        postBuild = ''
+        ${drv.postBuild}
+        ${concatMapStringsSep "\n" (name: "$out/bin/ghc-pkg expose ${name}") names}
+        '';
+      });
+
+      haskellNGPackage s= with self.haskell-ng.lib; self.haskell-ng.packages.ghc7101.override {
         overrides = self: super: {
           ghc-mod = overrideCabal super.ghc-mod (drv: {
             broken = false;
