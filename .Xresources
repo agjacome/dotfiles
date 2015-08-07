@@ -73,5 +73,5 @@ URxvt.clipboard.copycmd    : xsel -ib
 URxvt.clipboard.pastecmd   : xsel -ob
 
 ! URxvt font-style
-URxvt.font        : xft:Literation Mono Powerline:size=12
+URxvt.font        : xft:DejaVu Sans Mono for Powerline:size=12
 URxvt.letterSpace : -1
