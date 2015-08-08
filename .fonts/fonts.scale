@@ -1,4 +1,4 @@
-747
+783
 Anonymice Powerline Bold Italic.ttf -misc-anonymice powerline-bold-i-normal--0-0-0-0-m-0-adobe-standard
 Anonymice Powerline Bold Italic.ttf -misc-anonymice powerline-bold-i-normal--0-0-0-0-m-0-ascii-0
 Anonymice Powerline Bold Italic.ttf -misc-anonymice powerline-bold-i-normal--0-0-0-0-m-0-iso10646-1
@@ -165,6 +165,42 @@ DejaVu Sans Mono for Powerline.ttf -misc-dejavu sans mono for powerline-medium-r
 DejaVu Sans Mono for Powerline.ttf -misc-dejavu sans mono for powerline-medium-r-normal--0-0-0-0-m-0-koi8-uni
 DejaVu Sans Mono for Powerline.ttf -misc-dejavu sans mono for powerline-medium-r-normal--0-0-0-0-m-0-microsoft-cp1252
 DejaVu Sans Mono for Powerline.ttf -misc-dejavu sans mono for powerline-medium-r-normal--0-0-0-0-m-0-suneu-greek
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-adobe-standard
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-ascii-0
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso10646-1
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-1
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-10
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-13
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-15
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-2
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-3
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-4
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-5
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-9
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-koi8-e
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-koi8-r
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-koi8-ru
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-koi8-u
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-koi8-uni
+Droid Sans Mono Dotted for Powerline.ttf -misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-microsoft-cp1252
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-adobe-standard
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-ascii-0
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-iso10646-1
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-1
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-10
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-13
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-15
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-2
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-3
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-4
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-5
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-9
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-koi8-e
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-koi8-r
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-koi8-ru
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-koi8-u
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-koi8-uni
+Droid Sans Mono Slashed for Powerline.ttf -misc-droid sans mono slashed for powerline-medium-r-normal--0-0-0-0-m-0-microsoft-cp1252
 Droid Sans Mono for Powerline.otf -misc-droid sans mono for powerline-medium-r-normal--0-0-0-0-m-0-ascii-0
 Droid Sans Mono for Powerline.otf -misc-droid sans mono for powerline-medium-r-normal--0-0-0-0-m-0-iso10646-1
 Droid Sans Mono for Powerline.otf -misc-droid sans mono for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-1
