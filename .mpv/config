@@ -16,6 +16,6 @@ osd-font-size = 30
 sub-scale     = 2
 
 # misc settincs
-msgmodule
+msg-module
 
 # vim: ft=mplayerconf
