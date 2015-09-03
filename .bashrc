@@ -29,6 +29,8 @@ shopt -s nocaseglob
 
 # nix
 [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
+# quickfix for glibc 2.21 vs 2.22 locale issues (see https://github.com/NixOS/nix/issues/599).
+export LOCALE_ARCHIVE="/nix/store/2mbqc6p36xlyl21d4mf1zhmprmqijwkk-glibc-locales-2.21/lib/locale/locale-archive"
 
 # path for marks (see .bash_functions)
 export MARKPATH=$HOME/etc/marks
@@ -43,3 +45,4 @@ source "$HOME/.bash_functions"
 
 # set the prompt (defined in .bash_functions)
 PROMPT_COMMAND=prompt
+
