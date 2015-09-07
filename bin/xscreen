@@ -1,0 +1,26 @@
+#!/bin/bash
+set -euo pipefail
+
+command -v xrandr >/dev/null 2 >&1 || { echo >&2 "Could not find xrandr executable. Aborting." && exit 1; }
+
+declare -r primary=$(echo $1 | tr '[:lower:]' '[:upper:]'])
+declare -r active=$(echo ${@:2} | tr '[:lower:]' '[:upper:]')
+
+declare -r displays=$(xrandr | grep " connected" | cut -d' ' -f1)
+
+declare xrandr_args=""
+declare last_enabled=$primary
+
+for display in $displays; do
+    if [[ "$primary" == "$display" ]]; then
+        xrandr_args+="--output $display --auto --primary "
+        last_enabled=$display
+    elif [[ "${active[@]}" =~ "$display" ]]; then
+        xrandr_args+="--output $display --auto --right-of $last_enabled "
+        last_enabled=$display
+    else
+        xrandr_args+="--output $display --off "
+    fi
+done
+
+xrandr $xrandr_args
