@@ -19,14 +19,14 @@ function ensure_connected() {
     done
 }
 
-function xrandr_arguments() {
+function enable_screens() {
     local -r primary=$1
     local -r secondary=${@:2}
 
     local xrandr_args=""
     local last_enabled=$primary
 
-    for display in $(xrandr | grep " connected" | cut -d' ' -f1); do
+    for display in $(xrandr | grep -E "(dis)?connected" | cut -d' ' -f1); do
         if [[ "$primary" == "$display" ]]; then
             xrandr_args+="--output $display --auto --primary "
         elif [[ "${secondary[@]}" =~ "$display" ]]; then
@@ -37,7 +37,7 @@ function xrandr_arguments() {
         fi
     done
 
-    echo -n $xrandr_args
+    xrandr $xrandr_args
 }
 
 function main() {
@@ -46,7 +46,7 @@ function main() {
     ensure_xrandr
     ensure_connected $to_enable
 
-    xrandr $(xrandr_arguments $to_enable)
+    enable_screens $to_enable
 }
 
 main $@
