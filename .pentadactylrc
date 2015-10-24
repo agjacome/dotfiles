@@ -32,13 +32,14 @@ nmap -builtin <Leader>, :noh<CR>
 nmap -builtin <Leader>p :private winopen<CR>
 nmap -builtin <Leader>d :downloads<CR>
 nmap -builtin <Leader>z :js window.content.document.toggleImageSize();<CR>
+nmap -builtin <Leader>s :open pinboard-save<CR>
 nmap -builtin <Leader>i :open instapaper-read-later<CR>
+nmap -builtin <Leader>I :open instapaper-read-now<CR>
 nmap -builtin <Leader>m :open mendeley-save<CR>
 map -builtin <F3> :styletoggle<Space>-name<Space>hybrid<CR>
 
 " Useful stuff
 set editor='urxvt -e vim -f +<line> <file>'
-set passkeys+='feedly.com':jkvmMrsl<CR>
 autocmd PageLoad youtube.com/watch* :silent !mpc pause
 
 " Styles
@@ -64,5 +65,4 @@ style -name hybrid http://*,https://*,file://*,about:blank <<EOM
 EOM
 styledisable -name=hybrid
 
-" uBlock origin fix in pentadactyl-bar (panel visibility)
 style -name ublick * #nav-bar * { visibility: visible; }
