@@ -1,0 +1,12 @@
+# ~/.tmuxinator/letta.yml
+
+name: letta
+root: ~/share/college/2015-2016/xcs_-_xestion_da_configuracion_do_software/proyecto/letta
+
+windows:
+  - vim:  vim -c 'set wildignore=.settings,target'
+  - mvn:  mvn clean install
+  - git:  git status
+  - srv:  cd ../wildfly && ./bin/standalone.sh
+  - sql:  sudo systemctl start mysqld && mysql -u letta -plettapass letta
+  - bash: ls -la
