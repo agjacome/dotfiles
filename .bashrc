@@ -32,12 +32,12 @@ shopt -s nocaseglob
 # quickfix for glibc 2.21 vs 2.22 locale issues (see https://github.com/NixOS/nix/issues/599).
 export LOCALE_ARCHIVE="/nix/store/2mbqc6p36xlyl21d4mf1zhmprmqijwkk-glibc-locales-2.21/lib/locale/locale-archive"
 
+# npm
+export PATH=$PATH:$HOME/.node_modules/bin
+export npm_config_prefix=$HOME/.node_modules
+
 # path for marks (see .bash_functions)
 export MARKPATH=$HOME/etc/marks
-
-# java workarounds
-export _JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsun.java2d.xrender=true'
 
 # source bash files
 source "$HOME/.bash_alias"

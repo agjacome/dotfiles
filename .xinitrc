@@ -19,8 +19,13 @@ xset s off
 # load .Xresources
 xrdb -load $HOME/.Xresources
 
-# Java workaround
+# Java workarounds
 wmname LG3D
+export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsun.java2d.xrender=true'
+
+# Gtk2 workarounds
+export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 
 # set background and statusbar
 $HOME/bin/wallpaper &
@@ -29,8 +34,6 @@ $HOME/bin/dwm-statusbar 10 &
 # start daemons
 [[ -z $(pgrep -af urxvtd)    ]] && urxvtd -q -o -f
 [[ -z $(pgrep -af syndaemon) ]] && /usr/bin/syndaemon -R -K -t -i 1 -d
-[[ -z $(pgrep -af mpd)       ]] && mpd > /dev/null 2> /dev/null
-[[ -z $(pgrep -af mpdas)     ]] && mpdas -c $HOME/.config/mpdasrc > /dev/null 2> /dev/null &
 [[ -z $(pgrep -af devmon)    ]] && devmon > /dev/null 2> /dev/null &
 
 # start DWM
