@@ -8,17 +8,16 @@ function mpd_song() {
 }
 
 function spotify_song() {
-    local -r prem=$(xprop -name "Spotify Premium - Linux Preview" _NET_WM_ICON_NAME 2> /dev/null | cut -d'"' -f2 | cut -b 11-)
-    local -r free=$(xprop -name "Spotify Free - Linux Preview" _NET_WM_ICON_NAME    2> /dev/null | cut -d'"' -f2 | cut -b 11-)
-
-    [[ -z $prem ]] && echo $free || echo $prem
+    echo $(spotify-now -i '%artist – %title' -e 'off' -p 'off' 2> /dev/null)
 }
 
 function current_playing_song() {
-    local song=$(mpd_song)
-    local song=${song:-$(spotify_song)}
+    local mpd=$(mpd_song)
+    local spoty=$(spotify_song)
 
-    local song=$([[ -z $song ]] && echo "off" || echo $song | awk -F' – ' '{ print $2 " \\uE01B " $1 }' | head -c 100)
+    local song=${mpd:-$spoty}
+
+    local song=$([[ -z $song || $song == "off" ]] && echo "off" || echo $song | awk -F' – ' '{ print $2 " \\uE01B " $1 }' | head -c 100)
     echo -ne "\x04\uE01A\x0B \uE00E $song"
 }
 
