@@ -12,7 +12,7 @@ function prompt_git()
     local HEAD="$(git symbolic-ref HEAD 2> /dev/null)"
     local BRANCH="${HEAD##*/}"
 
-    if [[ -z "$(git status 2> /dev/null | grep 'directory clean')" ]]; then
+    if [[ -z "$(git status 2> /dev/null | grep 'work tree clean')" ]]; then
         local STATUS="!"
     fi
 
