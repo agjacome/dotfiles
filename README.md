@@ -69,3 +69,11 @@ done
 
 There are things that will probably require some tweaking after that linking is
 executed, and they should be solved case by case.
+
+
+
+### TODO
+
+* Migrate plain symlinks of dotfiles to [GNU Stow](https://www.gnu.org/software/stow/)
+or [rcm](https://github.com/thoughtbot/rcm) or anything similar.
+
