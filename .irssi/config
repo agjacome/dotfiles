@@ -8,7 +8,7 @@ servers = (
   {
     address = "irc.freenode.net";
     chatnet = "Freenode";
-    port = "7000";
+    port = "6697";
     use_ssl = "yes";
     ssl_verify = "yes";
     ssl_capath = "/etc/ssl/certs";
@@ -22,12 +22,6 @@ servers = (
     ssl_verify = "yes";
     ssl_capath = "/etc/ssl/certs";
     autoconnect = "yes";
-  },
-  {
-    address = "irc.irc-hispano.org";
-    chatnet = "Hispano";
-    port = "6667";
-    autoconnect = "no";
   }
 );
 
@@ -39,7 +33,6 @@ chatnets = {
   };
   Freenode = { type = "IRC"; };
   Mozilla = { type = "IRC"; };
-  Hispano = { type = "IRC"; };
 };
 
 channels = (
