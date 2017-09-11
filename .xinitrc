@@ -23,6 +23,7 @@ xrdb -load $HOME/.Xresources
 wmname LG3D
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsun.java2d.xrender=true'
+export SWT_GTK3=0
 
 # Gtk2 workarounds
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
@@ -35,6 +36,8 @@ $HOME/bin/dwm-statusbar 10 &
 [[ -z $(pgrep -af urxvtd)    ]] && urxvtd -q -o -f
 [[ -z $(pgrep -af syndaemon) ]] && /usr/bin/syndaemon -R -K -t -i 1 -d
 [[ -z $(pgrep -af devmon)    ]] && devmon > /dev/null 2> /dev/null &
+[[ -z $(pgrep -af mpd)       ]] && mpd > /dev/null 2> /dev/null
+[[ -z $(pgrep -af mpdas)     ]] && mpdas -c $HOME/.config/mpdasrc > /dev/null 2> /dev/null &
 
 # start DWM
 dwm 2> $HOME/var/log/dwm.log
