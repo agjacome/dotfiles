@@ -85,10 +85,12 @@ _completemux() {
         local projects="$(compgen -W "$(tmuxinator completions start)" -- "$word")"
 
         COMPREPLY=( $commands $projects )
-    else
+    elif [ "$COMP_CWORD" -eq 2 ]; then
         local words=("${COMP_WORDS[@]}")
+
         unset words[0]
         unset words[$COMP_CWORD]
+
         local completions=$(tmuxinator completions "${words[@]}")
         COMPREPLY=( $(compgen -W "$completions" -- "$word") )
     fi
