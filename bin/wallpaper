@@ -16,4 +16,4 @@ else
   wallfile="night.jpg"
 fi
 
-feh --bg-fill "$walldir/$wallfile"
+feh --bg-fill --no-fehbg -- $walldir/$wallfile
