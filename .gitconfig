@@ -38,3 +38,7 @@
     diffst = diff --staged
 [github]
     user = agjacome
+[pull]
+    rebase = true
+[rerere]
+    enabled = true
