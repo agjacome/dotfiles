@@ -36,7 +36,7 @@ unhdr_order *                            # ignore default order
 hdr_order   from: to: cc: date: subject: # use this order
 
 # Index view options
-set date_format  = "%y/%m/%d at %I:%M%P"
+set date_format  = "%d-%m-%Y %H:%M"
 set index_format = "[%Z]  %D  %-20.20F  %s"
 
 set sort     = threads                    # sort messages in thread mode (like gmail)
