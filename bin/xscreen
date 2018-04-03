@@ -41,7 +41,7 @@ function enable_screens() {
 }
 
 function main() {
-    local -r to_enable=$(echo $@ | tr '[:lower:]' '[:upper:]')
+    local -r to_enable=$(echo $@)
 
     ensure_xrandr
     ensure_connected $to_enable
