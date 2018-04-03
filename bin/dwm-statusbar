@@ -31,7 +31,7 @@ function current_unread_emails() {
 }
 
 function current_volume_level() {
-    local -r vol=$(amixer get Master | tail -1 | sed -r 's/.*\[([0-9%]{2,4})\].*/\1/')
+    local -r vol=$(echo $(amixer get Master 2> /dev/null || amixer get Speaker 2> /dev/null) | tail -1 | sed -r 's/.*\[([0-9%]{2,4})\].*/\1/')
     echo -ne "\x04\uE01A\x06\uE015 $vol"
 }
 
