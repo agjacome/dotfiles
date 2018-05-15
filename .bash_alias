@@ -1,4 +1,4 @@
-alias ls="ls --group-directories-first --color=auto -hv"
+alias ls="ls -hv"
 alias grep="grep --color=auto -I"
 
 alias ..="cd .."
@@ -13,7 +13,7 @@ alias lla="ls -al"
 
 alias cp="cp -ir"
 alias mv="mv -i"
-alias rm="rm -Iv"
+alias rm="rm -v"
 
 alias df="df -hT"
 alias mkdir="mkdir -pv"
