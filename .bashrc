@@ -24,6 +24,9 @@ shopt -s hostcomplete
 shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
 
+# jvenv
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
 # cabal
 [[ -d $HOME/.cabal/bin         ]] && export PATH=$PATH:$HOME/.cabal/bin
 [[ -d $HOME/.cabal-sandbox/bin ]] && export PATH=$PATH:$HOME/.cabal-sandbox/bin
@@ -33,7 +36,7 @@ export PATH=$PATH:$HOME/.node_modules/bin
 export npm_config_prefix=$HOME/.node_modules
 
 # path for marks (see .bash_functions)
-export MARKPATH=$HOME/etc/marks
+export MARKPATH=$HOME/Documents/etc/marks
 
 # source bash files
 source "$HOME/.bash_alias"
@@ -41,4 +44,3 @@ source "$HOME/.bash_functions"
 
 # set the prompt (defined in .bash_functions)
 PROMPT_COMMAND=prompt
-
