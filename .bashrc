@@ -36,6 +36,10 @@ export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]]          && . "$NVM_DIR/nvm.sh"
 [[ -s "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
 
+# brew completions
+[ -f $(brew --prefix)/etc/bash_completion ] && \. $(brew --prefix)/etc/bash_completion
+[ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ] && \. $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+
 # path for marks (see .bash_functions)
 export MARKPATH=$HOME/Documents/etc/marks
 
