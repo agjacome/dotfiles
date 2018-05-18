@@ -31,9 +31,10 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 [[ -d $HOME/.cabal/bin         ]] && export PATH=$PATH:$HOME/.cabal/bin
 [[ -d $HOME/.cabal-sandbox/bin ]] && export PATH=$PATH:$HOME/.cabal-sandbox/bin
 
-# npm
-export PATH=$PATH:$HOME/.node_modules/bin
-export npm_config_prefix=$HOME/.node_modules
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[[ -s "$NVM_DIR/nvm.sh" ]]          && . "$NVM_DIR/nvm.sh"
+[[ -s "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
 
 # path for marks (see .bash_functions)
 export MARKPATH=$HOME/Documents/etc/marks
