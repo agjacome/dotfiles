@@ -1,7 +1,7 @@
 [ -z "$PS1" ] && return
 
 # binary executables
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/Documents/bin:$PATH
 
 # bash history control
 export HISTCONTROL=erasedups
@@ -45,3 +45,4 @@ source "$HOME/.bash_functions"
 
 # set the prompt (defined in .bash_functions)
 PROMPT_COMMAND=prompt
+
