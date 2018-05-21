@@ -18,9 +18,10 @@ alias rm="rm -v"
 alias df="df -hT"
 alias mkdir="mkdir -pv"
 
-alias s="pacman -Ss"
-alias i="sudo pacman -S"
-alias syu="yaourt -Syu --aur"
+alias bs="brew search"
+alias bi="brew install"
+alias bci="brew cask install"
+alias bup="brew update && brew upgrade && brew cask upgrade"
 
 alias ta="tmux attach-session"
 alias tn="tmux new-session"
