@@ -7,6 +7,7 @@ set editor='urxvt -e vim -f +<line> <file>'
 " Style
 set guioptions=Cns
 set showtabline=always
+autocmd Fullscreen .* :set guioptions+=s
 
 colorscheme zenburn
 hi FontCode  -a font-family: "Dejavu Sans Mono",Monaco,Consolas,serif !important; font-size: 10pt !important;
