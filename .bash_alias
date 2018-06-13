@@ -23,6 +23,7 @@ alias bi="brew install"
 alias bci="brew cask install"
 alias bup="brew update && brew upgrade && brew cask upgrade"
 
+alias mux="tmuxinator"
 alias ta="tmux attach-session"
 alias tn="tmux new-session"
 
