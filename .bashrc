@@ -37,7 +37,7 @@ export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
 
 # docker/dinghy
-eval $(dinghy env)
+# eval $(dinghy env)
 
 # brew completions
 [ -f $(brew --prefix)/etc/bash_completion ] && \. $(brew --prefix)/etc/bash_completion
