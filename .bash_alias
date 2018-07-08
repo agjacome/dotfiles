@@ -18,6 +18,9 @@ alias rm="grm -Iv"
 alias df="gdf -hT"
 alias mkdir="gmkdir -pv"
 
+alias sort="gsort"
+alias cut="gcut"
+
 alias bs="brew search"
 alias bi="brew install"
 alias bci="brew cask install"
