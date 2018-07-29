@@ -11,7 +11,6 @@ servers = (
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "yes";
-    ssl_capath = "/etc/ssl/certs";
     autoconnect = "yes";
   },
   {
@@ -20,7 +19,15 @@ servers = (
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "yes";
-    ssl_capath = "/etc/ssl/certs";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.gitter.im";
+    chatnet = "Gitter";
+    port = "6697";
+    password = GITTER_PASSWORD;
+    use_tls = "yes";
+    tls_verify = "no";
     autoconnect = "yes";
   }
 );
@@ -29,22 +36,38 @@ chatnets = {
   BitlBee = {
     type = "IRC";
     nick = "agjacome";
-    autosendcmd = "/^msg &bitlbee identify PASSWORD;";
+    autosendcmd = "/^msg &bitlbee identify BITLBEE_PASSWORD;";
   };
-  Freenode = { type = "IRC"; };
-  Mozilla = { type = "IRC"; };
+  Freenode = {
+    type = "IRC";
+    sasl_mechanism = "PLAIN";
+    sasl_username = "agjacome";
+    sasl_password = FREENODE_PASSWORD;
+  };
+  Mozilla = {
+    type = "IRC";
+    sasl_mechanism = "PLAIN";
+    sasl_username = "agjacome";
+    sasl_password = MOZILLA_PASSWORD;
+  };
+  Gitter = {
+    type = "IRC";
+    nick = "agjacome";
+  };
 };
 
 channels = (
-  { name = "#archlinux"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#haskell"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#idris"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#math"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#nixos"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#archlinux";  chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#eta-lang";   chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#haskell";    chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#idris";      chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#math";       chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#nixos";      chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#purescript"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#rust"; chatnet = "Mozilla"; autojoin = "yes"; },
-  { name = "#scala"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#scalaz"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#scala";      chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#scalaz";     chatnet = "Freenode"; autojoin = "yes"; },
+
+  { name = "#rust"; chatnet = "Mozilla"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -130,7 +153,6 @@ settings = {
     emphasis = "OFF";
     theme = "pbrisbin";
     beep_msg_level = "NOTICE MSGS HILIGHT";
-    bell_beeps = "no";
     hilight_nick_matches = "no";
     hilight_act_color = "%R";
     hilight_color = "%Y";
@@ -197,100 +219,8 @@ windows = {
       }
     );
   };
-  4 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#archlinux";
-        tag = "freenode";
-      }
-    );
-  };
-  5 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#nixos";
-        tag = "freenode";
-      }
-    );
-  };
-  6 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#scala";
-        tag = "freenode";
-      }
-    );
-  };
-  7 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#scalaz";
-        tag = "freenode";
-      }
-    );
-  };
-  8 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#haskell";
-        tag = "freenode";
-      }
-    );
-  };
-  9 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#purescript";
-        tag = "freenode";
-      }
-    );
-  };
-  10 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#idris";
-        tag = "freenode";
-      }
-    );
-  };
-  11 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#rust";
-        tag = "mozilla";
-      }
-    );
-  };
-  12 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "##math";
-        tag = "freenode";
-      }
-    );
-  };
-  99 = { name = "hilight"; sticky = "yes"; };
 };
 
 mainwindows = {
-  1 = { first_line = "4"; lines = "80"; };
-  99 = { first_line = "1"; lines = "3"; };
+  1 = { first_line = "1"; lines = "80"; };
 };
