@@ -25,13 +25,8 @@ shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
 
 # cabal
-[[ -d $HOME/.cabal-sandbox/bin ]] && export PATH=$PATH:$HOME/.cabal-sandbox/bin
 [[ -d $HOME/.cabal/bin         ]] && export PATH=$PATH:$HOME/.cabal/bin
-
-# nix
-[[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
-# quickfix for glibc 2.21 vs 2.22 locale issues (see https://github.com/NixOS/nix/issues/599).
-export LOCALE_ARCHIVE="/nix/store/2mbqc6p36xlyl21d4mf1zhmprmqijwkk-glibc-locales-2.21/lib/locale/locale-archive"
+[[ -d $HOME/.cabal-sandbox/bin ]] && export PATH=$PATH:$HOME/.cabal-sandbox/bin
 
 # npm
 export PATH=$PATH:$HOME/.node_modules/bin
