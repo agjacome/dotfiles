@@ -57,17 +57,16 @@ chatnets = {
 };
 
 channels = (
-  { name = "#archlinux";  chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#eta-lang";   chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#haskell";    chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#idris";      chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#math";       chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#nixos";      chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#purescript"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#scala";      chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#scalaz";     chatnet = "Freenode"; autojoin = "yes"; },
-
   { name = "#rust"; chatnet = "Mozilla"; autojoin = "yes"; }
+
+  { name = "#archlinux";         chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#eta-lang";          chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#haskell";           chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#haskell-beginners"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#idris";             chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#nixos";             chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#purescript";        chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#scalaz";            chatnet = "Freenode"; autojoin = "yes"; },
 );
 
 aliases = {
