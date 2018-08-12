@@ -15,7 +15,7 @@ directory        = /home/agjacome/.rtorrent
 session          = /home/agjacome/.rtorrent
 schedule         = low_diskspace,5,60,close_low_diskspace=5000M
 schedule         = watch_directory,5,5,load.start=/home/agjacome/share/torrents/*.torrent
-method.set_key   = event.download.finished,move_complete,"d.directory.set=/home/agjacome/tmp/;execute=mv,-u,$d.get_base_path=,/home/agjacome/tmp/"
+method.set_key   = event.download.finished,move_complete,"d.directory.set=/home/agjacome/tmp/;execute=mv,-u,$d.base_path=,/home/agjacome/tmp/"
 
 # rTorrent color patch
 # color_active_fg   = 3
