@@ -22,6 +22,9 @@ hi FontCode -a font-family: Dejavu Sans Mono !important; font-size: 10pt !import
 hi FontFixed -a font-family: Dejavu Sans Mono !important; font-size: 10pt !important;
 hi Normal -a font-family: Dejavu Sans Mono !important; font-size: 10pt !important;
 
+" Commands
+command! pinsave open javascript:if(document.getSelection){s=document.getSelection();}else{s='';};document.location='https://pinboard.in/add?next=same&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(s)+'&title='+encodeURIComponent(document.title);
+
 " Mappings
 map , <Leader>
 nmap K :tn<CR>
@@ -32,10 +35,9 @@ nmap -builtin <Leader>, :noh<CR>
 nmap -builtin <Leader>p :private winopen<CR>
 nmap -builtin <Leader>d :downloads<CR>
 nmap -builtin <Leader>z :js window.content.document.toggleImageSize();<CR>
-nmap -builtin <Leader>s :open pinboard-save<CR>
+nmap -builtin <Leader>s :pinsave<CR>
 nmap -builtin <Leader>i :open instapaper-read-later<CR>
 nmap -builtin <Leader>I :open instapaper-read-now<CR>
-nmap -builtin <Leader>m :open mendeley-save<CR>
 map -builtin <F3> :styletoggle<Space>-name<Space>hybrid<CR>
 
 " Useful stuff
@@ -43,6 +45,7 @@ set editor='urxvt -e vim -f +<line> <file>'
 autocmd PageLoad youtube.com/watch* :silent !mpc pause
 
 " Styles
+style -name ublick * #nav-bar * { visibility: visible; }
 style -name hybrid http://*,https://*,file://*,about:blank <<EOM
   * {
     color: #C5C8C6 !important;
@@ -64,5 +67,3 @@ style -name hybrid http://*,https://*,file://*,about:blank <<EOM
   }
 EOM
 styledisable -name=hybrid
-
-style -name ublick * #nav-bar * { visibility: visible; }
