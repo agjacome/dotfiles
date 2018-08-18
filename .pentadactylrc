@@ -23,11 +23,51 @@ hi FontFixed -a font-family: Dejavu Sans Mono !important; font-size: 10pt !impor
 hi Normal    -a font-family: Dejavu Sans Mono !important; font-size: 10pt !important;
 
 " Commands
-command! imgzoom js window.content.document.toggleImageSize();
+command! 
+  \ -description "Save current page in Pinboard"
+  \ -nargs=*
+  \ pinsave,ps
+  \ -js <<EOD
+  (function(){
+      var url  = 'https://pinboard.in/add?next=same';
+          url += '&url=' + encodeURIComponent(content.location.href);
+          url += '&title=' + encodeURIComponent(content.document.title);
+          url += '&description=' + (content.getSelection().toString() || '');
 
-command! pinsave   open javascript:if(document.getSelection){s=document.getSelection();}else{s='';};document.location='https://pinboard.in/add?next=same&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(s)+'&title='+encodeURIComponent(document.title);
-command! instasave open javascript:function%20iprl5(){var%20d=document,z=d.createElement('scr'+'ipt'),b=d.body,l=d.location;try{if(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src',l.protocol+'//www.instapaper.com/j/CsLF5VYjbaH7?a=read-later&u='+encodeURIComponent(l.href)+'&t='+(new%20Date().getTime()));b.appendChild(z);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}iprl5();void(0);
-command! instaread open javascript:function%20iptxt(){var%20d=document;try{if(!d.body)throw(0);window.location='http://www.instapaper.com/text?u='+encodeURIComponent(d.location.href);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}iptxt();void(0);
+      dactyl.execute("open " + url);
+  })();
+EOD
+
+command! 
+  \ -description "Save current page in Instapaper"
+  \ -nargs=*
+  \ instasave,is
+  \ -js <<EOD
+  (function() {
+      var src  = content.location.protocol + '//www.instapaper.com/j/CsLF5VYjbaH7?a=read-later';
+          src += '&u=' + encodeURIComponent(content.location.href);
+          src += '&t=' + new Date().getTime();
+
+      var script = content.document.createElement('script');
+      script.setAttribute('src', src);
+
+      content.document.body.appendChild(script);
+  })();
+EOD
+
+command! 
+  \ -description "Open current page in Instapaper read mode (! for new tab)"
+  \ -nargs=*
+  \ instaread,ir
+  \ -bang
+  \ -js <<EOD
+  (function(){
+      var url  = 'http://www.instapaper.com/text?u=';
+          url += encodeURIComponent(content.location.href);
+
+      dactyl.execute((bang ? "tabopen " : "open ") + url);
+  })();
+EOD
 
 " Mappings
 map , <Leader>
@@ -38,9 +78,9 @@ nmap <S-C-k> :tabmove +1<CR>
 nmap <S-C-j> :tabmove -1<CR>
 
 nmap -builtin <Leader>, :noh<CR>
-nmap -builtin <Leader>z :imgzoom<CR>
 nmap -builtin <Leader>p :private winopen<CR>
 nmap -builtin <Leader>d :downloads<CR>
+
 nmap -builtin <Leader>s :pinsave<CR>
 nmap -builtin <Leader>i :instasave<CR>
 nmap -builtin <Leader>I :instaread<CR>
