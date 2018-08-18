@@ -2,28 +2,29 @@
 
 " Init
 loadplugins '\.(js|penta)$'
-group user
+set editor='urxvt -e vim -f +<line> <file>'
 
-" Options
-colorscheme zenburn
+" Style
 set guioptions=Cns
 set showtabline=always
 
-set hlfind
-set incfind
+colorscheme zenburn
+hi FontCode  -a font-family: "Dejavu Sans Mono",Monaco,Consolas,serif !important; font-size: 10pt !important;
+hi FontFixed -a font-family: "Dejavu Sans Mono",Monaco,Consolas,serif !important; font-size: 10pt !important;
+hi Normal    -a font-family: "Dejavu Sans Mono",Monaco,Consolas,serif !important; font-size: 10pt !important;
+hi Hint      -a font-family: "Dejavu Sans Mono",Monaco,Consolas,serif !important; font-size: 10pt !important;
+
+" Options
 set noerrorbells
 set novisualbell
-
 set defsearch=duck
+set hintkeys=asdfhjkl
+set hlfind
+set incfind
 set autocomplete=
-set complete=location,suggestion,bookmark
+set complete=history
 set wildmode=list:longest,full
-set maxitems=3
-
-" Font
-hi FontCode  -a font-family: Dejavu Sans Mono !important; font-size: 10pt !important;
-hi FontFixed -a font-family: Dejavu Sans Mono !important; font-size: 10pt !important;
-hi Normal    -a font-family: Dejavu Sans Mono !important; font-size: 10pt !important;
+set maxitems=5
 
 " Commands
 command!
@@ -99,45 +100,19 @@ EOD
 " Mappings
 map , <Leader>
 
-nmap K :tn<CR>
-nmap J :tp<CR>
+nmap J :tn<CR>
+nmap K :tp<CR>
 nmap <S-C-k> :tabmove +1<CR>
 nmap <S-C-j> :tabmove -1<CR>
 
 nmap -builtin <Leader>, :noh<CR>
-nmap -builtin <Leader>p :private winopen<CR>
 nmap -builtin <Leader>d :downloads<CR>
+nmap -builtin <Leader>P :private winopen<CR>
 
 nmap -builtin <Leader>s :pinsave<CR>
 nmap -builtin <Leader>i :instasave<CR>
 nmap -builtin <Leader>I :instaread<CR>
+nmap -builtin <Leader>p :ytplay<CR>
 
-map -builtin <F3> :styletoggle<Space>-name<Space>hybrid<CR>
-
-" Useful stuff
-set editor='urxvt -e vim -f +<line> <file>'
-autocmd PageLoad youtube.com/watch* :silent !mpc pause
-
-" Styles
-style -name ublick * #nav-bar * { visibility: visible; }
-style -name hybrid http://*,https://*,file://*,about:blank <<EOM
-  * {
-    color: #C5C8C6 !important;
-    background: #1D1F21 !important;
-    border-color: #282A2E !important;
-  }
-  a, a * {
-    color: #81A2BE !important;
-    text-decoration: none !important;
-  }
-  a:hover, a:hover * {
-    color: #F0C674 !important;
-  }
-  a:visited, a:visited * {
-    color: #b294bb !important;
-  }
-  a:visited:hover, a:visited:hover * {
-    color: #de935f !important;
-  }
-EOM
-styledisable -name=hybrid
+" Extras
+autocmd PageLoad youtube.com/watch* :silent !mpc pause " Stop MPD playback on entering Youtube
