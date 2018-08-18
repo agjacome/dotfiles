@@ -1,3 +1,6 @@
+" vim: set ft=vim:
+
+" Init
 loadplugins '\.(js|penta)$'
 group user
 
@@ -23,7 +26,7 @@ hi FontFixed -a font-family: Dejavu Sans Mono !important; font-size: 10pt !impor
 hi Normal    -a font-family: Dejavu Sans Mono !important; font-size: 10pt !important;
 
 " Commands
-command! 
+command!
   \ -description "Save current page in Pinboard"
   \ -nargs=*
   \ pinsave,ps
@@ -38,7 +41,7 @@ command!
   })();
 EOD
 
-command! 
+command!
   \ -description "Save current page in Instapaper"
   \ -nargs=*
   \ instasave,is
@@ -55,7 +58,7 @@ command!
   })();
 EOD
 
-command! 
+command!
   \ -description "Open current page in Instapaper read mode (! for new tab)"
   \ -nargs=*
   \ instaread,ir
@@ -66,6 +69,30 @@ command!
           url += encodeURIComponent(content.location.href);
 
       dactyl.execute((bang ? "tabopen " : "open ") + url);
+  })();
+EOD
+
+command!
+  \ -description "Play/pause current Youtube video"
+  \ -nargs=*
+  \ ytplay,yp
+  \ -js <<EOD
+  (function(){
+      var playOrPause = `(function(){
+          var player = content.document.getElementById('movie_player');
+          if (!player) return;
+
+          switch (player.getPlayerState()) {
+              case -1: player.playVideo();  break; /* unstarted */
+              case  0: player.playVideo();  break; /* ended     */
+              case  1: player.pauseVideo(); break; /* playing   */
+              case  2: player.playVideo();  break; /* paused    */
+              case  3:                      break; /* buffering */
+              case  5:                      break; /* cued      */
+          }
+      })()`;
+
+      dactyl.execute("open javascript:" + playOrPause);
   })();
 EOD
 
