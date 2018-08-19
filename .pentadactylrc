@@ -102,8 +102,8 @@ map , <Leader>
 
 nmap J :tn<CR>
 nmap K :tp<CR>
-nmap <S-C-k> :tabmove +1<CR>
-nmap <S-C-j> :tabmove -1<CR>
+nmap <S-C-j> :tabmove +1<CR>
+nmap <S-C-k> :tabmove -1<CR>
 
 nmap -builtin <Leader>, :noh<CR>
 nmap -builtin <Leader>d :downloads<CR>
@@ -115,4 +115,4 @@ nmap -builtin <Leader>I :instaread<CR>
 nmap -builtin <Leader>p :ytplay<CR>
 
 " Extras
-autocmd PageLoad youtube.com/watch* :silent !mpc pause " Stop MPD playback on entering Youtube
+autocmd PageLoad youtube.com/watch* :silent !mpc pause " Pause MPD on entering Youtube video
