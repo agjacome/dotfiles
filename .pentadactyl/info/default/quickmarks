@@ -1,5 +1,4 @@
 {
-    "-": "https://thoughtworks.okta.com",
     "a": "https://amazon.es",
     "c": "https://calendar.google.com",
     "d": "https://drive.google.com",
@@ -8,6 +7,7 @@
     "h": "https://news.ycombinator.com",
     "i": "https://instapaper.com",
     "I": "https://inoreader.com",
+    "o": "https://thoughtworks.okta.com",
     "p": "https://pinboard.in",
     "r": "https://reddit.com/r/programming",
     "s": "https://stackoverflow.com",
