@@ -22,7 +22,7 @@ set hintkeys=asdfhjkl
 set hlfind
 set incfind
 set autocomplete=
-set complete=history
+set complete=location,suggestion,bookmark,history
 set wildmode=list:longest,full
 set maxitems=5
 
