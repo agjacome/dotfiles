@@ -1,7 +1,7 @@
 [ -z "$PS1" ] && return
 
 # binary executables
-export PATH=$HOME/Documents/bin:$PATH
+export PATH="$HOME/Documents/bin:$PATH:/usr/local/sbin"
 
 # bash history control
 export HISTCONTROL=erasedups
