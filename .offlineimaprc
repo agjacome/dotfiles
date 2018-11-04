@@ -30,3 +30,4 @@ realdelete     = no
 maxconnections = 5
 postsynchook   = notmuch new
 sslcacertfile  = /etc/ssl/certs/ca-certificates.crt
+ssl_version    = tls1_2
