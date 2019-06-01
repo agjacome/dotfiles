@@ -43,6 +43,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -f $(brew --prefix)/etc/bash_completion ] && \. $(brew --prefix)/etc/bash_completion
 [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ] && \. $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 
+# override Mac OS ruby with brew-updated version
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 # path for marks (see .bash_functions)
 export MARKPATH=$HOME/Documents/etc/marks
 
