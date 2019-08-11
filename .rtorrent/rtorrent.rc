@@ -1,9 +1,9 @@
 download_rate    = 0
 upload_rate      = 0
-max_peers        = 100
-max_peers_seed   = 100
-max_uploads      = 13
-max_downloads    = 2
+max_peers        = 500
+max_peers_seed   = 500
+max_uploads      = 30 
+max_downloads    = 10
 protocol.pex.set = yes
 port_random      = no
 port_range       = 49168-49169
@@ -16,9 +16,12 @@ session          = /home/agjacome/.rtorrent
 schedule         = low_diskspace,5,60,close_low_diskspace=5000M
 schedule         = watch_directory,5,5,load.start=/home/agjacome/share/torrents/*.torrent
 method.set_key   = event.download.finished,move_complete,"d.directory.set=/home/agjacome/tmp/;execute=mv,-u,$d.base_path=,/home/agjacome/tmp/"
+scgi_local      = /home/agjacome/share/rpc.socket
+execute.nothrow = chmod,777,/home/agjacome/share/rpc.socket
 
 # rTorrent color patch
 # color_active_fg   = 3
 # color_dead_fg     = 1
 # color_finished_fg = 2
 # color_inactive_fg = 7
+
