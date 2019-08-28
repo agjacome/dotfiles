@@ -13,6 +13,7 @@ export BROWSER=palemoon
 export GREP_COLOR="1;31"
 export LESS="-R -X"
 export QUOTING_STYLE=literal
+export LC_ALL=en_US.UTF-8
 
 # shell options
 shopt -s cdspell
