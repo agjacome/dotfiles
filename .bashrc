@@ -25,6 +25,16 @@ shopt -s hostcomplete
 shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
 
+# override Mac OS ruby with brew-updated version
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# brew completions
+[ -f $(brew --prefix)/etc/bash_completion ] && \. $(brew --prefix)/etc/bash_completion
+[ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ] && \. $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+
+# docker/dinghy
+# eval $(dinghy env)
+
 # jvenv
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
@@ -36,16 +46,6 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]]          && . "$NVM_DIR/nvm.sh"
 [[ -s "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
-
-# docker/dinghy
-# eval $(dinghy env)
-
-# brew completions
-[ -f $(brew --prefix)/etc/bash_completion ] && \. $(brew --prefix)/etc/bash_completion
-[ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ] && \. $(brew --prefix)/etc/bash_completion.d/git-completion.bash
-
-# override Mac OS ruby with brew-updated version
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # path for marks (see .bash_functions)
 export MARKPATH=$HOME/Documents/etc/marks
