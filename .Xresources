@@ -56,7 +56,7 @@ URxvt.url-select.launcher  : /usr/bin/palemoon
 URxvt.url-select.underline : true
 
 ! URxvt keybinds
-URxvt.perl-ext-common      : default,clipboard,keyboard-select,url-select
+URxvt.perl-ext-common      : default,clipboard,url-select,resize-font
 URxvt.keysym.Home          : \033[1~
 URxvt.keysym.End           : \033[4~
 URxvt.keysym.M-c           : perl:clipboard:copy
@@ -73,5 +73,4 @@ URxvt.clipboard.copycmd    : xsel -ib
 URxvt.clipboard.pastecmd   : xsel -ob
 
 ! URxvt font-style
-URxvt.font : xft:droid sans mono slashed for powerline:size=11
-! URxvt.letterSpace : -1
+URxvt.font : xft:DroidSansMono\ Nerd\ Font:pixelsize=15
