@@ -24,12 +24,17 @@ export SWT_GTK3=0
 # Gtk2 workarounds
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 
+# Clipmenu config
+export CM_MAX_CLIPS=10
+export CM_IGNORE_WINDOW="Password"
+
 # set background and statusbar
 $HOME/bin/wallpaper &
 dwmblocks &
 
 # start daemons
 [[ -z $(pgrep -af urxvtd)    ]] && urxvtd -q -o -f
+[[ -z $(pgrep -af clipmenud) ]] && clipmenud > /dev/null 2> /dev/null &
 [[ -z $(pgrep -af devmon)    ]] && devmon > /dev/null 2> /dev/null &
 [[ -z $(pgrep -af mpd)       ]] && mpd > /dev/null 2> /dev/null
 [[ -z $(pgrep -af mpdas)     ]] && mpdas -c $HOME/.config/mpdasrc > /dev/null 2> /dev/null &
