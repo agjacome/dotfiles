@@ -20,7 +20,7 @@ alias mkdir="mkdir -pv"
 
 alias s="pacman -Ss"
 alias i="sudo pacman -S"
-alias syu="yaourt -Syu --aur"
+alias syu="yay -Syu --timeupdate --devel"
 
 alias ta="tmux attach-session"
 alias tn="tmux new-session"
