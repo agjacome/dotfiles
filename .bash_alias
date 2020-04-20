@@ -18,8 +18,8 @@ alias rm="rm -Iv"
 alias df="df -hT"
 alias mkdir="mkdir -pv"
 
-alias s="pacman -Ss"
-alias i="sudo pacman -S"
+alias s="yay -Ss"
+alias i="yay -S"
 alias syu="yay -Syu --timeupdate --devel"
 
 alias ta="tmux attach-session"
