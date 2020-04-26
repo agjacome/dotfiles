@@ -29,7 +29,7 @@ export CM_MAX_CLIPS=10
 export CM_IGNORE_WINDOW="Password"
 
 # set background and statusbar
-$HOME/bin/wallpaper &
+$HOME/.fehbg &
 dwmblocks &
 
 # start daemons
