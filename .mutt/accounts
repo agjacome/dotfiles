@@ -1,0 +1,18 @@
+############################################################
+# GMAIL
+############################################################
+set   realname      = "Alberto Gutiérrez Jácome"
+set   from          = "agjacome@gmail.com"
+set   spoolfile     = "+gmail/inbox"
+set   mbox          = "+gmail/all"
+set   postponed     = "+gmail/drafts"
+set   signature     = "Alberto"
+set   sendmail      = "/usr/bin/msmtp -a gmail"
+set   sendmail_wait = 0
+unset record
+
+color status green default
+
+macro index gi "<change-folder> =gmail/inbox<enter>" "go to Gmail/Inbox"
+macro index ga "<change-folder> =gmail/all<enter>"   "go to Gmail/All"
+# vim: ft=muttrc

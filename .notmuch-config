@@ -4,7 +4,6 @@ path=/home/agjacome/var/mail
 [user]
 name=Alberto Gutiérrez Jácome
 primary_email=agjacome@gmail.com
-other_email=agjacome@esei.uvigo.es;
 
 [new]
 tags=unread;inbox;
