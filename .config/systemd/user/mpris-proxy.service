@@ -1,0 +1,9 @@
+[Unit]
+Description=Forward bluetooth midi controls via mpris2
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mpris-proxy
+
+[Install]
+WantedBy=default.target
