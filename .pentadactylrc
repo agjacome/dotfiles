@@ -1,20 +1,18 @@
 " vim: set ft=vim:
-
-" Init
 loadplugins '\.(js|penta)$'
-set editor='urxvt -e vim -f +<line> <file>'
 
-" Style
+" Theme
 set guioptions=Cns
 set showtabline=always
 
 colorscheme zenburn
-hi FontCode  -a font-family: "Dejavu Sans Mono",Monaco,Consolas,serif !important; font-size: 10pt !important;
-hi FontFixed -a font-family: "Dejavu Sans Mono",Monaco,Consolas,serif !important; font-size: 10pt !important;
-hi Normal    -a font-family: "Dejavu Sans Mono",Monaco,Consolas,serif !important; font-size: 10pt !important;
-hi Hint      -a font-family: "Dejavu Sans Mono",Monaco,Consolas,serif !important; font-size: 10pt !important;
+hi FontCode  -a font-family: "DroidSansMono Nerd Font" !important; font-size: 10pt !important;
+hi FontFixed -a font-family: "DroidSansMono Nerd Font" !important; font-size: 10pt !important;
+hi Normal    -a font-family: "DroidSansMono Nerd Font" !important; font-size: 10pt !important;
+hi Hint      -a font-family: "DroidSansMono Nerd Font" !important; font-size: 10pt !important;
+hi REPL      -a font-family: "DroidSansMono Nerd Font" !important; font-size: 10pt !important;
 
-" Options
+" General options
 set noerrorbells
 set novisualbell
 set defsearch=duck
@@ -25,6 +23,7 @@ set autocomplete=
 set complete=location,suggestion,bookmark,history
 set wildmode=list:longest,full
 set maxitems=5
+set editor='urxvt -e vim -f +<line> <file>'
 
 " Commands
 command!
@@ -114,5 +113,5 @@ nmap -builtin <Leader>i :instasave<CR>
 nmap -builtin <Leader>I :instaread<CR>
 nmap -builtin <Leader>p :ytplay<CR>
 
-" Extras
-autocmd PageLoad youtube.com/watch* :silent !mpc pause " Pause MPD on entering Youtube video
+" Automated stuff
+autocmd PageLoad youtube.com/watch* :silent !mpc pause && dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
