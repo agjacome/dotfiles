@@ -2,43 +2,23 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# source xinitrc.d scripts
-for file in /etc/X11/xinit/xinitrc.d/*; do
-    [ -x "$file" ] && . "$file"
+for xinit_file in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x $xinit_file ] && . $xinit_file
 done
-unset file
 
-# disable dpms
-xset -dpms
-xset s off
-
-# load .Xresources
-xrdb -load $HOME/.Xresources
-
-# Java workarounds
 wmname LG3D
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsun.java2d.xrender=true'
 export SWT_GTK3=0
-
-# Gtk2 workarounds
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 
-# Clipmenu config
-export CM_MAX_CLIPS=10
-export CM_IGNORE_WINDOW="Password"
-
-# set background and statusbar
-$HOME/.fehbg &
-dwmblocks &
-
-# start daemons
-[[ -z $(pgrep -af urxvtd)    ]] && urxvtd -q -o -f
-[[ -z $(pgrep -af clipmenud) ]] && clipmenud > /dev/null 2> /dev/null &
-[[ -z $(pgrep -af devmon)    ]] && devmon > /dev/null 2> /dev/null &
-[[ -z $(pgrep -af mpd)       ]] && mpd > /dev/null 2> /dev/null
-[[ -z $(pgrep -af mpdas)     ]] && mpdas -c $HOME/.config/mpdasrc > /dev/null 2> /dev/null &
-
-# start DWM
+xset -dpms
+xset s off
 xscreen HDMI-0 &
+
+$HOME/.fehbg &
+systemctl --user import-environment
+systemctl --user start xsession.target
+
+dwmblocks &
 dwm 2> $HOME/var/log/dwm.log

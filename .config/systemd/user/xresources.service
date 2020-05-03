@@ -1,0 +1,9 @@
+[Unit]
+Description=Set the XServer resources
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/xrdb -load %h/.Xresources
+
+[Install]
+WantedBy=xsession.target

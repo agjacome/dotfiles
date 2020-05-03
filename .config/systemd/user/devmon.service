@@ -1,11 +1,11 @@
 [Unit]
-Description=Forward bluetooth midi controls via mpris2
+Description=Udevil devmon service
 
 [Service]
 Type=simple
 Restart=always
 RestartSec=0
-ExecStart=/usr/bin/mpris-proxy
+ExecStart=/usr/bin/devmon
 
 [Install]
 WantedBy=default.target

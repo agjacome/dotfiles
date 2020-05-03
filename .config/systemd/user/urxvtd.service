@@ -1,0 +1,12 @@
+[Unit]
+Description=URxvt terminal daemon
+Requires=urxvtd.socket
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=0
+ExecStart=/usr/bin/urxvtd -o -q
+
+[Install]
+WantedBy=xsession.target
