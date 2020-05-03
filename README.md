@@ -1,9 +1,5 @@
-$HOME files
-===========
-
-My config files for Linux's ```$HOME```. I've only tested them under ArchLinux,
-but they are probably suitable to any distro, given that all the required
-packages are installed.
+$HOME config files for ArchLinux
+================================
 
 My home directory is usually structured as follows:
 
@@ -11,32 +7,13 @@ My home directory is usually structured as follows:
 /home/agjacome
 ├── bin
 ├── doc
-│   ├── books
-│   ├── papers
-│   └── ...
 ├── etc
 │   ├── dotfiles
-│   ├── dwm
 │   ├── marks
-│   ├── vimfiles
 │   └── ...
 ├── media
-│   ├── films
-│   ├── music
-│   └── ...
 ├── share
-│   ├── college
-│   ├── courses
-│   ├── torrents
-│   └── ...
 ├── src
-│   ├── arch
-│   │   ├── build
-│   │   ├── packages
-│   │   ├── sources
-│   │   ├── srcpackages
-│   │   └── yaourt
-│   └── ...
 ├── tmp
 └── var
     ├── log
@@ -47,13 +24,15 @@ My home directory is usually structured as follows:
 All configuration files assume that directory structure.
 
 This git repository is kept under ```~/etc/dotfiles```, and all dotfiles are
-just symlinked (```ln -s```) to their expected destination, except those that
-hold passwords or sensitive information, which are just copied and modified in
-place (e.g.: ```~/.msmtprc```). Aside from dotfiles, ```~/bin``` holds scripts
-and programs that will be available from ```$PATH```, and the directory is also
-symlinked in the same way.
+just symlinked to their expected destination, except those that hold passwords
+or sensitive information, which are just copied and modified in place (e.g.:
+```~/.msmtprc```).
 
-The usual way to install everything:
+```~/bin``` holds scripts and programs that will be available from ```$PATH```,
+and the directory is also symlinked in the same way.
+
+The manual way to install everything (until migrated to a proper dotfile tool
+or something similar):
 
 ```bash
 mkdir -p $HOME/{doc,etc,media,share,src,tmp,var}
@@ -67,13 +46,7 @@ for file in $(ls -a $HOME/etc/dotfiles | grep -v "^.\{1,2\}$\|^.git$\|^.gitmodul
 done
 ```
 
-There are things that will probably require some tweaking after that linking is
-executed, and they should be solved case by case.
-
-
-
 ### TODO
 
-* Migrate plain symlinks of dotfiles to [GNU Stow](https://www.gnu.org/software/stow/)
-or [rcm](https://github.com/thoughtbot/rcm) or anything similar.
-
+* Migrate to a proper tool for managing dotfiles:
+  https://wiki.archlinux.org/index.php/Dotfiles#Tools
