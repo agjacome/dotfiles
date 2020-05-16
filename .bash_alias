@@ -22,8 +22,9 @@ alias s="yay -Ss"
 alias i="yay -S"
 alias syu="yay -Syu --timeupdate --devel"
 
-alias ta="tmux attach-session"
-alias tn="tmux new-session"
+alias ta="systemd-run --scope --user tmux attach-session"
+alias tn="systemd-run --scope --user tmux new-session"
+alias mux="systemd-run --scope --user tmuxinator"
 
 alias git="LANG=en_US.UTF-8 git"
 alias ssh="TERM=xterm-256color ssh"
