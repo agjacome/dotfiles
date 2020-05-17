@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+curl ipinfo.io/"$1"
+echo
