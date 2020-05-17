@@ -1,51 +1,10 @@
-declare -r color_off='\[\e[0m\]'
-declare -r red='\[\e[0;31m\]'
-declare -r green='\[\e[0;32m\]'
-declare -r yellow='\[\e[0;33m\]'
-declare -r cyan='\[\e[0;36m\]'
-declare -r white='\[\e[0;37m\]'
-
-function prompt_git()
-{
-    git branch &> /dev/null || return 1
-
-    local HEAD="$(git symbolic-ref HEAD 2> /dev/null)"
-    local BRANCH="${HEAD##*/}"
-
-    if [[ -z "$(git status 2> /dev/null | grep 'working tree clean')" ]]; then
-        local STATUS="!"
-    fi
-
-    local git="${red}${BRANCH-unknown}${STATUS}"
-    echo "${color_off}─[${git}${color_off}]"
-}
-
-function prompt_pwd()
-{
-    local path="${PWD/#$HOME/\~}"
-    local git="$(prompt_git)"
-    local maxlen="$(($(tput cols) - ${#USER} - ${#HOSTNAME} - ${#git} - 14))"
-
-    if [[ ${#path} -gt ${maxlen} ]]; then
-        local path="...${path:$((${#path} - ${maxlen}))}"
-    fi
-
-    echo $path
-}
-
 function prompt()
 {
-    (( $? )) && local status="${red}✗" || local status="${green}✓"
+    local -r status_color=$( (( $? )) && echo "\[\e[0;31m\]" || echo "" )
+    local -r prompt=$( [[ $EUID -eq 0 ]] && echo -e "\uF12A\uF12A" || echo -e "\uF054\uF054")
 
-    local git=$(prompt_git)
-    local path=$(prompt_pwd)
-    [[ $EUID -eq 0 ]] && local user=${red} || local user=${yellow}
-
-    PS1="${color_off}┌─[${user}\u${color_off}]─[${cyan}\h${color_off}]─"
-    PS1="${PS1}[${green}${path}${color_off}]${git}${color_off}\n"
-    PS1="${PS1}└─[${status}${color_off}]─╼${color_off} "
-
-    PS2="${color_off}╾─────╼${color_off} "
+    export PS1="${status_color}${prompt}\[\e[0m\] "
+    export PS2="${prompt}\[\e[0m\] "
 }
 
 function jump()
