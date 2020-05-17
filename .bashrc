@@ -24,8 +24,8 @@ shopt -s hostcomplete
 shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
 
-# path for marks (see .bash_functions)
-export MARKPATH=$HOME/etc/marks
+# fasd
+eval "$(fasd --init auto)"
 
 # npm
 export PATH=$PATH:$HOME/.node_modules/bin
@@ -40,7 +40,6 @@ source /usr/share/doc/pkgfile/command-not-found.bash
 # set the prompt (defined in .bash_functions)
 PROMPT_COMMAND=__prompt
 
-# set extra autocompletions (defined in .bash_functions)
-complete -F __completemarks jump unmark
+# extra autocompletions
 complete -F __completemux tmuxinator mux
-
+complete -F _fasd_bash_hook_cmd_complete v m

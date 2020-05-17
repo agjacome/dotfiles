@@ -9,33 +9,6 @@ function __prompt()
     export PS2="${prompt}\[\e[0m\] "
 }
 
-function jump()
-{
-    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
-}
-
-function mark()
-{
-    mkdir -p $MARKPATH; ln -s "$(pwd)" $MARKPATH/$1
-}
-
-function unmark()
-{
-    rm -if $MARKPATH/$1
-}
-
-function marks() {
-    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/->/\>/' | column -t -s ">"
-}
-
-function __completemarks()
-{
-    local curw=${COMP_WORDS[COMP_CWORD]}
-    local wordlist=$(find $MARKPATH -type l -printf "%f\n")
-    COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
-    return 0
-}
-
 function __completemux()
 {
     COMPREPLY=()
@@ -55,14 +28,4 @@ function __completemux()
         local completions=$(tmuxinator completions "${words[@]}")
         COMPREPLY=( $(compgen -W "$completions" -- "$word") )
     fi
-}
-
-ipif() {
-    if grep -P "(([1-9]\d{0,2})\.){3}(?2)" <<< "$1"; then
-	 curl ipinfo.io/"$1"
-    else
-	ipawk=($(host "$1" | awk '/address/ { print $NF }'))
-	curl ipinfo.io/${ipawk[1]}
-    fi
-    echo
 }
