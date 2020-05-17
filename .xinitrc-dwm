@@ -20,5 +20,5 @@ $HOME/.fehbg &
 systemctl --user import-environment
 systemctl --user start xsession.target
 
-dwmblocks &
-dwm 2> $HOME/var/log/dwm.log
+/usr/bin/dwmblocks &
+/usr/bin/dwm 2> $HOME/var/log/dwm.log
