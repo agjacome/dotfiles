@@ -13,8 +13,6 @@
     tool = vimdiff
 [difftool]
     prompt = false
-[commit]
-    template = ~/.gitmessage
 [push]
     default = simple
 [help]
@@ -40,7 +38,8 @@
     user = agjacome
 [pull]
     rebase = true
+    autostash = true
 [rerere]
     enabled = true
 [fetch]
-	prune = true
+    prune = true

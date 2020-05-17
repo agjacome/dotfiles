@@ -1,41 +1,36 @@
-# Compiled
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-
-# Packages
 *.7z
+*.Z
 *.bz2
-*.gz
+*.class
+*.com
+*.dll
 *.dmg
+*.exe
+*.gz
 *.gz
 *.iso
 *.jar
+*.log
+*.o
+*.pyc
 *.rar
+*.so
+*.swp
 *.tar
 *.tbz2
 *.tgz
 *.xz
 *.zip
-*.Z
-
-# Logs and DB
-*.log
-*.sql
-*.sqlite
-
-# Temp files
-*.pyc
-*.swp
-
-# Exhuberant ctags
 .tags
 
-# OS bullshit
+# mac os & windows crap
 .DS_Store*
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# scala stuff
+.bloop
+.cache
+.metals
+metals.sbt
