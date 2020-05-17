@@ -24,21 +24,23 @@ shopt -s hostcomplete
 shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
 
-# cabal
-[[ -d $HOME/.cabal/bin         ]] && export PATH=$PATH:$HOME/.cabal/bin
-[[ -d $HOME/.cabal-sandbox/bin ]] && export PATH=$PATH:$HOME/.cabal-sandbox/bin
+# path for marks (see .bash_functions)
+export MARKPATH=$HOME/etc/marks
 
 # npm
 export PATH=$PATH:$HOME/.node_modules/bin
 export npm_config_prefix=$HOME/.node_modules
 
-# path for marks (see .bash_functions)
-export MARKPATH=$HOME/etc/marks
-
 # source bash files
 source "$HOME/.bash_alias"
 source "$HOME/.bash_functions"
 
+source /usr/share/doc/pkgfile/command-not-found.bash
+
 # set the prompt (defined in .bash_functions)
-PROMPT_COMMAND=prompt
+PROMPT_COMMAND=__prompt
+
+# set extra autocompletions (defined in .bash_functions)
+complete -F __completemarks jump unmark
+complete -F __completemux tmuxinator mux
 

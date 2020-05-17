@@ -1,4 +1,6 @@
-function prompt()
+#!/usr/bin/env bash
+
+function __prompt()
 {
     local -r status_color=$( (( $? )) && echo "\[\e[0;31m\]" || echo "" )
     local -r prompt=$( [[ $EUID -eq 0 ]] && echo -e "\uF12A\uF12A" || echo -e "\uF054\uF054")
@@ -22,20 +24,20 @@ function unmark()
     rm -if $MARKPATH/$1
 }
 
-function marks()
-{
+function marks() {
     ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/->/\>/' | column -t -s ">"
 }
 
-_completemarks()
+function __completemarks()
 {
-  local curw=${COMP_WORDS[COMP_CWORD]}
-  local wordlist=$(find $MARKPATH -type l -printf "%f\n")
-  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
-  return 0
+    local curw=${COMP_WORDS[COMP_CWORD]}
+    local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+    COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+    return 0
 }
 
-_completemux() {
+function __completemux()
+{
     COMPREPLY=()
     local word="${COMP_WORDS[COMP_CWORD]}"
 
@@ -55,7 +57,12 @@ _completemux() {
     fi
 }
 
-complete -F _completemarks jump unmark
-complete -F _completemux tmuxinator mux
-
-# vim: ft=sh
+ipif() {
+    if grep -P "(([1-9]\d{0,2})\.){3}(?2)" <<< "$1"; then
+	 curl ipinfo.io/"$1"
+    else
+	ipawk=($(host "$1" | awk '/address/ { print $NF }'))
+	curl ipinfo.io/${ipawk[1]}
+    fi
+    echo
+}

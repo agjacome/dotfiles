@@ -1,15 +1,15 @@
+#!/usr/bin/env bash
+
 alias ls="ls --group-directories-first --color=auto -hv"
-alias grep="grep --color=auto -I"
+alias grep="rg --color=auto -I"
 
 alias ..="cd .."
 alias ...="cd ../../"
 
 alias l="ls"
-alias la="ls -a"
 alias l1="ls -1"
-alias l1a="ls -a1"
 alias ll="ls -l"
-alias lla="ls -al"
+alias la="ls -al"
 
 alias cp="cp -ir"
 alias mv="mv -i"
@@ -26,7 +26,4 @@ alias ta="systemd-run --scope --user tmux attach-session"
 alias tn="systemd-run --scope --user tmux new-session"
 alias mux="systemd-run --scope --user tmuxinator"
 
-alias git="LANG=en_US.UTF-8 git"
 alias ssh="TERM=xterm-256color ssh"
-
-# vim: ft=sh
