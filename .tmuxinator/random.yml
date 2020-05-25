@@ -1,0 +1,14 @@
+# ~/.tmuxinator/random.yml
+
+name: random
+root: ~/tmp
+
+tmux_command: systemd-run --scope --user tmux
+
+windows:
+  - main:
+      layout: main-horizontal
+      panes:
+        - weechat
+        - ncmpcpp
+        - mutt

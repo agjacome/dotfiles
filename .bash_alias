@@ -28,6 +28,5 @@ alias m='f -e mpv'
 
 alias ta="systemd-run --scope --user tmux attach-session"
 alias tn="systemd-run --scope --user tmux new-session"
-alias mux="systemd-run --scope --user tmuxinator"
 
 alias ssh="TERM=xterm-256color ssh"
