@@ -27,10 +27,6 @@ shopt -s nocaseglob
 # fasd
 eval "$(fasd --init auto)"
 
-# npm
-export PATH=$PATH:$HOME/.node_modules/bin
-export npm_config_prefix=$HOME/.node_modules
-
 # source bash files
 source "$HOME/.bash_alias"
 source "$HOME/.bash_functions"
@@ -43,3 +39,6 @@ PROMPT_COMMAND=__prompt
 # extra autocompletions
 complete -F __completemux tmuxinator mux
 complete -F _fasd_bash_hook_cmd_complete v m
+
+# direnv
+eval "$(direnv hook bash)"
