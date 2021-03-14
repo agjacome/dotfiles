@@ -9,7 +9,7 @@ export HISTIGNORE="&:pwd:cd:~:[bf]g:history *:l:l[sla]:exit:\:q:su:clear:genpwd 
 
 # common stuff
 export EDITOR=vim
-export BROWSER=palemoon
+export BROWSER=vivaldi
 export GREP_COLOR="1;31"
 export LESS="-R -X"
 export QUOTING_STYLE=literal
