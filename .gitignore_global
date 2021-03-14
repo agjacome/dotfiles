@@ -34,3 +34,6 @@ Thumbs.db
 .cache
 .metals
 metals.sbt
+
+# direnv
+.envrc
