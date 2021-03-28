@@ -1,3 +1,2 @@
 #!/bin/sh
-# feh --no-fehbg --bg-fill --randomize "$HOME/media/pictures/wallpapers"
-feh --no-fehbg --bg-fill "$HOME/media/pictures/wallpapers/wallhaven-103929.png"
+feh --no-fehbg --bg-fill "$HOME/media/pictures/wallpapers/wallhaven-wypvkr.jpg"
