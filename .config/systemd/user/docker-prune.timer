@@ -1,0 +1,13 @@
+[Unit]
+Description=Prune unused Docker images daily
+RefuseManualStart=no
+RefuseManualStop=no
+
+[Timer]
+Persistent=false
+OnBootSec=80
+OnCalendar=daily
+Unit=docker-prune.service
+
+[Install]
+WantedBy=timers.target

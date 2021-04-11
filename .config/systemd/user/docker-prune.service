@@ -1,0 +1,9 @@
+[Unit]
+Description=Prune unused Docker images
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/docker system prune -af --filter "until=72h"
+
+[Install]
+WantedBy=default.target
