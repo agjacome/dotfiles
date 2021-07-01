@@ -1,12 +1,13 @@
 ! X settings
 Xft.antialias : 1
 Xft.autohint  : 0
-Xft.dpi       : 96
+Xft.dpi       : 168
 Xft.hinting   : 1
 Xft.hintstyle : hintfull
 Xft.lcdfilter : lcddefault
 Xft.rgba      : rgb
-Xcursor.theme : Simple-and-Soft
+Xcursor.theme : Vanilla-DMZ
+Xcursor.size  : 64
 
 ! Colorscheme
 *background : #1D1F21
@@ -73,4 +74,4 @@ URxvt.clipboard.copycmd    : xsel -ib
 URxvt.clipboard.pastecmd   : xsel -ob
 
 ! URxvt font-style
-URxvt.font : xft:Monofur\ Nerd\ Font:pixelsize=22
+URxvt.font : xft:Monofur\ Nerd\ Font:pixelsize=36
