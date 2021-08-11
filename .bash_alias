@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 alias ls="ls --group-directories-first --color=auto -hv"
-alias grep="rg --color=auto -I"
+alias grep="rg --color=auto -H"
 
 alias ..="cd .."
 alias ...="cd ../../"
@@ -28,5 +28,6 @@ alias m='f -e mpv'
 
 alias ta="systemd-run --scope --user tmux attach-session"
 alias tn="systemd-run --scope --user tmux new-session"
+alias mux="tmuxinator"
 
 alias ssh="TERM=xterm-256color ssh"
