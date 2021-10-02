@@ -32,9 +32,6 @@ source "$HOME/.bash_functions"
 # pacman helper for not found commands
 source /usr/share/doc/pkgfile/command-not-found.bash
 
-# set the prompt (defined in .bash_functions)
-PROMPT_COMMAND=__prompt
-
 # direnv
 eval "$(direnv hook bash)"
 
@@ -44,3 +41,6 @@ eval "$(fasd --init auto)"
 # extra autocompletions
 complete -F __completemux tmuxinator mux
 complete -F _fasd_bash_hook_cmd_complete v m
+
+# set the prompt (defined in .bash_functions)
+PROMPT_COMMAND=__prompt
