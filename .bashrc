@@ -29,18 +29,23 @@ shopt -s nocaseglob
 source "$HOME/.bash_alias"
 source "$HOME/.bash_functions"
 
-# pacman helper for not found commands
-source /usr/share/doc/pkgfile/command-not-found.bash
-
-# direnv
-eval "$(direnv hook bash)"
-
-# fasd
-eval "$(fasd --init auto)"
+# set the prompt (defined in .bash_functions)
+PROMPT_COMMAND=__prompt
 
 # extra autocompletions
 complete -F __completemux tmuxinator mux
 complete -F _fasd_bash_hook_cmd_complete v m
 
-# set the prompt (defined in .bash_functions)
-PROMPT_COMMAND=__prompt
+# pacman helper for not found commands
+source /usr/share/doc/pkgfile/command-not-found.bash
+
+# nix
+export XDG_DATA_DIRS=$HOME/.nix-profile/share:$XDG_DATA_DIRS
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+
+# fasd
+eval "$(fasd --init auto)"
+
+# direnv
+eval "$(direnv hook bash)"
+
