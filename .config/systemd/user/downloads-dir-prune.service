@@ -1,0 +1,9 @@
+[Unit]
+Description=Delete $HOME/Downloads directory (continously recreated by Spotify)
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rm -rf %h/Downloads
+
+[Install]
+WantedBy=default.target

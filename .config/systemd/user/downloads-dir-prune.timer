@@ -1,0 +1,13 @@
+[Unit]
+Description=Delete $HOME/Downloads directory (continously recreated by Spotify)
+RefuseManualStart=no
+RefuseManualStop=no
+
+[Timer]
+Persistent=false
+OnBootSec=60
+OnCalendar=hourly
+Unit=downloads-dir-prune.service
+
+[Install]
+WantedBy=timers.target
