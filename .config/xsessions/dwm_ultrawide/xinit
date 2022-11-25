@@ -6,16 +6,21 @@ for xinit_file in /etc/X11/xinit/xinitrc.d/*; do
     [ -x $xinit_file ] && . $xinit_file
 done
 
-wmname LG3D
+# crappy java stuff
+export AWT_TOOLKIT=MToolkit
 export _JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true -Dsun.java2d.xrender=true'
+export JDK_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
+
 export SWT_GTK3=0
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 
 xset -dpms
 xset s off
+xrdb -load -nocpp "$HOME/.config/xsessions/dwm_ultrawide/Xresources"
 
-$HOME/.fehbg &
+xrandr --output DP-3 --off --output DP-0 --primary --mode 5120x1440
+
+feh --no-fehbg --bg-fill "$HOME/media/pictures/wallpapers/ultrawide"
 systemctl --user import-environment
 systemctl --user start xsession.target
 

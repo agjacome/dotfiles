@@ -2,12 +2,11 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# source xinitrc.d scripts
 for file in /etc/X11/xinit/xinitrc.d/*; do
     [ -x "$file" ] && . "$file"
 done
 unset file
 
-# start Kodi
-xscreen DVI-I-1 &
+xrandr --output DP-3 --off --output DP-0 --primary --mode 5120x1440
+
 /usr/bin/kodi --standalone > $HOME/var/log/kodi.log

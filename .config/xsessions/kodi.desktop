@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Kodi
+Exec=/home/agjacome/.config/xsessions/kodi/xinit
+Type=XSession
+
