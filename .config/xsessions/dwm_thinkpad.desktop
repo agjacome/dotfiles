@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=DWM (Thinkpad)
+Exec=/home/agjacome/.config/xsessions/dwm_thinkpad/xinit
+Type=XSession

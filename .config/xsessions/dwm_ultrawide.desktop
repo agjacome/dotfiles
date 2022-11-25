@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=DWM (Ultrawide)
+Exec=/home/agjacome/.config/xsessions/dwm_ultrawide/xinit
+Type=XSession
