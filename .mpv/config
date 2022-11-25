@@ -3,9 +3,6 @@ vo    = vdpau
 hwdec = vdpau
 monitoraspect = 16:9
 
-# audio settings
-ao = alsa
-
 # default language
 slang = en,eng
 alang = en,eng
