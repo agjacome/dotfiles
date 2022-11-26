@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=DWM
+Exec=/home/agjacome/.config/xsessions/dwm/xinit
+Type=XSession
