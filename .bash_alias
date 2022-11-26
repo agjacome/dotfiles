@@ -31,3 +31,4 @@ alias tn="systemd-run --scope --user tmux new-session"
 alias mux="tmuxinator"
 
 alias ssh="TERM=xterm-256color ssh"
+alias myip="ipinfo myip"
