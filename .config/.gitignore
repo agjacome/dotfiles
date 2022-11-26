@@ -1,0 +1,11 @@
+/*
+!.gitignore
+
+!htop/
+!redshift/
+!tbsm/
+!xsessions/
+!zathura/
+
+!Trolltech.conf
+!user-dirs*
