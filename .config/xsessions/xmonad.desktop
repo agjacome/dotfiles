@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=XMonad
+Exec=xmonad
+Type=XSession
