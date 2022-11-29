@@ -1,6 +1,6 @@
 [Unit]
 Description=Set the XServer resources
-Requires=xmonitor.service
+After=xmonitor.service
 
 [Service]
 Type=oneshot

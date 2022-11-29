@@ -1,6 +1,6 @@
 [Unit]
 Description=Set the X Background using Feh
-Requires=xmonitor.service
+After=xmonitor.service
 
 [Service]
 Type=oneshot
