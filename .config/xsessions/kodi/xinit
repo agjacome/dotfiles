@@ -2,11 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-for file in /etc/X11/xinit/xinitrc.d/*; do
-    [ -x "$file" ] && . "$file"
+for xinit_file in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x $xinit_file ] && . $xinit_file
 done
-unset file
-
-xrandr --output DP-3 --off --output DP-0 --primary --mode 5120x1440
 
 /usr/bin/kodi --standalone > $HOME/var/log/kodi.log

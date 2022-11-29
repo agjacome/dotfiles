@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+declare -r wallpaper=$(if $HOME/bin/is-docked; then echo "ultrawide"; else echo "laptop"; fi)
+
+feh --no-fehbg --bg-fill "$HOME/media/pictures/wallpapers/$wallpaper"
