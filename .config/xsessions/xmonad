@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+for xinit_file in /etc/X11/xinit/xinitrc.d/?*.sh; do
+    [ -x $xinit_file ] && . $xinit_file
+done
+
+/usr/bin/xmonad > $HOME/var/log/xmonad.log
