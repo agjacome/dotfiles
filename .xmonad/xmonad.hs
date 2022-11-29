@@ -1,5 +1,8 @@
 import XMonad
+import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Layout.LayoutModifier
 import XMonad.Util.SpawnOnce
 
 mainFont :: String
@@ -7,15 +10,11 @@ mainFont = "xft:DroidSansMono Nerd Font:size=10:antialias=true:autohint=true"
 
 startHook :: X ()
 startHook = do
-  spawnOnce "xrdb -load -nocpp $HOME/.Xresources"
+  spawnOnce "systemctl --user import-environment"
+  spawnOnce "systemctl --user start xsession.target"
 
-  -- docked:
-  spawnOnce "xrandr --output DP-3 --off --output DP-0 --primary --mode 5120x1440"
-  spawnOnce "xrdb -merge -nocpp $HOME/.config/xsessions/dwm/Xresources-docked-overrides"
-  spawnOnce "feh --no-fehbg --bg-fill $HOME/media/pictures/wallpapers/ultrawide"
-
-mainConfig :: XConfig (Choose Tall (Choose (Mirror Tall) Full))
-mainConfig = def {
+mainConfig :: XConfig (XMonad.Layout.LayoutModifier.ModifiedLayout XMonad.Hooks.ManageDocks.AvoidStruts (Choose Tall (Choose (Mirror Tall) Full)))
+mainConfig = desktopConfig {
   borderWidth        = 2,
   focusFollowsMouse  = False,
   focusedBorderColor = "#f0c674",

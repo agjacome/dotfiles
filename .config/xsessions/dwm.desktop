@@ -1,4 +1,4 @@
 [Desktop Entry]
 Name=DWM
-Exec=/home/agjacome/.config/xsessions/dwm/xinit
+Exec=bash -c "$HOME/.config/xsessions/dwm"
 Type=XSession
