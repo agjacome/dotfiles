@@ -1,10 +1,10 @@
 [Unit]
-Description=Set the XServer resources
+Description=Set the X Background using Feh
 Requires=xmonitor.service
 
 [Service]
 Type=oneshot
-ExecStart=%h/bin/xresources
+ExecStart=%h/bin/fehbg
 
 [Install]
 WantedBy=xsession.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Set the correct monitor and resolution
+
+[Service]
+Type=oneshot
+ExecStart=%h/bin/xmonitor
+
+[Install]
+WantedBy=xsession.target

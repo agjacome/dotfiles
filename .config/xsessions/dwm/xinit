@@ -2,13 +2,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-function is_docked() {
-    local -r lid_state=$(cat /proc/acpi/button/lid/LID/state)
-    local -r mon_state=$(xrandr | grep "DP-0")
-
-    [[ $lid_state =~ "closed" && $mon_state =~ "connected" ]]
-}
-
 for xinit_file in /etc/X11/xinit/xinitrc.d/*; do
     [ -x $xinit_file ] && . $xinit_file
 done
@@ -22,18 +15,6 @@ export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 
 systemctl --user import-environment
 systemctl --user start xsession.target
-
-xset -dpms
-xset s off
-
-if $(is_docked); then
-    xrandr --output DP-3 --off --output DP-0 --primary --mode 5120x1440
-    xrdb -merge -nocpp "$HOME/.config/xsessions/dwm/Xresources-docked-overrides"
-    feh --no-fehbg --bg-fill "$HOME/media/pictures/wallpapers/ultrawide"
-else
-    xrandr --output DP-3 --primary --mode 3840x2160 --output DP-0 --off
-    feh --no-fehbg --bg-fill "$HOME/media/pictures/wallpapers/laptop"
-fi
 
 /usr/bin/dwmblocks &
 /usr/bin/dwm 2> $HOME/var/log/dwm.log
