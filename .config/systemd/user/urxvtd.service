@@ -1,6 +1,5 @@
 [Unit]
 Description=URxvt terminal daemon
-Requires=urxvtd.socket
 
 [Service]
 Type=simple
