@@ -30,7 +30,7 @@ source "$HOME/.bash_alias"
 source "$HOME/.bash_functions"
 
 # set the prompt (defined in .bash_functions)
-PROMPT_COMMAND=__prompt
+__prompt
 
 # extra autocompletions
 complete -F __completemux tmuxinator mux
@@ -48,4 +48,3 @@ eval "$(fasd --init auto)"
 
 # direnv
 eval "$(direnv hook bash)"
-

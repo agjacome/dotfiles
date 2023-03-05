@@ -7,6 +7,7 @@ function __prompt()
 
     export PS1="${status_color}${prompt}\[\e[0m\] "
     export PS2="${prompt}\[\e[0m\] "
+    export PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${LOGNAME}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
 }
 
 function __completemux()
