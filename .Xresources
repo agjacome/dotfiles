@@ -10,32 +10,32 @@ Xcursor.theme : Vanilla-DMZ
 Xcursor.size  : 64
 
 ! Colorscheme
-*background : #1D1F21
-*foreground : #969896
+URxvt.background : #1D1F21
+URxvt.foreground : #969896
 ! black
-*color0 : #282A2E
-*color8 : #373B41
+URxvt.color0 : #282A2E
+URxvt.color8 : #373B41
 ! red
-*color1 : #A54242
-*color9 : #CC6666
+URxvt.color1 : #A54242
+URxvt.color9 : #CC6666
 ! green
-*color2  : #8C9440
-*color10 : #B5BD68
+URxvt.color2  : #8C9440
+URxvt.color10 : #B5BD68
 ! yellow
-*color3  : #DE935F
-*color11 : #F0C674
+URxvt.color3  : #DE935F
+URxvt.color11 : #F0C674
 ! blue
-*color4  : #5F819D
-*color12 : #81A2BE
+URxvt.color4  : #5F819D
+URxvt.color12 : #81A2BE
 ! magenta
-*color5  : #85678F
-*color13 : #B294BB
+URxvt.color5  : #85678F
+URxvt.color13 : #B294BB
 ! cyan
-*color6  : #5E8D87
-*color14 : #8ABEB7
+URxvt.color6  : #5E8D87
+URxvt.color14 : #8ABEB7
 ! white
-*color7  : #969896
-*color15 : #C5C8C6
+URxvt.color7  : #969896
+URxvt.color15 : #C5C8C6
 
 ! URxvt settings
 URxvt.scrollstyle     : rxvt
