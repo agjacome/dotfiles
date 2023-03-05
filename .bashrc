@@ -8,7 +8,7 @@ export HISTCONTROL=erasedups
 export HISTIGNORE="&:pwd:cd:~:[bf]g:history *:l:l[sla]:exit:\:q:su:clear:genpwd *"
 
 # common stuff
-export EDITOR=vim
+export EDITOR=nvim
 export BROWSER=vivaldi
 export GREP_COLOR="1;31"
 export LESS="-R -X"
