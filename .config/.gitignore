@@ -1,6 +1,7 @@
 /*
 !.gitignore
 
+!alacritty.yml
 !htop/
 !redshift/
 !systemd/
