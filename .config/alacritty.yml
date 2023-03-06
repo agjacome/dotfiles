@@ -7,6 +7,11 @@ font:
     family: Monofuritalic Nerd Font
   size: 17
 
+window:
+  padding:
+    x: 17
+    y: 17
+
 cursor:
   style:
     shape:    Block
