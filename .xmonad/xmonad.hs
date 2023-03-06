@@ -21,7 +21,7 @@ mainConfig = desktopConfig {
   modMask            = mod4Mask,
   normalBorderColor  = "#282a2e",
   startupHook        = startHook,
-  terminal           = "urxvt"
+  terminal           = "alacritty"
 }
 
 
