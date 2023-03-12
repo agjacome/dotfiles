@@ -30,7 +30,7 @@ source "$HOME/.bash_alias"
 source "$HOME/.bash_functions"
 
 # set the prompt (defined in .bash_functions)
-__prompt
+PROMPT_COMMAND=__prompt
 
 # extra autocompletions
 complete -F __completemux tmuxinator mux
