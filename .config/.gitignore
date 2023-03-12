@@ -1,6 +1,7 @@
 /*
 !.gitignore
 
+!alacritty/
 !alacritty.yml
 !htop/
 !redshift/
