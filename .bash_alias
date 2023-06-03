@@ -21,7 +21,7 @@ alias mkdir="mkdir -pv"
 
 alias i="yay -S"
 alias ss="yay -Ss"
-alias syu="yay -Syu --timeupdate --devel"
+alias syu="yay -Syu"
 alias qdt="yay -Qdtq"
 
 alias v='f -e vim'
