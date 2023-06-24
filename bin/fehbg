@@ -2,6 +2,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-declare -r wallpaper=$(if $HOME/bin/is-docked; then echo "ultrawide"; else echo "laptop"; fi)
+declare -r is_docked=${1:-$($HOME/bin/is-docked)}
 
-feh --no-fehbg --bg-fill "$HOME/media/pictures/wallpapers/$wallpaper"
+if [[ $is_docked == "true" ]]; then
+    feh --no-fehbg --bg-fill "$HOME/media/pictures/wallpapers/docked"
+else
+    feh --no-fehbg --bg-fill "$HOME/media/pictures/wallpapers/undocked"
+fi

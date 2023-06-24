@@ -5,4 +5,4 @@ IFS=$'\n\t'
 declare -r lid_state=$(cat /proc/acpi/button/lid/LID/state)
 declare -r mon_state=$(xrandr | grep "DP-0")
 
-[[ $lid_state =~ "closed" && $mon_state =~ "connected" ]]
+[[ $lid_state =~ "closed" && $mon_state =~ "connected" ]] && echo "true" || echo "false"
