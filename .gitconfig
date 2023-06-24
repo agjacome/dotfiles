@@ -3,7 +3,7 @@
     email = contact@agjacome.dev
     signingkey = B93F7989243F83E9
 [core]
-    editor       = vim
+    editor       = nvim
     pager        = less
     autocrlf     = input
     whitespace   = trailing-space,space-before-tab,indent-with-non-tab
