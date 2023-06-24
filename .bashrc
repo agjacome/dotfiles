@@ -9,6 +9,7 @@ export HISTIGNORE="&:pwd:cd:~:[bf]g:history *:l:l[sla]:exit:\:q:su:clear:genpwd 
 
 # common stuff
 export EDITOR=nvim
+export DIFFPROG="nvim -d $1"
 export BROWSER=vivaldi
 export GREP_COLOR="1;31"
 export LESS="-R -X"
