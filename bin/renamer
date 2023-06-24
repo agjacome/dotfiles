@@ -2,11 +2,75 @@
 set -euo pipefail
 IFS=$'\t\n'
 
+declare -r help_message=$(cat <<EOD
+renamer - rename files using a regex
+Usage: renamer [options] <find_match> <sed_match> <sed_replace>
+
+Arguments:
+    <find_match>: regex to match the files to rename
+    <sed_match>: regex to match the part of the filename to replace
+    <sed_replace>: replacement for the part of the filename to replace
+
+Options:
+    -n: dry run, print the changes that would be made
+    -i: interactive, ask before renaming each file
+    -h: print this help message
+
+Description:
+    renamer renames files using a regex. It finds files matching <find_match>
+    and renames them using sed with <sed_match> and <sed_replace>. It then
+    replaces spaces with underscores, converts the filename to lowercase, and
+    removes apostrophes, quotes, and question marks.
+
+Example:
+    $ ls
+    'The Quick Brown Fox.txt' "The Slow Black Bear.txt" The\ Lazy\ Dog?.txt
+    $ renamer '.*' '(.*)' '\1'
+    'The Quick Brown Fox.txt' -> the_quick_brown_fox.txt
+    "The Slow Black Bear.txt" -> the_slow_black_bear.txt
+    The\ Lazy\ Dog?.txt -> the_lazy_dog.txt
+    $ ls
+    the_lazy_dog.txt the_quick_brown_fox.txt the_slow_black_bear.txt
+EOD
+)
+
+if [[ $# == 0 ]]; then
+    echo "Error: Wrong number of arguments" >&2
+    echo "$help_message" >&2
+    exit 1
+fi
+
+declare dry_run=false
+declare interactive=false
+while getopts ":nih" opt; do
+    case $opt in
+        n) dry_run=true;;
+        i) interactive=true;;
+        h) echo "$help_message";exit 0;;
+        \?) echo "Invalid option: -$OPTARG" >&2;exit 1;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+if [[ $# != 3 ]]; then
+    echo "Error: Wrong number of arguments" >&2
+    echo "$help_message" >&2
+    exit 1
+fi
+
 declare -r find_match=$1
 declare -r sed_match=$2
 declare -r sed_replace=$3
 
-find . -regextype posix-extended -regex $find_match | while read name; do
+declare -r files=$(find . -maxdepth 1 -type f -regextype posix-extended -regex "$find_match")
+
+if [[ -z $files ]]; then
+    echo "Error: No files found" >&2
+    exit 1
+fi
+
+for name in $files; do
     renamed=$(
         echo $name                           |
         sed -r "s/$sed_match/$sed_replace/g" |
@@ -15,7 +79,22 @@ find . -regextype posix-extended -regex $find_match | while read name; do
         tr -d \'\"?
     )
 
-    if [[ $name != $renamed ]]; then
-        mv $name $renamed
+    if [[ $name == $renamed ]]; then
+        continue
+    fi
+
+    if [[ $interactive == true ]]; then
+        echo "$name -> $renamed"
+        read -p "Rename? [y/N] " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            continue
+        fi
+    fi
+
+    if [[ $dry_run == true ]]; then
+        echo "$name -> $renamed"
+    else
+        mv "$name" "$renamed"
     fi
 done
