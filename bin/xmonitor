@@ -2,10 +2,12 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+declare -r is_docked=${1:-$($HOME/bin/is-docked)}
+
 xset -dpms
 xset s off
 
-if $HOME/bin/is-docked; then
+if [[ $is_docked == "true" ]]; then
     xrandr --output DP-3 --off --output DP-0 --primary --mode 5120x1440
 else
     xrandr --output DP-3 --primary --mode 3840x2160 --output DP-0 --off

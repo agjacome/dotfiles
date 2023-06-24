@@ -2,8 +2,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+declare -r is_docked=${1:-$($HOME/bin/is-docked)}
+
 xrdb -load "$HOME/.Xresources"
 
-if $HOME/bin/is-docked; then
+if [[ $is_docked == "true" ]]; then
     xrdb -merge -nocpp "$HOME/.Xresources_docked_overrides"
 fi

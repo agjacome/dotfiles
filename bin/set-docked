@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: $0 <true|false>"
+    exit 1
+fi
+
+declare -r docked=${1}
+
+$HOME/bin/xmonitor $docked
+$HOME/bin/xresources $docked
+$HOME/bin/fehbg $docked
