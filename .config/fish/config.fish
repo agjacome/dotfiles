@@ -33,3 +33,5 @@ for cmd in $histignore_commands
 end
 
 if which direnv > /dev/null; direnv hook fish | source; end
+
+set -gx PASSWORD_STORE_DIR $HOME/etc/passwords
