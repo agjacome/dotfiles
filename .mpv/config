@@ -1,7 +1,6 @@
 # video settings
 vo    = vdpau
 hwdec = vdpau
-monitoraspect = 16:9
 
 # default language
 slang = en,eng
