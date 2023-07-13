@@ -5,6 +5,7 @@
 !alacritty.yml
 !htop/
 !redshift/
+!streamlink
 !systemd/
 !tbsm/
 !xsessions/
