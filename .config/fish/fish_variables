@@ -3,10 +3,11 @@
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_fishgretel_2F_fasd_files:\x7e/\x2econfig/fish/functions/__fasd_print_completion\x2efish\x1e\x7e/\x2econfig/fish/functions/a\x2efish\x1e\x7e/\x2econfig/fish/functions/d\x2efish\x1e\x7e/\x2econfig/fish/functions/f\x2efish\x1e\x7e/\x2econfig/fish/functions/fasd_cd\x2efish\x1e\x7e/\x2econfig/fish/functions/s\x2efish\x1e\x7e/\x2econfig/fish/functions/sd\x2efish\x1e\x7e/\x2econfig/fish/functions/sf\x2efish\x1e\x7e/\x2econfig/fish/functions/z\x2efish\x1e\x7e/\x2econfig/fish/functions/zz\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/__fasd_run\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/aliases\x2efish\x1e\x7e/\x2econfig/fish/completions/a\x2efish\x1e\x7e/\x2econfig/fish/completions/d\x2efish\x1e\x7e/\x2econfig/fish/completions/f\x2efish\x1e\x7e/\x2econfig/fish/completions/fasd\x2efish\x1e\x7e/\x2econfig/fish/completions/s\x2efish\x1e\x7e/\x2econfig/fish/completions/sd\x2efish\x1e\x7e/\x2econfig/fish/completions/sf\x2efish\x1e\x7e/\x2econfig/fish/completions/z\x2efish\x1e\x7e/\x2econfig/fish/completions/zz\x2efish
 SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish
+SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:\x7e/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autopair\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_lilyball_2F_nix_2D_env_2E_fish_files:\x7e/\x2econfig/fish/conf\x2ed/nix\x2denv\x2efish
 SETUVAR _fisher_oh_2D_my_2D_fish_2F_plugin_2D_foreign_2D_env_files:\x7e/\x2econfig/fish/functions/fenv\x2efish\x1e\x7e/\x2econfig/fish/functions/fenv\x2emain\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eoh\x2dmy\x2dfish/plugin\x2dforeign\x2denv\x1efishgretel/fasd\x1elilyball/nix\x2denv\x2efish\x1efranciscolourenco/done
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eoh\x2dmy\x2dfish/plugin\x2dforeign\x2denv\x1efishgretel/fasd\x1elilyball/nix\x2denv\x2efish\x1efranciscolourenco/done\x1ejorgebucaran/autopair\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:777777
 SETUVAR fish_color_cancel:\x2d\x2dreverse
