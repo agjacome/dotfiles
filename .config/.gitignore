@@ -3,12 +3,12 @@
 
 !alacritty/
 !alacritty.yml
+!dunst/
 !fish/
 !htop/
 !streamlink
 !systemd/
 !tbsm/
-!twmn/
 !xsessions/
 !zathura/
 

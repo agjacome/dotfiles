@@ -1,0 +1,44 @@
+# See dunst(5) for all configuration options
+
+[global]
+    monitor = 0
+    follow = keyboard
+
+    origin = top-right
+    offset = 50x50
+    width = 300
+    height = 300
+    background = "#f0c674"
+    foreground = "#1d1f21"
+    frame_width = 1
+    frame_color = "#282a2e"
+    font = DroidSansMono Nerd Font 10
+
+    timeout = 3
+    idle_threshold = 120
+    notification_limit = 5
+    indicate_hidden = yes
+
+    sort = yes
+    progress_bar = false
+    ignore_dbusclose = true
+
+    ellipsize = middle
+    format = "<b>%s</b>\n%b"
+    ignore_newline = no
+    markup = full
+
+    hide_duplicate_count = true
+    show_indicators = false
+
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/vivaldi
+
+    close   = mod4+grave
+    history = mod4+shift+grave
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+   per_monitor_dpi = true
