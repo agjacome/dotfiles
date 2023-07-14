@@ -23,7 +23,8 @@ set -f theme_title_display_path yes
 set -f theme_title_display_user no
 set -f theme_title_use_abbreviated_path yes
 
-set -l histignore_commands history pwd cd l l1 ls ll la exit su clear type cal date
+set -l histignore_commands \
+    history pwd cd l l1 ls ll la exit su clear type cal date pass
 
 for cmd in $histignore_commands
     function $cmd-histignore --on-event fish_postexec --inherit-variable cmd
