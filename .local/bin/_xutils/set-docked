@@ -9,6 +9,6 @@ fi
 
 declare -r docked=${1}
 
-$HOME/bin/xmonitor $docked
-$HOME/bin/xresources $docked
-$HOME/bin/fehbg $docked
+$HOME/.local/bin/_xutils/xmonitor $docked
+$HOME/.local/bin/_xutils/xresources $docked
+$HOME/.local/bin/_xutils/fehbg $docked

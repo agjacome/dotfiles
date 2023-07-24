@@ -4,7 +4,7 @@ After=xmonitor.service
 
 [Service]
 Type=oneshot
-ExecStart=%h/bin/xresources
+ExecStart=%h/.local/bin/_xutils/xresources
 
 [Install]
 WantedBy=xsession.target
