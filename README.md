@@ -4,8 +4,6 @@ My home directory is usually structured as follows:
 
 ```
 /home/agjacome
-├── bin
-├── doc
 ├── etc
 │   ├── dotfiles
 │   └── ...
@@ -22,12 +20,7 @@ My home directory is usually structured as follows:
 All configuration files assume that directory structure.
 
 This git repository is kept under `~/etc/dotfiles`, and all dotfiles are
-just symlinked to their expected destination, except those that hold passwords
-or sensitive information, which are just copied and modified in place (e.g.:
-`~/.msmtprc`).
-
-`~/bin` holds scripts and programs that will be available from `$PATH`,
-and the directory is also symlinked in the same way.
+just symlinked to their expected destination.
 
 The manual way to install everything (until migrated to a proper dotfile tool
 or something similar):

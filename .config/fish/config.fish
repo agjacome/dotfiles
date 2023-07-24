@@ -4,7 +4,7 @@ if test -f ~/.profile
     fenv source ~/.profile
 end
 
-set -x PATH $HOME/bin $HOME/.local/bin $PATH
+set -x PATH $HOME/.local/bin $PATH
 
 set -gx BROWSER vivaldi
 set -gx COLORTERM truecolor
