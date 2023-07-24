@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# format: path:depth
+declare -r search_paths=("$HOME/src:2" "$HOME/etc:1")
+
+declare -r directories=$(
+    for path in ${search_paths[@]}; do
+        args=(${path//:/ })
+        find ${args[0]} -mindepth ${args[1]} -maxdepth ${args[1]} -type d
+    done
+)
+
+declare -r selected_dir=$(
+    echo "$directories" | \
+    fzf --reverse --cycle --ansi --preview 'tree -L 1 -C {}'
+)
+
+if [[ -z $selected_dir ]]; then
+    exit 1
+fi
+
+declare -r session_name=$(basename $selected_dir)
+declare -r session_exists=$(tmux has-session -t $session_name 2> /dev/null || echo 1)
+
+if [[ $session_exists -eq 1 ]]; then
+    systemd-run --scope --user tmux new-session -d -s $session_name -c $selected_dir > /dev/null 2>&1
+fi
+
+if [ -z ${TMUX+x} ]; then
+    tmux attach-session -t $session_name
+else
+    tmux switch-client -t $session_name
+fi
