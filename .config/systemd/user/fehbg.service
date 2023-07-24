@@ -4,7 +4,7 @@ After=xmonitor.service
 
 [Service]
 Type=oneshot
-ExecStart=%h/bin/fehbg
+ExecStart=%h/.local/bin/_xutils/fehbg
 
 [Install]
 WantedBy=xsession.target
