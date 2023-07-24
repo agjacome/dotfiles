@@ -22,4 +22,3 @@ set -f theme_title_display_process yes
 set -f theme_title_display_path yes
 set -f theme_title_display_user no
 set -f theme_title_use_abbreviated_path yes
-
