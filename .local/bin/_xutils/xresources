@@ -4,8 +4,8 @@ IFS=$'\n\t'
 
 declare -r is_docked=${1:-$($HOME/.local/bin/_xutils/is-docked)}
 
-xrdb -load "$HOME/.Xresources"
+xrdb -load "$HOME/.config/xresources"
 
 if [[ $is_docked == "true" ]]; then
-    xrdb -merge -nocpp "$HOME/.Xresources_docked_overrides"
+    xrdb -merge -nocpp "$HOME/.config/xresources_docked_overrides"
 fi
