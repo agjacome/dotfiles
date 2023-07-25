@@ -1,6 +1,9 @@
-# \$HOME config files
+# \$HOME
+
+```
+$ chezmoi init --apply agjacome
+```
 
 ### TODO
 
-- Migrate configs to chezmoi
-- Manage through nix home manager
+- Manage chezmoi and all required programs through nix home-manager
