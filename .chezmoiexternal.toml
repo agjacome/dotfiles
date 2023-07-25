@@ -1,4 +1,9 @@
 [".config/nvim"]
   type = "git-repo"
-  url = "https://github.com/agjacome/nvimfiles.git"
+  url = "git@github.com:agjacome/nvimfiles.git"
+  refreshPeriod = "1h"
+
+[".password-store"]
+  type = "git-repo"
+  url = "git@github.com:agjacome/password-store.git"
   refreshPeriod = "1h"
