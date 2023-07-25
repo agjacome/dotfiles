@@ -11,10 +11,7 @@ declare -r directories=$(
     done
 )
 
-declare -r selected_dir=$(
-    echo "$directories" | \
-    fzf --reverse --cycle --ansi --preview 'tree -L 1 -C {}'
-)
+declare -r selected_dir=$(echo "$directories" | fzf --reverse --cycle --ansi)
 
 if [[ -z $selected_dir ]]; then
     exit 1
