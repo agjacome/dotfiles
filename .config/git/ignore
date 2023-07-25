@@ -29,12 +29,6 @@ ehthumbs.db
 Icon?
 Thumbs.db
 
-# scala stuff
-.bloop
-.cache
-.metals
-metals.sbt
-
 # direnv
 .envrc
 .direnv/
