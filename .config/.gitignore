@@ -17,5 +17,6 @@
 !tmux
 tmux/plugins
 !user-dirs*
+!xresources*
 !xsessions
 !zathura
