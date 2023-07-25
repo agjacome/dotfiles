@@ -1,4 +1,4 @@
 player-no-close
-player=mpv --cache 2048
+player=mpv
 default-stream=best
 loglevel=none
