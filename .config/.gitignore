@@ -11,6 +11,7 @@
 !locale.conf
 !mpv
 !nix
+!profile
 !streamlink
 !systemd
 !tbsm
