@@ -1,17 +1,17 @@
 /*
 !.gitignore
 
-!alacritty/
 !alacritty.yml
+!alacritty/
 !dunst/
 !fish/
 !htop/
+!locale.conf
 !nix/
 !streamlink
 !systemd/
 !tbsm/
+!user-dirs*
 !xsessions/
 !zathura/
 
-!Trolltech.conf
-!user-dirs*
