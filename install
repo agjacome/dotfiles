@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v chezmoi &> /dev/null; then
+    sh -c "$(curl -fsLS git.io/chezmoi)"
+fi
+
+chezmoi init agjacome --apply --exclude externals
+chezmoi apply --include externals
+
+gpg --import $HOME/.gnupg/private_keys.pgp
