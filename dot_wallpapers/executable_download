@@ -14,7 +14,7 @@ declare -r wallpapers=(
 )
 
 function download_wallpaper() {
-    local -r directory="${HOME}/media/pictures/wallpapers"
+    local -r directory="${HOME}/.wallpapers"
     local -r url="https://w.wallhaven.cc/full/${1:0:2}/wallhaven-${1}"
 
     curl --silent --output "${directory}/${1}" "${url}"
