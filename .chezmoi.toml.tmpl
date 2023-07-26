@@ -1,3 +1,5 @@
+{{ $passphrase := promptStringOnce . "passphrase" "passphrase" -}}
+
 encryption = "gpg"
 
 [git]
@@ -6,4 +8,5 @@ encryption = "gpg"
 
 [gpg]
   symmetric = true
-  args = ["--quiet"]
+  args = ["--batch", "--passphrase", {{ $passphrase | quote }}, "--no-symkey-cache", "--quiet"]
+
