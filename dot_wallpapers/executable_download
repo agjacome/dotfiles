@@ -17,6 +17,10 @@ function download_wallpaper() {
     local -r directory="${HOME}/.wallpapers"
     local -r url="https://w.wallhaven.cc/full/${1:0:2}/wallhaven-${1}"
 
+    if [[ -f "${directory}/${1}" ]]; then
+        return
+    fi
+
     curl --silent --output "${directory}/${1}" "${url}"
 }
 
