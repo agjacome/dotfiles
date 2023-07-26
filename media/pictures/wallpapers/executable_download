@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+declare -r wallpapers=(
+    85ox3j.png
+    9mq26d.jpg
+    d6eedl.png
+    ex3lqw.png
+    jxvegm.png
+    pkw6y3.jpg
+    rrg1x1.png
+    v9z1dl.jpg
+    wq5797.png
+)
+
+function download_wallpaper() {
+    local -r directory="${HOME}/media/pictures/wallpapers"
+    local -r url="https://w.wallhaven.cc/full/${1:0:2}/wallhaven-${1}"
+
+    curl --silent --output "${directory}/${1}" "${url}"
+}
+
+export -f download_wallpaper
+parallel --bar --jobs 5 --no-notice --timeout 60 download_wallpaper ::: "${wallpapers[@]}"
