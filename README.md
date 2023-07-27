@@ -1,9 +1,13 @@
-# \$HOME
+# ~/.*
+
+[![I use Arch btw](https://i.kym-cdn.com/photos/images/original/002/243/369/466.png)](https://knowyourmeme.com/memes/btw-i-use-arch)
+
+##### YOLO
 
 ```
-$ ./install
+$ curl -fsLS https://raw.githubusercontent.com/agjacome/dotfiles/master/install | bash
 ```
 
-### TODO
+##### TODO
 
-- Manage chezmoi and all required programs through nix home-manager
+- Use nix home-manager btw
