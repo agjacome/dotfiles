@@ -7,3 +7,8 @@
   type = "git-repo"
   url = "git@github.com:agjacome/password-store.git"
   refreshPeriod = "1h"
+
+[".config/fish/functions/fisher.fish"]
+  type = "file"
+  url = "https://git.io/fisher"
+  refreshPeriod = "168h"
