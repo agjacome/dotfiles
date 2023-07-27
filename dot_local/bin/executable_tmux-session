@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # format: path:depth
-declare -r search_paths=("$HOME/src:2")
+declare -r search_paths=("$HOME/src:2" "$HOME/.local/share/chezmoi:0" "$HOME/.config/nvim:0")
 
 declare -r directories=$(
     for path in ${search_paths[@]}; do
