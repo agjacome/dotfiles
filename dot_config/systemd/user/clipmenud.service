@@ -3,6 +3,7 @@ Description=Clipmenu daemon
 After=xresources.service
 
 [Service]
+Environment="CM_IGNORE_WINDOW=pass.*"
 ExecStart=/usr/bin/clipmenud
 Restart=always
 RestartSec=500ms
