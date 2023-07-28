@@ -1,7 +1,7 @@
 if not status is-interactive; return; end
 
-if test -f ~/.config/profile
-    fenv source ~/.config/profile
+if test -f ~/.config/profile.sh
+    fenv source ~/.config/profile.sh
 end
 
 set -x PATH $HOME/.local/bin $PATH
