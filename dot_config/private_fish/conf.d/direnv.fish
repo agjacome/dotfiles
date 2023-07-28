@@ -1,6 +1,6 @@
 status is-interactive || exit
 
-if which direnv > /dev/null;
-    direnv hook fish | source;
+if type -q direnv
+    direnv hook fish | source
 end
 
