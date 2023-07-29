@@ -6,6 +6,7 @@ abbr l1    "ls -1"
 abbr mkdir "mkdir -pv"
 abbr mv    "mv -i"
 abbr rm    "rm -Iv"
+abbr rr    "rm -Irv"
 
 if type -q tmux
     abbr ta "tmux attach -t"
