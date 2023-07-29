@@ -3,3 +3,4 @@ oh-my-fish/plugin-foreign-env
 fishgretel/fasd
 lilyball/nix-env.fish
 jorgebucaran/autopair.fish
+patrickf1/fzf.fish
