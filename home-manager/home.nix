@@ -10,13 +10,13 @@
     bat
     chezmoi
     direnv
+    fd
     fish
     fzf
     git
     gnupg
     htop
     less
-    mcfly
     neofetch
     neovim
     pass
@@ -24,6 +24,7 @@
     ripgrep-all
     tmux
     tree
+    zoxide
   ];
 
   programs.home-manager.enable = true;
