@@ -1,10 +1,10 @@
-if not status is-interactive; return; end
+status is-interactive; or return
 
 if test -f ~/.config/profile.sh
     fenv source ~/.config/profile.sh
 end
 
-set -x PATH $HOME/.local/bin $PATH
+set -gx PATH $HOME/.local/bin $PATH
 
 set -gx BROWSER vivaldi
 set -gx COLORTERM truecolor
@@ -22,3 +22,19 @@ set -f theme_title_display_process yes
 set -f theme_title_display_path yes
 set -f theme_title_display_user no
 set -f theme_title_use_abbreviated_path yes
+
+bind \ct $HOME/.local/bin/tmux-session
+
+if type -q direnv
+    direnv hook fish | source
+end
+
+if type -q fzf
+    set -gx FZF_DEFAULT_OPTS '--layout=reverse --cycle --ansi --height=100%'
+    set -gx FZF_TMUX 1
+end
+
+if type -q zoxide
+    zoxide init fish | source
+end
+
