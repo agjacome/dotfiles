@@ -1,0 +1,7 @@
+--no-colors
+--format (bestvideo+bestaudio/best)[height<=?1080]
+--merge-output-format mkv
+--output ~/media/videos/youtube/%(title)s.%(ext)s
+--add-metadata
+--sponsorblock-mark all
+--no-playlist
