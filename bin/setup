@@ -80,11 +80,12 @@ function setup_chezmoi() {
 }
 
 function setup_fish() {
-    if ! grep -q $(which fish) /etc/shells; then
+    if ! chsh -l | grep -q $(which fish); then
         echo $(which fish) | sudo tee -a /etc/shells
     fi
 
-    chsh -s $(which fish)
+    sudo chsh -s $(which fish)
+
     fish -c "fisher update"
 }
 
