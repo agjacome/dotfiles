@@ -21,8 +21,6 @@ with lib; {
     programs.home-manager.enable = true;
     programs.nix-index-database.comma.enable = true;
 
-    systemd.user.startServices = "sd-switch";
-
     nix.package = mkDefault pkgs.nix;
     nix.settings = {
       experimental-features = "nix-command flakes repl-flake";
@@ -51,6 +49,7 @@ with lib; {
       neovim
       openssh
       pass
+      pinentry
       rclone
       reptyr
       ripgrep

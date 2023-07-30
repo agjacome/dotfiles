@@ -62,7 +62,7 @@ function setup_chezmoi() {
 }
 
 function import_gpg_keys() {
-    gpg --import $HOME/.gnupg/private_keys.pgp
+    gpg --batch --import $HOME/.gnupg/private_keys.pgp
 }
 
 function ensure_installed() {
