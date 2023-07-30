@@ -51,13 +51,7 @@ function setup_nix() {
         return
     fi
 
-    if command -v apt &> /dev/null; then
-        sudo apt update
-        sudo apt install -y curl xz-utils
-    else
-        ensure_installed curl xz
-    fi
-
+    ensure_installed curl xz
     curl -L https://nixos.org/nix/install | sh -s -- --daemon
 }
 
