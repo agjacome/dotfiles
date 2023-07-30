@@ -4,6 +4,6 @@ if [[ -f /etc/profile ]]; then
     source /etc/profile
 fi
 
-if [[ -z $DISPLAY && $XDG_VTNR -le 2 ]]; then
+if [[ -z $DISPLAY && -n $XDG_VTNR && $XDG_VTNR -le 2 ]]; then
     exec tbsm
 fi
