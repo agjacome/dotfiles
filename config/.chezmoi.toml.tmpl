@@ -2,6 +2,9 @@
 
 encryption = "gpg"
 
+[data]
+  pinentry = "{{ .chezmoi.homeDir }}/.nix-profile/bin/pinentry"
+
 [git]
   autoPush = false
   autoCommit = false
