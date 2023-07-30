@@ -5,9 +5,9 @@
 ##### YOLO
 
 ```
-$ curl -fsLS https://raw.githubusercontent.com/agjacome/dotfiles/master/install | bash
+$ curl -fsLS https://raw.githubusercontent.com/agjacome/dotfiles/master/bin/setup | bash
 ```
 
 ##### TODO
 
-- Use nix home-manager btw
+- ~~Use nix home-manager btw~~ wip
