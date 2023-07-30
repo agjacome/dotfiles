@@ -5,7 +5,7 @@
       sha256 = lock.narHash;
     };
     system = builtins.currentSystem;
-    overlays = [];
+    overlays = [ ];
   in
   import nixpkgs { inherit system overlays; }
 , ...
