@@ -5,5 +5,7 @@ if [[ -f /etc/profile ]]; then
 fi
 
 if [[ -z $DISPLAY && -n $XDG_VTNR && $XDG_VTNR -le 2 ]]; then
-    exec tbsm
+    if command -v tbsm >/dev/null 2>&1; then
+        exec tbsm
+    fi
 fi
