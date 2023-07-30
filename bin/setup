@@ -46,13 +46,19 @@ function setup_nix() {
         return
     fi
 
-    ensure_installed curl xz
+    if command -v pacman &> /dev/null; then
+        sudo pacman -Syu --noconfirm nix
+        return
+    fi
+
+    if command -v apt &> /dev/null; then
+        sudo apt update
+        sudo apt install -y curl xz-utils
+    else
+        ensure_installed curl xz
+    fi
 
     curl -L https://nixos.org/nix/install | sh -s -- --daemon
-
-    export PATH="$HOME/.nix-profile/bin:$PATH"
-    nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-    nix-channel --update
 }
 
 function clone_repository() {
