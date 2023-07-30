@@ -42,6 +42,7 @@ with lib; {
       git-privacy
       gnupg
       htop
+      jq
       less
       moreutils
       mr
