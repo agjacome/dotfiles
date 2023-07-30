@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-declare -r remote="https://github.com/agjacome/dotfiles.git"
+declare -r http_remote="https://github.com/agjacome/dotfiles.git"
+declare -r ssh_remote="git@github.com:agjacome/dotfiles.git"
 declare -r local="$HOME/.dotfiles"
 declare -r lock="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles.setup"
 
 function main() {
     if [[ -f ${lock} ]]; then
-        echo "Setup already ran, skipping. To run again, delete ${lock}"
+        echo "Setup already ran, skipping. To run it again, delete ${lock}"
         exit 0
     fi
 
@@ -35,8 +36,7 @@ function main() {
     import_gpg_keys
     echo
 
-    mkdir -p $(dirname ${lock})
-    touch ${lock}
+    mkdir -p $(dirname ${lock}) && touch ${lock}
 
     echo "Setup complete!"
 }
@@ -66,7 +66,10 @@ function clone_repository() {
         return
     fi
 
-    nix-shell -p git --run "git clone ${remote} ${local}"
+    nix-shell -p git --run "\
+        git clone ${http_remote} ${local} && \
+        cd ${local} && \
+        git remote set-url origin ${ssh_remote}"
 }
 
 function setup_home_manager() {
