@@ -47,6 +47,7 @@ with lib; {
       mr
       neofetch
       neovim
+      nodejs_20
       openssh
       pass
       pinentry
