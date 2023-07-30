@@ -11,7 +11,7 @@ abbr rr    "rm -Irv"
 if type -q tmux
     abbr ta "tmux attach -t"
     abbr tl "tmux list-sessions"
-    abbr tn "tmux new -s (pwd | sed 's/.*\///g')"
+    abbr tn "tmux new -s (basename (pwd) | sed 's/[^a-zA-Z0-9]//g')"
 end
 
 if type -q nvim
