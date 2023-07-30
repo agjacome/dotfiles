@@ -1,42 +1,79 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-function require_curl() {
-    if ! command -v curl &> /dev/null; then
-        echo "Please install curl first"
-        exit 1
+declare -r remote="https://github.com/agjacome/dotfiles.git"
+declare -r local="$HOME/.dotfiles"
+declare -r lock="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles.setup"
+
+function main() {
+    if [[ -f ${lock} ]]; then
+        echo "Setup already ran, skipping. To run again, delete ${lock}"
+        exit 0
     fi
+
+    echo "Setting up nix..."
+    setup_nix
+
+    echo "Cloning dotfiles repo..."
+    clone_repository
+
+    echo "Setting up home-manager..."
+    setup_home_manager
+
+    echo "Setting up chezmoi..."
+    setup_chezmoi
+
+    echo "Importing GPG keys..."
+    import_gpg_keys
+
+    mkdir -p $(dirname ${lock})
+    touch ${lock}
+
+    echo "Setup complete!"
 }
 
-function install_nix() {
-    if ! command -v nix &> /dev/null; then
-        echo "Installing Nix..."
-        sh <(curl -L https://nixos.org/nix/install) --daemon
+function setup_nix() {
+    if command -v nix &> /dev/null; then
+        return
     fi
+
+    ensure_installed curl xz
+
+    curl -L https://nixos.org/nix/install | sh -s -- --daemon
+    PATH="$HOME/.nix-profile/bin:$PATH"
+}
+
+function clone_repository() {
+    if [[ -d ${local} ]]; then
+        return
+    fi
+
+    nix-shell -p git --run "git clone ${remote} ${local}"
 }
 
 function setup_home_manager() {
-    local -r expr='with import <nixpkgs> {}; fetchgit { url = "https://github.com/agjacome/dotfiles.git"; }'
-    local -r run='home-manager switch --flake github:agjacome/dotfiles'
-
-    nix-shell -E "${expr}" --run "${run}"
+    nix-shell ${local}/shell.nix --run "home-manager switch --flake ${local}"
 }
 
 function setup_chezmoi() {
-    chezmoi init agjacome --apply --exclude externals
-    chezmoi apply --include externals
+    chezmoi init  -S ${local}
+    chezmoi apply -S ${local} --exclude externals
+    chezmoi apply -S ${local} --include externals
 }
 
 function import_gpg_keys() {
     gpg --import $HOME/.gnupg/private_keys.pgp
 }
 
-function main() {
-    require_curl
-    install_nix
-    setup_home_manager
-    setup_chezmoi
-    import_gpg_keys
+function ensure_installed() {
+    local -r packages=($@)
+
+    for package in ${packages[@]}; do
+        if ! command -v ${package} &> /dev/null; then
+            echo "Missing dependency: ${package}"
+            exit 1
+        fi
+    done
 }
 
-main
+main $@
