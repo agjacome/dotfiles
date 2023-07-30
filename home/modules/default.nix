@@ -1,3 +1,3 @@
 {
-    base = import ./base.nix;
+  base = import ./base.nix;
 }

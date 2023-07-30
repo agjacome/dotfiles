@@ -24,8 +24,8 @@ with lib; {
     nix.package = mkDefault pkgs.nix;
     nix.settings = {
       experimental-features = "nix-command flakes repl-flake";
-      keep-outputs          = true;
-      keep-derivations      = true;
+      keep-outputs = true;
+      keep-derivations = true;
     };
 
     home.packages = with pkgs; [

@@ -1,14 +1,14 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    stable.url  = "github:NixOS/nixpkgs/nixos-23.05";
+    stable.url = "github:NixOS/nixpkgs/nixos-23.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-index-database= {
+    nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -20,22 +20,23 @@
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    in rec {
-      lib   = import ./lib { inherit inputs; };
+    in
+    rec {
+      lib = import ./lib { inherit inputs; };
       homes = import ./home/modules;
 
       formatter = forAllSystems (system:
-        nixpkgs.${system}.nixpkgs-fmt
+        legacyPackages.${system}.nixpkgs-fmt
       );
 
       devShells = forAllSystems (system: {
         default = nixpkgs.legacyPackages.${system}.callPackage ./shell.nix { };
       });
 
-      legacyPackages = forAllSystems(system:
+      legacyPackages = forAllSystems (system:
         import nixpkgs {
           inherit system;
-          overlays = [];
+          overlays = [ ];
           config.allowUnfree = true;
           config.allowBroken = false;
         }
@@ -46,7 +47,7 @@
           import ./pkgs {
             pkgs = import nixpkgs {
               inherit system;
-              overlays = [];
+              overlays = [ ];
               config.allowUnfree = true;
               config.allowBroken = false;
             };
@@ -68,10 +69,10 @@
         let
           inherit (nixpkgs.lib.attrsets) filterAttrs mapAttrs;
           checkPackages = packages.${system};
-          checkHomes    = mapAttrs (name: user: user.activationPackage)
+          checkHomes = mapAttrs (name: user: user.activationPackage)
             (filterAttrs (name: user: user.pkgs.system == system) homeConfigurations);
         in
-          checkPackages // checkHomes
+        checkPackages // checkHomes
       );
     };
 }
