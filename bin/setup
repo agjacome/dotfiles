@@ -13,18 +13,27 @@ function main() {
 
     echo "Setting up nix..."
     setup_nix
+    echo
 
     echo "Cloning dotfiles repo..."
     clone_repository
+    echo
 
     echo "Setting up home-manager..."
     setup_home_manager
+    echo
 
     echo "Setting up chezmoi..."
     setup_chezmoi
+    echo
+
+    echo "Setting up fish..."
+    setup_fish
+    echo
 
     echo "Importing GPG keys..."
     import_gpg_keys
+    echo
 
     mkdir -p $(dirname ${lock})
     touch ${lock}
@@ -59,6 +68,15 @@ function setup_chezmoi() {
     chezmoi init  -S ${local}
     chezmoi apply -S ${local} --exclude externals
     chezmoi apply -S ${local} --include externals
+}
+
+function setup_fish() {
+    if ! grep -q $(which fish) /etc/shells; then
+        echo $(which fish) | sudo tee -a /etc/shells
+    fi
+
+    chsh -s $(which fish)
+    fish -c "fisher update"
 }
 
 function import_gpg_keys() {
