@@ -4,14 +4,8 @@ set -euo pipefail
 declare -r http_remote="https://github.com/agjacome/dotfiles.git"
 declare -r ssh_remote="git@github.com:agjacome/dotfiles.git"
 declare -r local="$HOME/.dotfiles"
-declare -r lock="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles.setup"
 
 function main() {
-    if [[ -f ${lock} ]]; then
-        echo "Setup already ran, skipping. To run it again, delete ${lock}"
-        exit 0
-    fi
-
     echo "Setting up nix..."
     setup_nix
     echo
@@ -35,8 +29,6 @@ function main() {
     echo "Importing GPG keys..."
     import_gpg_keys
     echo
-
-    mkdir -p $(dirname ${lock}) && touch ${lock}
 
     echo "Setup complete!"
 }
