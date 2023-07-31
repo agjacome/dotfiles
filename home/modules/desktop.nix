@@ -48,7 +48,12 @@ in
 
   config = mkIf config.modules.desktop.enable {
     home.packages = with pkgs; nixGLPkg ++ [
+      feh
+      streamlink
+      yt-dlp
+
       (withNixGL alacritty)
+      (withNixGL mpv)
       (withNixGL screenkey)
     ];
   };
