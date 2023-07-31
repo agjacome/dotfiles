@@ -52,12 +52,12 @@ with lib;
       htop
       jq
       less
-      moreutils
       mr
       neofetch
       neovim
       nodejs_20
       openssh
+      parallel
       pass
       pinentry
       rclone
@@ -65,11 +65,9 @@ with lib;
       ripgrep
       ripgrep-all
       rsync
-      streamlink
       tmux
       tor
       tree
-      yt-dlp
       zoxide
     ];
 
