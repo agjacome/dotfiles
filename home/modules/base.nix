@@ -1,6 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 
-with lib; {
+with lib;
+{
   imports = [
     inputs.nix-index-database.hmModules.nix-index
   ];
@@ -12,17 +13,23 @@ with lib; {
       type = types.str;
       default = "agjacome";
     };
+
+    user.home = mkOption {
+      type = types.str;
+      default = "/home/${config.user.name}";
+    };
   };
 
   config = mkIf config.modules.base.enable {
     home.username = config.user.name;
-    home.homeDirectory = "/home/${config.user.name}";
+    home.homeDirectory = config.user.home;
 
     programs.home-manager.enable = true;
     programs.nix-index-database.comma.enable = true;
 
     nix.package = mkDefault pkgs.nix;
     nix.settings = {
+      auto-optimise-store = true;
       experimental-features = "nix-command flakes repl-flake";
       keep-outputs = true;
       keep-derivations = true;
@@ -33,6 +40,7 @@ with lib; {
       bat
       bc
       chezmoi
+      diceware
       direnv
       fd
       fish
@@ -57,9 +65,9 @@ with lib; {
       ripgrep
       ripgrep-all
       rsync
-      screenkey
       streamlink
       tmux
+      tor
       tree
       yt-dlp
       zoxide

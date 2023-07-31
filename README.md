@@ -29,7 +29,7 @@ It ~~may~~ will not work for you. TL;DR:
 ```
 $ git clone https://github.com/agjacome/dotfiles.git dotfiles
 $ cd dotfiles
-$ nix-shell shell.nix --run "home-manager switch --flake ."
+$ nix-shell --run "home-manager switch --impure --flake ."
 $ chezmoi init --apply -S .
 ```
 
@@ -44,11 +44,6 @@ $ chezmoi init --apply -S .
 
 #### Nobody Asked Questions
 
-##### Why don't you use home-manager to also setup your dotfiles?
-I may at some point, just started using home-manager recently. I am mostly ok
-for the dual setup of home-manager + chezmoi at the moment. It may become a new
-todo point in the future.
-
 ##### How often do you update your environment?
 Damn bro, very smart question, no way anyone can tell with this being a git
 repository and shit.
@@ -61,3 +56,12 @@ those periods.
 
 I agree with this article: [Stop perfecting your
 config](https://arkadiuszchmura.com/posts/stop-perfecting-your-config/)
+
+##### Why `--impure`?
+Because propietary Nvidia [NixGL](https://github.com/guibou/nixGL) wrapper.
+
+##### Why don't you use home-manager to also setup your dotfiles?
+I may at some point, just started using home-manager recently. I am mostly ok
+for the dual setup of home-manager + chezmoi at the moment. It may become a new
+todo point in the future.
+
