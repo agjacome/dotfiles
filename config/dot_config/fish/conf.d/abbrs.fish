@@ -1,6 +1,6 @@
 abbr cp    "cp -ir"
 abbr df    "df -hT"
-abbr grep  "grep --color=auto -I"
+abbr grep  "grep --color=auto -Ii"
 abbr l     "ls"
 abbr l1    "ls -1"
 abbr mkdir "mkdir -pv"
