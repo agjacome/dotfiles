@@ -34,7 +34,7 @@ let
         '';
       }));
 
-    nixGLPkg = if config.nixgl == null then [] else [ config.nixgl ];
+  nixGLPkg = if config.nixgl == null then [ ] else [ config.nixgl ];
 in
 {
   options = {
