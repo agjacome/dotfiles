@@ -18,13 +18,40 @@
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }:
     let
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    in
-    rec {
-      lib = import ./lib { inherit inputs; };
+      inherit (home-manager.lib) homeManagerConfiguration;
+      inherit (nixpkgs.lib) filterAttrs platforms;
+      inherit (nixpkgs.lib.lists) elem;
+
       homes = import ./home/modules;
 
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+
+      filterSupported = system: pkgs:
+        let
+          isUnsupportedSystem = attrs: (
+            !elem system (attrs.meta.platforms or platforms.all) ||
+            elem system (attrs.meta.badPlatforms or [ ])
+          );
+        in
+        filterAttrs (name: value: !isUnsupportedSystem value) pkgs;
+
+      makeHome =
+        { modules ? [ ]
+        , pkgs
+        , system ? pkgs.system
+        , username ? "agjacome"
+        , homeDirectory ? "/home/${username}"
+        , stateVersion ? 23.05
+        , lib ? pkgs.lib
+        , extraSpecialArgs ? { }
+        , check ? true
+        }:
+        { inherit modules; } // homeManagerConfiguration {
+          inherit modules pkgs lib extraSpecialArgs check;
+        };
+    in
+    rec {
       formatter = forAllSystems (system:
         legacyPackages.${system}.nixpkgs-fmt
       );
@@ -43,7 +70,7 @@
       );
 
       packages = forAllSystems (system:
-        lib.filterSupported system (
+        filterSupported system (
           import ./pkgs {
             pkgs = import nixpkgs {
               inherit system;
@@ -56,7 +83,7 @@
       );
 
       homeConfigurations = {
-        agjacome = lib.makeHomeConfig {
+        agjacome = makeHome {
           pkgs = legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs; };
           modules = (builtins.attrValues homes) ++ [
