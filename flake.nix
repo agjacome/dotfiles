@@ -1,7 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    stable.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,19 +13,25 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-gl = {
+      url = "github:guibou/nixgl";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, nix-gl, ... }:
     let
+      inherit (builtins) attrValues;
       inherit (home-manager.lib) homeManagerConfiguration;
-      inherit (nixpkgs.lib) filterAttrs platforms;
+      inherit (nixpkgs.lib) filterAttrs genAttrs platforms;
       inherit (nixpkgs.lib.lists) elem;
 
-      homes = import ./home/modules;
+      homeModules = import ./home/modules;
 
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      forAllSystems = genAttrs supportedSystems;
 
       filterSupported = system: pkgs:
         let
@@ -35,21 +41,6 @@
           );
         in
         filterAttrs (name: value: !isUnsupportedSystem value) pkgs;
-
-      makeHome =
-        { modules ? [ ]
-        , pkgs
-        , system ? pkgs.system
-        , username ? "agjacome"
-        , homeDirectory ? "/home/${username}"
-        , stateVersion ? 23.05
-        , lib ? pkgs.lib
-        , extraSpecialArgs ? { }
-        , check ? true
-        }:
-        { inherit modules; } // homeManagerConfiguration {
-          inherit modules pkgs lib extraSpecialArgs check;
-        };
     in
     rec {
       formatter = forAllSystems (system:
@@ -57,13 +48,13 @@
       );
 
       devShells = forAllSystems (system: {
-        default = nixpkgs.legacyPackages.${system}.callPackage ./shell.nix { };
+        default = legacyPackages.${system}.callPackage ./shell.nix { };
       });
 
       legacyPackages = forAllSystems (system:
         import nixpkgs {
           inherit system;
-          overlays = [ ];
+          overlays = [ nix-gl.overlay ];
           config.allowUnfree = true;
           config.allowBroken = false;
         }
@@ -74,7 +65,7 @@
           import ./pkgs {
             pkgs = import nixpkgs {
               inherit system;
-              overlays = [ ];
+              overlays = [ nix-gl.overlay ];
               config.allowUnfree = true;
               config.allowBroken = false;
             };
@@ -83,11 +74,21 @@
       );
 
       homeConfigurations = {
-        agjacome = makeHome {
+        agjacome = homeManagerConfiguration {
+          check = true;
           pkgs = legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs; };
-          modules = (builtins.attrValues homes) ++ [
-            ./home/profiles/home.nix
+          modules = (attrValues homeModules) ++ [
+            { modules.base.enable = true; }
+          ];
+        };
+
+        "agjacome@Caronte" = homeManagerConfiguration {
+          check = true;
+          pkgs = legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs; };
+          modules = (attrValues homeModules) ++ [
+            ./home/profiles/caronte.nix
           ];
         };
       };

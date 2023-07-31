@@ -67,7 +67,7 @@ function clone_repository() {
 }
 
 function setup_home_manager() {
-    nix-shell ${local}/shell.nix --run "home-manager switch --flake ${local}"
+    nix-shell --run "home-manager switch --impure --flake ${local}"
 }
 
 function setup_chezmoi() {
