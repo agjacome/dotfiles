@@ -1,4 +1,4 @@
 {
   base = import ./base.nix;
-  gui = import ./gui.nix;
+  desktop = import ./desktop.nix;
 }

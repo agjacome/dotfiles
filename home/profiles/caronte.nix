@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 {
   modules.base.enable = true;
-  modules.gui.enable = true;
+  modules.desktop.enable = true;
 
   user.name = "agjacome";
 

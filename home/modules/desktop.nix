@@ -38,7 +38,7 @@ let
 in
 {
   options = {
-    modules.gui.enable = mkEnableOption "gui module";
+    modules.desktop.enable = mkEnableOption "desktop module";
 
     nixgl = mkOption {
       type = types.nullOr types.package;
@@ -46,7 +46,7 @@ in
     };
   };
 
-  config = mkIf config.modules.gui.enable {
+  config = mkIf config.modules.desktop.enable {
     home.packages = with pkgs; nixGLPkg ++ [
       (withNixGL alacritty)
       (withNixGL screenkey)
