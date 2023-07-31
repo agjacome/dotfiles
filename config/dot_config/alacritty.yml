@@ -1,10 +1,14 @@
+# test
 font:
   normal:
     family: Monofur Nerd Font
+    style: Regular
   bold:
-    family: Monofurbold Nerd Font
+    family: Monofur Nerd Font
+    style: Bold
   italic:
-    family: Monofuritalic Nerd Font
+    family: Monofur Nerd Font
+    style: Italic
   size: 17
 
 window:
