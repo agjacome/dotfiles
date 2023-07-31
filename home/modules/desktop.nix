@@ -48,6 +48,8 @@ in
 
   config = mkIf config.modules.desktop.enable {
     home.packages = with pkgs; nixGLPkg ++ [
+      clipmenu
+      dunst
       feh
       streamlink
       yt-dlp
