@@ -4,7 +4,7 @@
 
 [![I use Arch btw](https://i.kym-cdn.com/photos/images/original/002/243/369/466.png)](https://knowyourmeme.com/memes/btw-i-use-arch)
 
-- [ArchLinux](ofc) **obviously**.
+- [ArchLinux](https://archlinux.org) **obviously**.
 - Nix [home-manager](https://nix-community.github.io/home-manager/) to manage
   user-centric programs (see `flake.nix`).
 - [Chezmoi](https://www.chezmoi.io) to manage dotfiles (see `config/` dir).
@@ -24,7 +24,8 @@
 $ curl -fsLS https://raw.githubusercontent.com/agjacome/dotfiles/master/bin/setup | bash
 ```
 
-It ~~may~~ will not work for you. TL;DR:
+It ~~may~~ will not work for you. Read the code and figure out your own setup.
+The main steps are:
 
 ```
 $ git clone https://github.com/agjacome/dotfiles.git dotfiles
