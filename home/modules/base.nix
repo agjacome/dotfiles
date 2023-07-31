@@ -35,6 +35,8 @@ with lib;
       keep-derivations = true;
     };
 
+    fonts.fontconfig.enable = true;
+
     home.packages = with pkgs; [
       bash
       bat
@@ -55,6 +57,7 @@ with lib;
       mr
       neofetch
       neovim
+      (nerdfonts.override { fonts = ["DroidSansMono" "Monofur" ]; })
       nodejs_20
       openssh
       parallel
