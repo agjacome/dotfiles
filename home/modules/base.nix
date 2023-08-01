@@ -46,6 +46,7 @@ with lib;
       fd
       fish
       fzf
+      gcc13
       git
       git-annex
       git-privacy
