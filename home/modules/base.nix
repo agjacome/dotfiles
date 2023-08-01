@@ -46,12 +46,14 @@ with lib;
       direnv
       fd
       fish
+      ffmpeg
       fzf
       git
       git-annex
       git-privacy
       gnupg
       htop
+      imagemagick
       jq
       less
       mr
