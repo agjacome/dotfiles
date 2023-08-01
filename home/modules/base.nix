@@ -40,7 +40,9 @@ with lib;
       bat
       bc
       cargo
+      chafa
       chezmoi
+      curl
       diceware
       direnv
       fd
@@ -50,8 +52,10 @@ with lib;
       git
       git-annex
       git-privacy
+      gnumake
       gnupg
       htop
+      imagemagick
       jq
       less
       mr
