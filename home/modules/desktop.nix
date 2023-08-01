@@ -46,32 +46,42 @@ in
     };
   };
 
-  config = mkIf config.modules.desktop.enable {
-    fonts.fontconfig.enable = true;
+  config =
+    let
+      packages = with pkgs; [
+        clipmenu
+        dunst
+        feh
+        ffmpeg
+        gimp
+        imagemagick
+        screenkey
+        spotify
+        streamlink
+        vivaldi-ffmpeg-codecs
+        xclip
+        xdg-utils
+        yt-dlp
+        zathura
+      ];
 
-    home.packages = with pkgs; nixGLPkg ++ [
-      clipmenu
-      dunst
-      feh
-      ffmpeg
-      gimp
-      imagemagick
-      (nerdfonts.override { fonts = [ "DroidSansMono" "Monofur" ]; })
-      screenkey
-      spotify
-      streamlink
-      vivaldi-ffmpeg-codecs
-      xclip
-      xdg-utils
-      yt-dlp
-      zathura
+      glPackages = with pkgs; map withNixGL [
+        alacritty
+        discord
+        firefox-devedition
+        mpv
+        slack
+        vivaldi
+      ];
 
-      (withNixGL alacritty)
-      (withNixGL discord)
-      (withNixGL firefox-devedition)
-      (withNixGL mpv)
-      (withNixGL slack)
-      (withNixGL vivaldi)
-    ];
-  };
+      fonts = with pkgs; [
+        (nerdfonts.override { fonts = [ "DroidSansMono" "Monofur" ]; })
+        noto-fonts
+        noto-fonts-emoji
+      ];
+    in
+    mkIf config.modules.desktop.enable {
+      fonts.fontconfig.enable = true;
+      home.packages = packages ++ glPackages ++ nixGLPkg ++ fonts;
+    };
 }
