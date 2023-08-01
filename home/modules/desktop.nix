@@ -54,7 +54,6 @@ in
         feh
         ffmpeg
         gimp
-        imagemagick
         screenkey
         spotify
         streamlink
