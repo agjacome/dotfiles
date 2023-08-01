@@ -1,0 +1,5 @@
+[Service]
+ExecStart=
+ExecStart={{ .nixBinPath }}/gpg-agent --supervised
+ExecReload=
+ExecReload={{ .nixBinPath }}/gpgconf --reload gpg-agent
