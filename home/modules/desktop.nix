@@ -51,12 +51,20 @@ in
       clipmenu
       dunst
       feh
+      gimp
+      screenkey
+      spotify
       streamlink
+      vivaldi-ffmpeg-codecs
+      xdg-utils
       yt-dlp
 
       (withNixGL alacritty)
+      (withNixGL discord)
+      (withNixGL firefox-devedition)
       (withNixGL mpv)
-      (withNixGL screenkey)
+      (withNixGL slack)
+      (withNixGL vivaldi)
     ];
   };
 }
