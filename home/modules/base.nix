@@ -35,31 +35,27 @@ with lib;
       keep-derivations = true;
     };
 
-    fonts.fontconfig.enable = true;
-
     home.packages = with pkgs; [
       bash
       bat
       bc
+      cargo
       chezmoi
       diceware
       direnv
       fd
       fish
-      ffmpeg
       fzf
       git
       git-annex
       git-privacy
       gnupg
       htop
-      imagemagick
       jq
       less
       mr
       neofetch
       neovim
-      (nerdfonts.override { fonts = [ "DroidSansMono" "Monofur" ]; })
       nodejs_20
       openssh
       parallel

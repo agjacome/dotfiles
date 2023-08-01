@@ -47,17 +47,24 @@ in
   };
 
   config = mkIf config.modules.desktop.enable {
+    fonts.fontconfig.enable = true;
+
     home.packages = with pkgs; nixGLPkg ++ [
       clipmenu
       dunst
       feh
+      ffmpeg
       gimp
+      imagemagick
+      (nerdfonts.override { fonts = [ "DroidSansMono" "Monofur" ]; })
       screenkey
       spotify
       streamlink
       vivaldi-ffmpeg-codecs
+      xclip
       xdg-utils
       yt-dlp
+      zathura
 
       (withNixGL alacritty)
       (withNixGL discord)
