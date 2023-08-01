@@ -57,7 +57,7 @@ with lib;
       mr
       neofetch
       neovim
-      (nerdfonts.override { fonts = ["DroidSansMono" "Monofur" ]; })
+      (nerdfonts.override { fonts = [ "DroidSansMono" "Monofur" ]; })
       nodejs_20
       openssh
       parallel
@@ -68,6 +68,7 @@ with lib;
       ripgrep
       ripgrep-all
       rsync
+      speedtest-cli
       tmux
       tor
       tree
