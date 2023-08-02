@@ -1,5 +1,3 @@
-# See dunst(5) for all configuration options
-
 [global]
     monitor = 0
     follow = keyboard
@@ -12,7 +10,7 @@
     foreground = "#1d1f21"
     frame_width = 1
     frame_color = "#282a2e"
-    font = DroidSansMono Nerd Font 10
+    font = DroidSansM Nerd Font 10
 
     timeout = 3
     idle_threshold = 120
@@ -31,8 +29,8 @@
     hide_duplicate_count = true
     show_indicators = false
 
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/vivaldi
+    dmenu = dmenu -p dunst:
+    browser = vivaldi
 
     close   = mod4+grave
     history = mod4+shift+grave
