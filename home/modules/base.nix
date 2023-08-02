@@ -72,6 +72,7 @@ with lib;
       ripgrep-all
       rsync
       speedtest-cli
+      tldr
       tmux
       tor
       tree
