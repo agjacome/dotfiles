@@ -74,15 +74,6 @@
       );
 
       homeConfigurations = {
-        agjacome = homeManagerConfiguration {
-          check = true;
-          pkgs = legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs; };
-          modules = (attrValues homeModules) ++ [
-            { modules.base.enable = true; }
-          ];
-        };
-
         "agjacome@Caronte" = homeManagerConfiguration {
           check = true;
           pkgs = legacyPackages.x86_64-linux;
