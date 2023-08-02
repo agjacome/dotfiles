@@ -1,5 +1,5 @@
 [Service]
 ExecStart=
-ExecStart={{ .nixBinPath }}/gpg-agent --supervised
+ExecStart={{ .nixProfile }}/bin/gpg-agent --supervised
 ExecReload=
-ExecReload={{ .nixBinPath }}/gpgconf --reload gpg-agent
+ExecReload={{ .nixProfile }}/bin/gpgconf --reload gpg-agent
