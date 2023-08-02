@@ -5,7 +5,7 @@ After=xresources.service
 [Service]
 Type=dbus
 BusName=org.freedesktop.Notifications
-ExecStart={{ .nixBinPath }}/dunst
+ExecStart={{ .nixProfile }}/bin/dunst
 
 [Install]
 WantedBy=xsession.target
