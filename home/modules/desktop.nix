@@ -59,7 +59,7 @@ in
         streamlink
         vivaldi-ffmpeg-codecs
         xclip
-        # xdg-utils # FIXME: breaking stuff in my ArchLinux, not sure why
+        xdg-utils
         yt-dlp
         zathura
       ];
