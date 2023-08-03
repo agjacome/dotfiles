@@ -67,7 +67,6 @@ with lib;
       pass
       pinentry
       rclone
-      reptyr
       ripgrep
       ripgrep-all
       rsync
