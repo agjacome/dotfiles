@@ -4,7 +4,7 @@ encryption = "gpg"
 
 [data]
   nixProfile = "{{ .chezmoi.homeDir }}/.nix-profile"
-  pinentry = "{{ .nixBinPath }}/pinentry"
+  pinentry = "{{ .chezmoi.homeDir }}/.nix-profile/bin/pinentry"
 
 [git]
   autoPush = false
