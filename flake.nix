@@ -18,12 +18,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # darwin = {
+    #   url = "github:lnl7/nix-darwin";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nix-gl, ... }:
     let
       inherit (builtins) attrValues;
+      # inherit (darwin.lib) darwinSystem;
       inherit (home-manager.lib) homeManagerConfiguration;
       inherit (nixpkgs.lib) filterAttrs genAttrs platforms;
       inherit (nixpkgs.lib.lists) elem;
@@ -73,6 +79,15 @@
         )
       );
 
+      # darwinConfigurations = {
+      #   "frontify" = darwin.lib.darwinSystem {
+      #       system = "aarch64-darwin";
+      #       pkgs = legacyPackages.aarch64-darwin;
+      #       modules = (attrValues.homeModules) ++ [
+      #       ];
+      #   };
+      # };
+
       homeConfigurations = {
         "agjacome@Caronte" = homeManagerConfiguration {
           check = true;
@@ -80,6 +95,14 @@
           extraSpecialArgs = { inherit inputs; };
           modules = (attrValues homeModules) ++ [
             ./home/profiles/caronte.nix
+          ];
+        };
+        "albertojacome@frontify" = homeManagerConfiguration {
+          check = true;
+          pkgs = legacyPackages.aarch64-darwin;
+          extraSpecialArgs = { inherit inputs; };
+          modules = (attrValues homeModules) ++ [
+            ./home/profiles/frontify.nix
           ];
         };
       };
