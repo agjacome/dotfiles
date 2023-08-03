@@ -52,7 +52,7 @@ function clone_repository() {
         return
     fi
 
-    nix-shell -p git --run "\
+    nix-shell ${local}/shell.nix -p git --run "\
         git clone ${http_remote} ${local} && \
         cd ${local} && \
         git remote set-url origin ${ssh_remote}"
