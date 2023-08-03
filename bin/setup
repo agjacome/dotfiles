@@ -43,8 +43,8 @@ function setup_nix() {
         return
     fi
 
-    ensure_installed curl xz
-    curl -L https://nixos.org/nix/install | sh -s -- --daemon
+    sh <(curl -L https://nixos.org/nix/install)
+    mkdir -p $HOME/.local/state/nix/profiles
 }
 
 function clone_repository() {
@@ -82,15 +82,3 @@ function import_gpg_keys() {
     gpg --batch --import $HOME/.gnupg/private_keys.pgp
 }
 
-function ensure_installed() {
-    local -r packages=($@)
-
-    for package in ${packages[@]}; do
-        if ! command -v ${package} &> /dev/null; then
-            echo "Missing dependency: ${package}"
-            exit 1
-        fi
-    done
-}
-
-main $@
