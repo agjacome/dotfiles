@@ -73,7 +73,7 @@ function setup_fish() {
         echo $(which fish) | sudo tee -a /etc/shells
     fi
 
-    sudo chsh -s $(which fish)
+    chsh -s $(which fish)
 
     fish -c "fisher update"
 }
