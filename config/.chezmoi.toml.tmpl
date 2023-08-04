@@ -1,5 +1,6 @@
 {{ $passphrase := promptStringOnce . "passphrase" "Chezmoi passphrase" -}}
 
+sourceDir = "{{ .chezmoi.homeDir }}/.dotfiles"
 encryption = "gpg"
 
 [data]
