@@ -18,103 +18,79 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # darwin = {
-    #   url = "github:lnl7/nix-darwin";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, nix-gl, ... }:
+  outputs = inputs @ { nixpkgs, home-manager, nix-gl, darwin, ... }:
     let
       inherit (builtins) attrValues;
-      # inherit (darwin.lib) darwinSystem;
+      inherit (darwin.lib) darwinSystem;
       inherit (home-manager.lib) homeManagerConfiguration;
-      inherit (nixpkgs.lib) filterAttrs genAttrs platforms;
-      inherit (nixpkgs.lib.lists) elem;
 
-      homeModules = import ./home/modules;
+      homeModules = let ms = import ./home/modules; in attrValues ms;
+      systemModules = let ms = import ./system/modules; in attrValues ms;
 
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
-      forAllSystems = genAttrs supportedSystems;
-
-      filterSupported = system: pkgs:
-        let
-          isUnsupportedSystem = attrs: (
-            !elem system (attrs.meta.platforms or platforms.all) ||
-            elem system (attrs.meta.badPlatforms or [ ])
-          );
-        in
-        filterAttrs (name: value: !isUnsupportedSystem value) pkgs;
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ];
     in
     rec {
-      formatter = forAllSystems (system:
-        legacyPackages.${system}.nixpkgs-fmt
-      );
-
-      devShells = forAllSystems (system: {
-        default = legacyPackages.${system}.callPackage ./shell.nix { };
-      });
-
-      legacyPackages = forAllSystems (system:
+      packages = forAllSystems (system:
         import nixpkgs {
           inherit system;
+
           overlays = [ nix-gl.overlay ];
-          config.allowUnfree = true;
-          config.allowBroken = false;
+          config = {
+            allowBroken = false;
+            allowUnfree = true;
+            allowUnsupportedSystem = true;
+          };
         }
       );
 
-      packages = forAllSystems (system:
-        filterSupported system (
-          import ./pkgs {
-            pkgs = import nixpkgs {
-              inherit system;
-              overlays = [ nix-gl.overlay ];
-              config.allowUnfree = true;
-              config.allowBroken = false;
-            };
-          }
-        )
+      devShells = forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./shell.nix { inherit pkgs; }
       );
 
-      # darwinConfigurations = {
-      #   "frontify" = darwin.lib.darwinSystem {
-      #       system = "aarch64-darwin";
-      #       pkgs = legacyPackages.aarch64-darwin;
-      #       modules = (attrValues.homeModules) ++ [
-      #       ];
-      #   };
-      # };
+      formatter = forAllSystems (system:
+        nixpkgs.legacyPackages.${system}.nixpkgs-fmt
+      );
 
-      homeConfigurations = {
-        "agjacome@Caronte" = homeManagerConfiguration {
-          check = true;
-          pkgs = legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs; };
-          modules = (attrValues homeModules) ++ [
-            ./home/profiles/caronte.nix
-          ];
-        };
-        "albertojacome@frontify" = homeManagerConfiguration {
-          check = true;
-          pkgs = legacyPackages.aarch64-darwin;
-          extraSpecialArgs = { inherit inputs; };
-          modules = (attrValues homeModules) ++ [
-            ./home/profiles/frontify.nix
+      darwinConfigurations = {
+        "frontify" = darwinSystem {
+          pkgs = packages.aarch64-darwin;
+          system = "aarch64-darwin";
+          modules = systemModules ++ [
+            ./system/profiles/frontify.nix
           ];
         };
       };
 
-      checks = forAllSystems (system:
-        let
-          inherit (nixpkgs.lib.attrsets) filterAttrs mapAttrs;
-          checkPackages = packages.${system};
-          checkHomes = mapAttrs (name: user: user.activationPackage)
-            (filterAttrs (name: user: user.pkgs.system == system) homeConfigurations);
-        in
-        checkPackages // checkHomes
-      );
+      homeConfigurations = {
+        "agjacome@Caronte" = homeManagerConfiguration {
+          pkgs = packages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs; };
+          modules = homeModules ++ [
+            ./home/profiles/caronte.nix
+          ];
+        };
+        "albertojacome@frontify" = homeManagerConfiguration {
+          pkgs = packages.aarch64-darwin;
+          extraSpecialArgs = { inherit inputs; };
+          modules = homeModules ++ [
+            ./home/profiles/frontify.nix
+          ];
+        };
+      };
     };
 }

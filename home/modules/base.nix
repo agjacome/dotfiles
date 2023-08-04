@@ -31,8 +31,8 @@ with lib;
     nix.settings = {
       auto-optimise-store = true;
       experimental-features = "nix-command flakes repl-flake";
-      keep-outputs = true;
       keep-derivations = true;
+      keep-outputs = true;
     };
 
     home.packages = with pkgs; [

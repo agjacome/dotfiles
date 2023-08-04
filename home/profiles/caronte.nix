@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   modules.base.enable = true;
   modules.desktop.enable = true;
