@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, ... }:
 
 # nixgl management adapted (copied) from responses and suggestions in
 # https://github.com/guibou/nixGL/issues/114

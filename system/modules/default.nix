@@ -1,0 +1,3 @@
+{
+  darwin = import ./darwin.nix;
+}

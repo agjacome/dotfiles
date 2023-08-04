@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, ... }:
 
 with lib;
 {
@@ -9,7 +9,7 @@ with lib;
   config = mkIf config.modules.darwin.enable {
     home.packages = with pkgs; [
       alacritty
-      (nerdfonts.override { fonts = ["Monofur"]; })
+      (nerdfonts.override { fonts = [ "Monofur" ]; })
     ];
   };
 }

@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ ... }:
 {
   modules.base.enable = true;
   modules.darwin.enable = true;

@@ -1,0 +1,4 @@
+{ ... }:
+{
+  modules.darwin.enable = true;
+}
