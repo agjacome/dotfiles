@@ -3,10 +3,10 @@
 with lib;
 {
   options = {
-    modules.darwin.enable = mkEnableOption "darwin module";
+    homes.darwin.enable = mkEnableOption "darwin home";
   };
 
-  config = mkIf config.modules.darwin.enable {
+  config = mkIf config.homes.darwin.enable {
     home.packages = with pkgs; [
       alacritty
       (nerdfonts.override { fonts = [ "Monofur" ]; })
