@@ -38,7 +38,7 @@ let
 in
 {
   options = {
-    modules.desktop.enable = mkEnableOption "desktop module";
+    homes.desktop.enable = mkEnableOption "desktop home";
 
     nixgl = mkOption {
       type = types.nullOr types.package;
@@ -79,7 +79,7 @@ in
         noto-fonts-emoji
       ];
     in
-    mkIf config.modules.desktop.enable {
+    mkIf config.homes.desktop.enable {
       fonts.fontconfig.enable = true;
       home.packages = packages ++ glPackages ++ nixGLPkg ++ fonts;
     };

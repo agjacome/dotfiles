@@ -7,7 +7,7 @@ with lib;
   ];
 
   options = {
-    modules.base.enable = mkEnableOption "base module";
+    homes.base.enable = mkEnableOption "base home";
 
     user.name = mkOption {
       type = types.str;
@@ -20,7 +20,7 @@ with lib;
     };
   };
 
-  config = mkIf config.modules.base.enable {
+  config = mkIf config.homes.base.enable {
     home.username = config.user.name;
     home.homeDirectory = config.user.home;
 

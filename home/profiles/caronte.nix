@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
-  modules.base.enable = true;
-  modules.desktop.enable = true;
+  homes.base.enable = true;
+  homes.desktop.enable = true;
 
   user.name = "agjacome";
 

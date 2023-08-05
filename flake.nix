@@ -32,8 +32,8 @@
       inherit (darwin.lib) darwinSystem;
       inherit (home-manager.lib) homeManagerConfiguration;
 
-      homeModules = let ms = import ./home/modules; in attrValues ms;
-      systemModules = let ms = import ./system/modules; in attrValues ms;
+      homes = let ms = import ./home/modules; in attrValues ms;
+      systems = let ms = import ./system/modules; in attrValues ms;
 
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
@@ -70,7 +70,7 @@
         "frontify" = darwinSystem {
           pkgs = packages.aarch64-darwin;
           system = "aarch64-darwin";
-          modules = systemModules ++ [
+          modules = systems ++ [
             ./system/profiles/frontify.nix
           ];
         };
@@ -80,14 +80,14 @@
         "agjacome@Caronte" = homeManagerConfiguration {
           pkgs = packages.x86_64-linux;
           extraSpecialArgs = { inherit inputs; };
-          modules = homeModules ++ [
+          modules = homes ++ [
             ./home/profiles/caronte.nix
           ];
         };
         "albertojacome@frontify" = homeManagerConfiguration {
           pkgs = packages.aarch64-darwin;
           extraSpecialArgs = { inherit inputs; };
-          modules = homeModules ++ [
+          modules = homes ++ [
             ./home/profiles/frontify.nix
           ];
         };
