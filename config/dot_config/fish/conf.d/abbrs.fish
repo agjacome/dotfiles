@@ -8,13 +8,13 @@ abbr mv    "mv -i"
 abbr rm    "rm -Iv"
 abbr rr    "rm -Irv"
 
-if begin type -q tmux; or test -f {{ .nixProfile }}/bin/tmux; end
+if type -q tmux
     abbr ta "tmux attach -t"
     abbr tl "tmux list-sessions"
     abbr tn "tmux new -s (basename (pwd) | sed 's/[^a-zA-Z0-9]//g')"
 end
 
-if begin type -q nvim; or test -f {{ .nixProfile }}/bin/nvim; end
+if type -q nvim
     abbr v   "nvim"
     abbr vi  "nvim"
     abbr vim "nvim"
@@ -24,12 +24,12 @@ else if type -q vim
     abbr vim "vim"
 end
 
-if begin type -q yay; or test -f /usr/bin/yay; end
+if type -q yay
     abbr i   "yay -S"
     abbr qdt "yay -Qdtq"
     abbr ss  "yay -Ss"
     abbr syu "yay -Syu"
-else if begin type -q pacman; or test -f /usr/bin/pacman; end
+else if test -f /usr/bin/pacman
     abbr i   "sudo pacman -S"
     abbr qdt "pacman -Qdtq"
     abbr ss  "pacman -Ss"
