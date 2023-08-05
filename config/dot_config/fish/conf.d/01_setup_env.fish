@@ -4,8 +4,7 @@ if test -f /etc/profile
     fenv source /etc/profile
 end
 
-fish_add_path -p $HOME/.local/bin
-fish_add_path -p $HOME/.nix-profile/bin
+fish_add_path -gmp $HOME/.local/bin $HOME/.nix-profile/bin
 
 set -gx BROWSER vivaldi
 set -gx COLORTERM truecolor
