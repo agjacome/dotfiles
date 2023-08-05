@@ -1,5 +1,7 @@
 status is-interactive; or return
 
+set -q __fish_config_sourced; and return
+
 if test -f ~/.config/profile.sh
     fenv source ~/.config/profile.sh
 end
@@ -38,3 +40,4 @@ if type -q zoxide
     zoxide init fish | source
 end
 
+set -gx __fish_config_sourced 0
