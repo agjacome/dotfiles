@@ -14,22 +14,53 @@ with lib;
     };
 
     system = {
+      activationScripts.postUserActivation.text = ''
+        /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+      '';
+
       defaults = {
         dock = {
           autohide = true;
+          autohide-delay = 0.0;
+          autohide-time-modifier = 0.2;
+          expose-animation-duration = 0.2;
           mru-spaces = false;
+          orientation = "bottom";
+          show-process-indicators = true;
+          show-recents = false;
+          showhidden = true;
+          tilesize = 24;
+          wvous-bl-corner = 1;
+          wvous-br-corner = 1;
+          wvous-tl-corner = 1;
+          wvous-tr-corner = 1;
         };
 
         finder = {
           AppleShowAllExtensions = true;
-          CreateDesktop = false;
+          AppleShowAllFiles = true;
+          CreateDesktop = true;
+          FXDefaultSearchScope = "SCcf";
           FXPreferredViewStyle = "Nlsv";
+          QuitMenuItem = true;
           ShowPathbar = true;
-          ShowStatusBar = true;
+          ShowStatusBar = false;
+          _FXShowPosixPathInTitle = false;
         };
 
-        NSGlobalDomain.KeyRepeat = 1;
-        NSGlobalDomain.InitialKeyRepeat = 20;
+        NSGlobalDomain = {
+          KeyRepeat = 1;
+          InitialKeyRepeat = 20;
+        };
+
+        CustomUserPreferences = {
+          "com.apple.finder" = {
+            ShowExternalHardDrivesOnDesktop = true;
+            ShowHardDrivesOnDesktop = false;
+            ShowRemovableMediaOnDesktop = true;
+            _FXSortFoldersFirst = true;
+          };
+        };
       };
 
       keyboard = {
