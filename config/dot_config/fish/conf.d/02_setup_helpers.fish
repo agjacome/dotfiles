@@ -1,6 +1,3 @@
-set -q __fish_setup_helpers; and return
-set -gx __fish_setup_helpers 1
-
 if type -q direnv
     direnv hook fish | source
 end
