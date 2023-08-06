@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 with lib;
 {
@@ -9,8 +9,17 @@ with lib;
   config = mkIf config.systems.darwin.enable {
     services.nix-daemon.enable = true;
 
+    environment = {
+      systemPath = [ "/opt/homebrew/bin" ];
+    };
+
     system = {
       defaults = {
+        dock = {
+          autohide = true;
+          mru-spaces = false;
+        };
+
         finder = {
           AppleShowAllExtensions = true;
           CreateDesktop = false;
@@ -27,6 +36,19 @@ with lib;
         enableKeyMapping = true;
         remapCapsLockToEscape = true;
       };
+    };
+
+    homebrew = {
+      enable = true;
+
+      global = {
+        autoUpdate = false;
+        brewfile = true;
+      };
+
+      caskArgs.no_quarantine = true;
+
+      casks = [ "amethyst" ];
     };
   };
 }
