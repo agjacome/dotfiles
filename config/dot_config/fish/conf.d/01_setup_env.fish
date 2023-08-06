@@ -1,7 +1,6 @@
-set -q __fish_setup_env; and return
-
-if test -f /etc/profile
-    fenv source /etc/profile
+if ! set -q __fish_profile_sourced; and test -f /etc/profile
+  fenv source /etc/profile
+  set -gx __fish_profile_sourced 1
 end
 
 fish_add_path -gmp $HOME/.local/bin $HOME/.nix-profile/bin
@@ -17,5 +16,3 @@ set -gx LESS -R -X
 set -gx PAGER less
 set -gx QUOTING_STYLE literal
 set -fx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
-
-set -gx __fish_setup_env 1
