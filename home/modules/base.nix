@@ -24,9 +24,6 @@ with lib;
     home.username = config.user.name;
     home.homeDirectory = config.user.home;
 
-    programs.home-manager.enable = true;
-    programs.nix-index-database.comma.enable = true;
-
     nix.package = mkDefault pkgs.nix;
     nix.settings = {
       auto-optimise-store = true;
@@ -42,6 +39,7 @@ with lib;
       cargo
       chafa
       chezmoi
+      comma
       curl
       diceware
       direnv
@@ -54,6 +52,7 @@ with lib;
       git-privacy
       gnumake
       gnupg
+      home-manager
       htop
       imagemagick
       jq

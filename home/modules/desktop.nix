@@ -1,10 +1,8 @@
 { config, pkgs, lib, ... }:
 
-# nixgl management adapted (copied) from responses and suggestions in
-# https://github.com/guibou/nixGL/issues/114
-
 with lib;
 let
+  # https://github.com/guibou/nixGL/issues/114
   withNixGL = pkg:
     if config.nixgl == null then
       pkg
@@ -57,6 +55,7 @@ in
         screenkey
         spotify
         streamlink
+        tbsm
         vivaldi-ffmpeg-codecs
         xclip
         xdg-utils
@@ -79,6 +78,7 @@ in
         noto-fonts-emoji
       ];
     in
+
     mkIf config.homes.desktop.enable {
       fonts.fontconfig.enable = true;
       home.packages = packages ++ glPackages ++ nixGLPkg ++ fonts;
