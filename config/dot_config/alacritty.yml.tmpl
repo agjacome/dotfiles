@@ -54,3 +54,8 @@ colors:
     magenta: '#CF86C1'
     cyan:    '#65B8C1'
     white:   '#888F94'
+
+{{ if eq .chezmoi.hostname "frontify" -}}
+key_bindings:
+  - { key: N,  mods: Control|Shift, action: CreateNewWindow }
+{{- end }}
