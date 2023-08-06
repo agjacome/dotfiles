@@ -21,7 +21,7 @@ declare -r session_name=$(basename $selected_dir | sed 's/[^a-zA-Z0-9]//g')
 declare -r session_exists=$(tmux has-session -t $session_name 2> /dev/null || echo 1)
 
 if [[ $session_exists -eq 1 ]]; then
-    tmux new-session -d -s $session_name -c $selected_dir > /dev/null 2>&1
+    tmux new-session -d -s $session_name -c $selected_dir -n 'vim' 'nvim .' > /dev/null 2>&1
 fi
 
 if [[ -z ${TMUX+x} ]]; then
