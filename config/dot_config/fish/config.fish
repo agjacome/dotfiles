@@ -1,6 +1,6 @@
 status is-interactive; or return
 
-if test -z $DISPLAY; and test -n $XDG_VTNR; and test $XDG_VTNR -le 2
+if test -z $DISPLAY; and ! test -z $XDG_VTNR; and test $XDG_VTNR -le 2
     if type -q tbsm
         exec tbsm
     end
