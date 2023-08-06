@@ -4,13 +4,13 @@ font:
     style: Regular
   bold:
     family: Monofur Nerd Font
-    style: Bold
+    style: {{ if .boldFonts -}} Bold {{ else -}} Regular {{- end }}
   italic:
     family: Monofur Nerd Font
     style: Regular
   bold_italic:
     family: Monofur Nerd Font
-    style: Bold
+    style: {{ if .boldFonts -}} Bold {{ else -}} Regular {{- end }}
   size: {{ .fontSize }}
 
 window:
