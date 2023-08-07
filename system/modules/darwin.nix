@@ -73,9 +73,18 @@ with lib;
         brewfile = true;
       };
 
+      onActivation = {
+        autoUpdate = false;
+        cleanup = "zap";
+        upgrade = false;
+      };
+
       caskArgs.no_quarantine = true;
 
-      casks = [ "amethyst" ];
+      casks = [
+        "amethyst"
+        "logitech-options"
+      ];
     };
   };
 }
