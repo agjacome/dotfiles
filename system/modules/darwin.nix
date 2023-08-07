@@ -14,10 +14,6 @@ with lib;
     };
 
     system = {
-      activationScripts.postUserActivation.text = ''
-        /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-      '';
-
       defaults = {
         dock = {
           autohide = true;
@@ -29,7 +25,7 @@ with lib;
           show-process-indicators = true;
           show-recents = false;
           showhidden = true;
-          tilesize = 24;
+          tilesize = 42;
           wvous-bl-corner = 1;
           wvous-br-corner = 1;
           wvous-tl-corner = 1;
