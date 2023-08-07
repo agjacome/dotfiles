@@ -56,6 +56,7 @@ with lib;
       htop
       imagemagick
       jq
+      kalker
       less
       mr
       neofetch
@@ -74,6 +75,7 @@ with lib;
       tmux
       tor
       tree
+      vimv
       zoxide
     ];
 
