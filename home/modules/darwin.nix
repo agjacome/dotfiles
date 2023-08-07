@@ -10,6 +10,7 @@ with lib;
     home.packages = with pkgs; [
       alacritty
       coreutils-full
+      gnused
       (nerdfonts.override { fonts = [ "Monofur" ]; })
       pinentry_mac
       raycast
