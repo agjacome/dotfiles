@@ -83,7 +83,7 @@ with lib;
 
       casks = [
         "amethyst"
-        "logitech-options"
+        "steermouse"
         "tunnelblick"
       ];
     };

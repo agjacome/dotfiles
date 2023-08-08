@@ -9,6 +9,7 @@ with lib;
   config = mkIf config.homes.darwin.enable {
     home.packages = with pkgs; [
       alacritty
+      awscli2
       colima
       coreutils-full
       docker
