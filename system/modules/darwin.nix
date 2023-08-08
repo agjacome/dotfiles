@@ -84,6 +84,7 @@ with lib;
       casks = [
         "amethyst"
         "logitech-options"
+        "tunnelblick"
       ];
     };
   };
