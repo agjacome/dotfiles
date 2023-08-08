@@ -12,6 +12,7 @@ with lib;
       colima
       coreutils-full
       docker
+      docker-compose
       gnused
       (nerdfonts.override { fonts = [ "Monofur" ]; })
       pinentry_mac
