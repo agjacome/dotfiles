@@ -9,7 +9,9 @@ with lib;
   config = mkIf config.homes.darwin.enable {
     home.packages = with pkgs; [
       alacritty
+      colima
       coreutils-full
+      docker
       gnused
       (nerdfonts.override { fonts = [ "Monofur" ]; })
       pinentry_mac
