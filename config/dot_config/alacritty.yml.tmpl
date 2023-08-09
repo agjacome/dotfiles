@@ -20,6 +20,9 @@ window:
   padding:
     x: 10
     y: 10
+  {{ if eq .chezmoi.hostname "frontify" -}}
+  option_as_alt: Both
+  {{- end }}
 
 cursor:
   style:
