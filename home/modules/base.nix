@@ -75,6 +75,7 @@ with lib;
       tmux
       tor
       tree
+      vips
       vimv
       zoxide
     ];
