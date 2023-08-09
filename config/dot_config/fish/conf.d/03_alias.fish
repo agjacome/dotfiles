@@ -1,4 +1,5 @@
 abbr cp    "cp -ir"
+abbr cowp  "cp -ir --reflink=always"
 abbr df    "df -hT"
 abbr grep  "grep --color=auto -Ii"
 abbr l     "ls"
