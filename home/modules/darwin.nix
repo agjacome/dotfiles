@@ -9,15 +9,15 @@ with lib;
   config = mkIf config.homes.darwin.enable {
     home.packages = with pkgs; [
       alacritty
-      awscli2
-      colima
       coreutils-full
-      docker
-      docker-compose
       gnused
+      m-cli
+      mpv
       (nerdfonts.override { fonts = [ "Monofur" ]; })
       pinentry_mac
       raycast
+      xclip
+      yt-dlp
     ];
   };
 }

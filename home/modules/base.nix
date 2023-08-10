@@ -59,7 +59,6 @@ with lib;
       kalker
       less
       mr
-      neofetch
       neovim
       nodejs_20
       openssh
@@ -75,7 +74,6 @@ with lib;
       tmux
       tor
       tree
-      vips
       vimv
       zoxide
     ];
