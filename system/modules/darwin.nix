@@ -88,6 +88,7 @@ with lib;
         "firefox-developer-edition"
         "steermouse"
         "tunnelblick"
+        "vivaldi"
       ];
     };
   };
