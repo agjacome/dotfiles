@@ -4,8 +4,9 @@ IFS=$'\n\t'
 
 declare -r is_docked=${1:-$($HOME/.local/bin/_xutils/is-docked)}
 
-xset r rate 175 50
-xset s off -dpms
+xset -dpms
+xset s off
+xset r rate 175 60
 
 if [[ $is_docked == "true" ]]; then
     xrandr --output DP-3 --off --output DP-0 --primary --mode 5120x1440
