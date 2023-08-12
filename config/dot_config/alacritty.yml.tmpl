@@ -20,7 +20,7 @@ window:
   padding:
     x: 10
     y: 10
-  {{ if eq .chezmoi.hostname "frontify" -}}
+  {{ if eq .chezmoi.os "darwin" -}}
   option_as_alt: Both
   {{- end }}
 
@@ -58,7 +58,7 @@ colors:
     cyan:    '#65B8C1'
     white:   '#888F94'
 
-{{ if eq .chezmoi.hostname "frontify" -}}
+{{ if eq .chezmoi.os "darwin" -}}
 key_bindings:
   - { key: N,  mods: Control|Shift, action: CreateNewWindow }
 {{- end }}
