@@ -6,10 +6,8 @@
       overlays.nix-gl
     ];
     config = {
-      allowBroken = false;
       allowUnfree = true;
       allowUnfreePredicate = _: true;
-      allowUnsupportedSystem = false;
     };
   };
 
