@@ -1,4 +1,4 @@
-{{ $passphrase := promptStringOnce . "passphrase" "Chezmoi passphrase" -}}
+{{ $passphrase := promptStringOnce . "passphrase" "chezmoi passphrase" -}}
 
 sourceDir = "{{ .chezmoi.homeDir }}/.dotfiles"
 encryption = "gpg"
@@ -15,5 +15,11 @@ encryption = "gpg"
 
 [gpg]
   symmetric = true
-  args = ["--batch", "--passphrase", {{ $passphrase | quote }}, "--no-symkey-cache", "--quiet"]
+  args = [
+    "--batch",
+    "--passphrase",
+    {{ $passphrase | quote }},
+    "--no-symkey-cache",
+    "--quiet"
+  ]
 
