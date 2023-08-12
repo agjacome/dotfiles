@@ -46,7 +46,7 @@ with lib;
 
         NSGlobalDomain = {
           KeyRepeat = 1;
-          InitialKeyRepeat = 20;
+          InitialKeyRepeat = 10;
         };
 
         CustomUserPreferences = {
