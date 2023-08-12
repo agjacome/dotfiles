@@ -6,31 +6,24 @@ declare -r ssh_remote="git@github.com:agjacome/dotfiles.git"
 declare -r local="$HOME/.dotfiles"
 
 function main() {
-    echo "Setting up nix..."
+    printf "\e[32m%s\e[m\n\n" "Setting up dotfiles..."
+
+    printf "%s\n" "Setting up nix..."
     setup_nix
-    echo
 
-    echo "Cloning dotfiles repo..."
+    printf "%s\n" "Cloning dotfiles repo..."
     clone_repository
-    echo
 
-    echo "Setting up home-manager..."
+    printf "%s\n" "Setting up home-manager..."
     setup_home_manager
-    echo
 
-    echo "Setting up chezmoi..."
+    printf "%s\n" "Setting up chezmoi..."
     setup_chezmoi
-    echo
 
-    echo "Setting up fish..."
+    printf "%s\n" "Setting up fish..."
     setup_fish
-    echo
 
-    echo "Importing GPG keys..."
-    import_gpg_keys
-    echo
-
-    echo "Setup complete!"
+    printf "\n\e[32m%s\e[m\n" "Done!"
 }
 
 function setup_nix() {
@@ -43,7 +36,7 @@ function setup_nix() {
         return
     fi
 
-    sh <(curl -L https://nixos.org/nix/install)
+    curl -L https://nixos.org/nix/install | sh -s -- --daemon
     mkdir -p $HOME/.local/state/nix/profiles
 }
 
@@ -54,12 +47,11 @@ function clone_repository() {
 
     nix-shell ${local}/shell.nix -p git --run "\
         git clone ${http_remote} ${local} && \
-        cd ${local} && \
-        git remote set-url origin ${ssh_remote}"
+        git -C ${local} remote set-url origin ${ssh_remote}"
 }
 
 function setup_home_manager() {
-    nix-shell --run "home-manager switch --impure --flake ${local}"
+    nix-shell ${local}/shell.nix --run "home-manager switch --impure --flake ${local}"
 }
 
 function setup_chezmoi() {
@@ -73,12 +65,11 @@ function setup_fish() {
         echo $(which fish) | sudo tee -a /etc/shells
     fi
 
-    chsh -s $(which fish)
+    if [[ $SHELL != $(which fish) ]]; then
+        chsh -s $(which fish)
+    fi
 
     fish -c "fisher update"
 }
 
-function import_gpg_keys() {
-    gpg --batch --import $HOME/.gnupg/private_keys.pgp
-}
-
+main
