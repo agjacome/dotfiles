@@ -1,5 +1,9 @@
 {{ if eq .chezmoi.hostname "Caronte" -}}
   id_caronte.pub
+{{ else if eq .chezmoi.hostname "Cerbero" -}}
+  id_cerbero.pub
+{{ else if eq .chezmoi.hostname "Minos" -}}
+  id_minos.pub
 {{ else if eq .chezmoi.hostname "frontify" -}}
   id_frontify.pub
 {{ end -}}
