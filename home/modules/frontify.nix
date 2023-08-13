@@ -21,6 +21,7 @@ with lib;
       nodePackages.typescript
       nodePackages.typescript-language-server
       php82
+      php82Packages.composer
       vips
     ];
   };
