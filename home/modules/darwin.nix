@@ -16,6 +16,7 @@ with lib;
       (nerdfonts.override { fonts = [ "Monofur" ]; })
       pinentry_mac
       raycast
+      spotify
       xclip
       yt-dlp
     ];
