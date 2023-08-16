@@ -37,3 +37,6 @@ Thumbs.db
 .exrc
 .nvimrc
 .nvim.lua
+
+# lsp stuff
+.phpactor.json
