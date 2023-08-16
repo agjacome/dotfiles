@@ -32,3 +32,8 @@ Thumbs.db
 # direnv
 .envrc
 .direnv/
+
+# nvim exrc
+.exrc
+.nvimrc
+.nvim.lua
