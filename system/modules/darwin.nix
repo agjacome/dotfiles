@@ -87,7 +87,6 @@ with lib;
         "amethyst"
         "firefox-developer-edition"
         "steermouse"
-        "tunnelblick"
         "tuple"
         "vivaldi"
       ];
