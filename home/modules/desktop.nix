@@ -53,6 +53,7 @@ in
         ffmpeg
         gimp
         screenkey
+        spmd
         spotify
         streamlink
         tbsm
