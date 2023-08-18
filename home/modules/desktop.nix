@@ -47,6 +47,7 @@ in
   config =
     let
       packages = with pkgs; [
+        aria2
         clipmenu
         dunst
         feh
