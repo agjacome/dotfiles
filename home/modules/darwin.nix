@@ -17,6 +17,7 @@ with lib;
       pinentry_mac
       raycast
       spotify
+      unixtools.watch
       xclip
       yt-dlp
     ];
