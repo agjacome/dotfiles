@@ -21,10 +21,6 @@ with lib;
   };
 
   config = mkIf config.homes.base.enable {
-    nixpkgs = {
-      overlays = [ overlays.stable ];
-    };
-
     home.username = config.user.name;
     home.homeDirectory = config.user.home;
 
@@ -71,7 +67,6 @@ with lib;
       pinentry
       rclone
       ripgrep
-      (stablepkgs.ripgrep-all) # unstable failing to build @ 2023-08-26
       rsync
       speedtest-cli
       tldr
