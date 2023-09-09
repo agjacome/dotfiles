@@ -86,9 +86,9 @@ with lib;
       casks = [
         "amethyst"
         "firefox-developer-edition"
+        "logseq"
         "steermouse"
         "tuple"
-        "vivaldi"
       ];
     };
   };
