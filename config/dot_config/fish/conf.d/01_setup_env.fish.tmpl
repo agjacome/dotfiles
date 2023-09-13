@@ -5,7 +5,9 @@ end
 
 fish_add_path -gmp $HOME/.local/bin $HOME/.nix-profile/bin
 
+{{ if ne .chezmoi.os "darwin" -}}
 set -gx BROWSER vivaldi
+{{- end }}
 set -gx COLORTERM truecolor
 set -gx DIFFPROG nvim -d -c 'set diffopt+=vertical' -c 'set diffopt+=foldcolumn:0'
 set -gx EDITOR nvim
