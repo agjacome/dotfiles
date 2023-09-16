@@ -46,7 +46,6 @@ with lib;
       fd
       fish
       fzf
-      gcc13
       gh
       git
       git-annex
