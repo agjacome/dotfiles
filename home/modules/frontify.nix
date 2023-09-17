@@ -13,15 +13,6 @@ with lib;
       docker
       docker-compose
       ffmpeg
-      mysql
-      nodePackages.eslint
-      nodePackages.pnpm
-      nodePackages.prettier
-      nodePackages.ts-node
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      php82
-      php82Packages.composer
       vips
     ];
   };
