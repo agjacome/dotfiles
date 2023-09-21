@@ -66,7 +66,7 @@
       };
 
       darwinConfigurations = {
-        "CH16T6J2LJJ9WW" = darwinSystem {
+        "CH-MBP-T6J2LJJ9WW" = darwinSystem {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           system = "aarch64-darwin";
           modules = systems ++ [
@@ -83,7 +83,7 @@
             ./home/profiles/caronte.nix
           ];
         };
-        "albertojacome@CH16T6J2LJJ9WW" = homeManagerConfiguration {
+        "albertojacome@CH-MBP-T6J2LJJ9WW" = homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           extraSpecialArgs = { inherit inputs overlays; };
           modules = homes ++ [
