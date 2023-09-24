@@ -62,9 +62,3 @@ colors:
 key_bindings:
   - { key: N,  mods: Control|Shift, action: CreateNewWindow }
 {{- end }}
-
-{{ if eq .chezmoi.hostname "frontify" -}}
-shell:
-  program: login
-  args: ["-fp", "albertojacome"]
-{{- end }}
