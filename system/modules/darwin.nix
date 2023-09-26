@@ -86,6 +86,7 @@ with lib;
       casks = [
         "amethyst"
         "firefox-developer-edition"
+        "keycastr"
         "logseq"
         "steermouse"
         "tuple"
