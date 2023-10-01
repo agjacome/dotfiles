@@ -87,7 +87,6 @@ with lib;
         "amethyst"
         "firefox-developer-edition"
         "keycastr"
-        "logseq"
         "steermouse"
         "tuple"
       ];
