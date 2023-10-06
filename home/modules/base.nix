@@ -33,6 +33,7 @@ with lib;
     };
 
     home.packages = with pkgs; [
+      act
       bash
       bat
       bc
