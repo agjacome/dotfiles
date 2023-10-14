@@ -88,7 +88,6 @@ with lib;
         "firefox-developer-edition"
         "keycastr"
         "steermouse"
-        "tuple"
       ];
     };
   };
