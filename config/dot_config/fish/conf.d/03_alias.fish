@@ -40,3 +40,8 @@ end
 if test -d $HOME/.dotfiles
     abbr dotup "pushd $HOME/.dotfiles && git pull && home-manager switch --impure && chezmoi apply && popd"
 end
+
+if type -q docker
+    abbr dcu "docker compose up --build -d --remove-orphans --pull always --renew-anon-volumes"
+    abbr dcp "docker compose ps -a --format='table {{.Name}}\t{{.Image}}\t{{.Status}}'"
+end
