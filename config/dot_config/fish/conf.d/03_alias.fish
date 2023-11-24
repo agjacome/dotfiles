@@ -6,8 +6,8 @@ abbr l     "ls"
 abbr l1    "ls -1"
 abbr mkdir "mkdir -pv"
 abbr mv    "mv -i"
-abbr rm    "rm -Iv"
-abbr rr    "rm -Irv"
+abbr rm    "rm -Ivf"
+abbr rr    "rm -Irvf"
 
 if type -q tmux
     abbr ta "tmux attach -t"
@@ -44,4 +44,5 @@ end
 if type -q docker
     abbr dcu "docker compose up --build -d --remove-orphans --pull always --renew-anon-volumes"
     abbr dcp "docker compose ps -a --format='table {{.Name}}\t{{.Image}}\t{{.Status}}'"
+    abbr dcd "docker compose down"
 end
