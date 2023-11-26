@@ -42,7 +42,7 @@ if test -d $HOME/.dotfiles
 end
 
 if type -q docker
-    abbr dcu "docker compose up --build -d --remove-orphans --pull always --renew-anon-volumes"
+    abbr dcu "docker compose up --build -d --remove-orphans --pull always --renew-anon-volumes --wait"
     abbr dcp "docker compose ps -a --format='table {{.Name}}\t{{.Image}}\t{{.Status}}'"
     abbr dcd "docker compose down"
 end
