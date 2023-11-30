@@ -16,13 +16,13 @@ if type -q tmux
 end
 
 if type -q nvim
-    abbr v   "nvim"
-    abbr vi  "nvim"
-    abbr vim "nvim"
+    abbr v       "nvim"
+    abbr vi      "nvim"
+    abbr vim     "nvim"
+    abbr vimdiff "nvim -d"
 else if type -q vim
     abbr v   "vim"
     abbr vi  "vim"
-    abbr vim "vim"
 end
 
 if type -q yay
