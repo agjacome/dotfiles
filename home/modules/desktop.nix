@@ -67,10 +67,8 @@ in
 
       glPackages = with pkgs; map withNixGL [
         alacritty
-        discord
         firefox-devedition
         mpv
-        slack
         vivaldi
       ];
 
