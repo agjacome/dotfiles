@@ -1,0 +1,80 @@
+[font]
+size = {{ .fontSize }}
+
+[font.normal]
+family = "Monofur Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "Monofur Nerd Font"
+style = {{ if .boldFonts -}} "Bold" {{ else -}} "Regular" {{- end }}
+
+[font.italic]
+family = "Monofur Nerd Font"
+style = "Regular"
+
+[font.bold_italic]
+family = "Monofur Nerd Font"
+style = {{ if .boldFonts -}} "Bold" {{ else -}} "Regular" {{- end }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+[window]
+option_as_alt = "Both"
+{{- end -}}
+
+[window.dimensions]
+columns = 120
+lines = 40
+
+[window.padding]
+x = 10
+y = 10
+
+[cursor.style]
+blinking = "Never"
+shape = "Block"
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+# zenbones_dark: https://github.com/mcchrish/zenbones.nvim/blob/main/extras/alacritty/zenbones_dark.yml
+[colors.primary]
+background = "#1C1917"
+foreground = "#B4BDC3"
+
+[colors.cursor]
+cursor = "#C4CACF"
+text = "#1C1917"
+
+[colors.normal]
+black = "#1C1917"
+blue = "#6099C0"
+cyan = "#66A5AD"
+green = "#819B69"
+magenta = "#B279A7"
+red = "#DE6E7C"
+white = "#B4BDC3"
+yellow = "#B77E64"
+
+[colors.bright]
+black = "#403833"
+blue = "#61ABDA"
+cyan = "#65B8C1"
+green = "#8BAE68"
+magenta = "#CF86C1"
+red = "#E8838F"
+white = "#888F94"
+yellow = "#D68C67"
+
+{{- if eq .chezmoi.os "darwin" -}}
+[[keyboard.bindings]]
+key = "N"
+mods = "Control|Shift"
+action = "CreateNewWindow"
+{{- end -}}
+
+{{- if eq .chezmoi.hostname "frontify" -}}
+[shell]
+program = "login"
+args = ["-fp", "albertojacome"]
+{{- end -}}
