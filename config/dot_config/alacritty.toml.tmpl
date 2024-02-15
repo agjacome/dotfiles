@@ -20,7 +20,7 @@ style = {{ if .boldFonts -}} "Bold" {{ else -}} "Regular" {{- end }}
 {{ if eq .chezmoi.os "darwin" -}}
 [window]
 option_as_alt = "Both"
-{{- end -}}
+{{- end }}
 
 [window.dimensions]
 columns = 120
@@ -66,15 +66,15 @@ red = "#E8838F"
 white = "#888F94"
 yellow = "#D68C67"
 
-{{- if eq .chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.os "darwin" -}}
 [[keyboard.bindings]]
 key = "N"
 mods = "Control|Shift"
 action = "CreateNewWindow"
-{{- end -}}
+{{- end }}
 
-{{- if eq .chezmoi.hostname "frontify" -}}
+{{ if eq .chezmoi.hostname "frontify" -}}
 [shell]
 program = "login"
 args = ["-fp", "albertojacome"]
-{{- end -}}
+{{- end }}
