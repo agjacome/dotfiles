@@ -54,6 +54,7 @@ with lib;
       git-privacy
       gnumake
       gnupg
+      gron
       home-manager
       htop
       imagemagick
