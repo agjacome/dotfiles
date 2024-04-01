@@ -50,6 +50,7 @@ with lib;
       gh
       git
       git-annex
+      git-machete
       git-privacy
       gnumake
       gnupg
