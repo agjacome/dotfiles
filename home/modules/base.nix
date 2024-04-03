@@ -67,7 +67,7 @@ with lib;
       openssh
       parallel
       pass
-      pinentry
+      pinentry-tty
       rclone
       ripgrep
       rsync
