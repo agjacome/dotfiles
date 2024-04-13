@@ -14,7 +14,7 @@
     };
 
     nix-gl = {
-      url = "github:guibou/nixgl";
+      url = "github:nix-community/nixgl/9b4887dbf16933bdc124296434b3898d810b3608";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
