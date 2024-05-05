@@ -26,10 +26,7 @@ with lib;
 
     nix.package = mkDefault pkgs.nix;
     nix.settings = {
-      auto-optimise-store = true;
-      experimental-features = "nix-command flakes repl-flake";
-      keep-derivations = true;
-      keep-outputs = true;
+      experimental-features = "nix-command flakes";
     };
 
     home.packages = with pkgs; [
