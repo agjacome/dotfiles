@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, overlays, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 with lib;
 {
@@ -30,12 +30,9 @@ with lib;
     };
 
     home.packages = with pkgs; [
-      act
       bash
-      bat
       bc
       cargo
-      chafa
       chezmoi
       comma
       curl

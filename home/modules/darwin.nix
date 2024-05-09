@@ -11,7 +11,6 @@ with lib;
       alacritty
       coreutils-full
       gnused
-      m-cli
       mpv
       (nerdfonts.override { fonts = [ "Monofur" ]; })
       pinentry_mac
