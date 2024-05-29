@@ -17,8 +17,9 @@ style = "Regular"
 family = "Monofur Nerd Font"
 style = {{ if .boldFonts -}} "Bold" {{ else -}} "Regular" {{- end }}
 
-{{ if eq .chezmoi.os "darwin" -}}
 [window]
+decorations = "Buttonless"
+{{ if eq .chezmoi.os "darwin" -}}
 option_as_alt = "Both"
 {{- end }}
 
@@ -27,8 +28,8 @@ columns = 120
 lines = 40
 
 [window.padding]
-x = 10
-y = 10
+x = 15
+y = 15
 
 [cursor.style]
 blinking = "Never"
