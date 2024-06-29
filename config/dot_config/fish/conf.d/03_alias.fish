@@ -31,10 +31,6 @@ else if type -q pacman
     abbr syu "sudo pacman -Syu"
 end
 
-if test -d $HOME/.dotfiles
-    abbr dotup "pushd $HOME/.dotfiles && git pull && home-manager switch --impure && chezmoi apply && popd"
-end
-
 abbr ta "tmux attach -t"
 abbr tl "tmux list-sessions"
 abbr tn "tmux new -s (basename (pwd) | sed 's/[^a-zA-Z0-9]//g')"

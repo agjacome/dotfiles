@@ -1,0 +1,18 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\t\n'
+
+declare -r dotfiles_dir="$HOME/.dotfiles"
+
+if [[ ! -d $dotfiles_dir ]]; then
+    echo "Directory $dotfiles_dir does not exist - Nothing to update."
+    exit 1;
+fi
+
+pushd $dotfiles_dir 2>&1 > /dev/null
+
+git pull
+home-manager switch --impure
+chezmoi apply
+
+popd 2>&1 > /dev/null
