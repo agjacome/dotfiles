@@ -81,6 +81,15 @@ in
 
     mkIf config.homes.desktop.enable {
       fonts.fontconfig.enable = true;
+
+      home.pointerCursor = {
+        gtk.enable = true;
+        x11.enable = true;
+        name = "Vanilla-DMZ";
+        size = 64;
+        package = pkgs.vanilla-dmz;
+      };
+
       home.packages = packages ++ glPackages ++ nixGLPkg ++ fonts;
     };
 }
