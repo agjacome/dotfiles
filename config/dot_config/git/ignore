@@ -26,7 +26,6 @@
 # mac os & windows crap
 .DS_Store*
 ehthumbs.db
-Icon?
 Thumbs.db
 
 # direnv
