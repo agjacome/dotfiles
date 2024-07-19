@@ -74,8 +74,8 @@ mods = "Control|Shift"
 action = "CreateNewWindow"
 {{- end }}
 
-{{ if eq .chezmoi.hostname "frontify" -}}
+{{ if .forceLoginShell -}}
 [shell]
 program = "login"
-args = ["-fp", "albertojacome"]
+args = ["-fp", "{{ .username -}}" ]
 {{- end }}

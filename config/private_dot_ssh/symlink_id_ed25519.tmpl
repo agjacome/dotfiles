@@ -1,9 +1,1 @@
-{{ if eq .chezmoi.hostname "Caronte" -}}
-  id_caronte
-{{ else if eq .chezmoi.hostname "Cerbero" -}}
-  id_cerbero
-{{ else if eq .chezmoi.hostname "Minos" -}}
-  id_minos
-{{ else if eq .chezmoi.hostname "frontify" -}}
-  id_frontify
-{{ end -}}
+{{ .sshKey }}

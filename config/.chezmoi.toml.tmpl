@@ -4,10 +4,15 @@ sourceDir = "{{ .chezmoi.homeDir }}/.dotfiles"
 encryption = "gpg"
 
 [data]
-  fontSize = 17
   boldFonts = true
+  fontSize = 17
+  forceLoginShell = false
+  gitEmail = "contact@agjacome.dev"
+  gitSigningKey = ""
   nixProfile = "{{ .chezmoi.homeDir }}/.nix-profile"
   pinentry = "{{ .chezmoi.homeDir }}/.nix-profile/bin/pinentry"
+  sshKey = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519"
+  username = "agjacome"
 
 [git]
   autoPush = false
