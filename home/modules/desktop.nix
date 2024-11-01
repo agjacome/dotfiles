@@ -58,6 +58,7 @@ in
         spotify
         streamlink
         tbsm
+        ventoy
         vivaldi-ffmpeg-codecs
         xclip
         xdg-utils
