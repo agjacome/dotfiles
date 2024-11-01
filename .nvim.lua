@@ -4,11 +4,11 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd('BufWritePost', {
     group   = group,
     pattern = '**.nix',
-    command = [[!nix fmt % && home-manager switch --impure]]
+    command = [[belowright 20split | terminal nix fmt % && home-manager switch --impure]]
 })
 
 autocmd('BufWritePost', {
     group   = group,
     pattern = 'config/**',
-    command = [[!chezmoi apply --source-path %]]
+    command = [[belowright 20split | terminal chezmoi apply --verbose --source-path %]]
 })
