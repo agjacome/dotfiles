@@ -21,7 +21,7 @@
 #### YOLO
 
 ```
-$ curl -fsLS https://raw.githubusercontent.com/agjacome/dotfiles/master/bin/setup | bash
+$ curl -fsLS https://raw.githubusercontent.com/agjacome/dotfiles/master/bin/setup | bash -s -- profile
 ```
 
 It ~~may~~ will not work for you. Read the code and figure out your own setup.
@@ -30,7 +30,7 @@ The main steps are:
 ```
 $ git clone https://github.com/agjacome/dotfiles.git dotfiles
 $ cd dotfiles
-$ nix-shell --run "home-manager switch --impure --flake ."
+$ nix-shell --run "home-manager switch --impure --flake ./#profile"
 $ chezmoi init --apply -S .
 ```
 

@@ -12,7 +12,7 @@ fi
 pushd $dotfiles_dir 2>&1 > /dev/null
 
 git pull
-home-manager switch --impure
+home-manager switch --impure --flake ./#{{ .flakeProfile }}
 chezmoi apply
 
 popd 2>&1 > /dev/null

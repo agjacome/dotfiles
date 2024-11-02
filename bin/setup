@@ -8,6 +8,13 @@ declare -r local="$HOME/.dotfiles"
 function main() {
     printf "\e[32m%s\e[m\n\n" "Setting up dotfiles..."
 
+    if [ $# -lt 1 ]; then
+        printf "\e[31m%s\e[m\n\n" "Please provide a flake profile as argument"
+        exit 1
+    fi
+    local -r profile=${1}
+    printf "%s \033[1m%s\033[0m\n" "Profile:" ${profile}
+
     printf "%s\n" "Setting up nix..."
     setup_nix
 
@@ -15,10 +22,10 @@ function main() {
     clone_repository
 
     printf "%s\n" "Setting up home-manager..."
-    setup_home_manager
+    setup_home_manager ${profile}
 
     printf "%s\n" "Setting up chezmoi..."
-    setup_chezmoi
+    setup_chezmoi ${profile}
 
     printf "%s\n" "Setting up fish..."
     setup_fish
@@ -51,11 +58,19 @@ function clone_repository() {
 }
 
 function setup_home_manager() {
-    nix-shell ${local}/shell.nix --run "home-manager switch --impure --flake ${local}"
+    local -r profile=${1-}
+
+    nix-shell ${local}/shell.nix --run "home-manager switch --impure --flake ${local}/#${profile}"
 }
 
 function setup_chezmoi() {
-    chezmoi init  -S ${local}
+    local -r profile=${1-""}
+
+    if [[ ! -f ${HOME}/.config/chezmoi/chezmoi.toml ]]; then
+        chezmoi init -S ${local}
+        sed -i "s/flakeProfile = \".*\"/flakeProfile = \"${profile}\"/" $HOME/.config/chezmoi/chezmoi.toml
+    fi
+
     chezmoi apply -S ${local} --exclude externals
     chezmoi apply -S ${local} --include externals
 }
@@ -72,4 +87,4 @@ function setup_fish() {
     fish -c "fisher update"
 }
 
-main
+main $@
