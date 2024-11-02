@@ -38,4 +38,4 @@ Thumbs.db
 .nvim.lua
 
 # lsp stuff
-.phpactor.json
+.phpactor*
