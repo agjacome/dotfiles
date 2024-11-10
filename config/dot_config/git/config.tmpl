@@ -10,7 +10,7 @@
     autocrlf     = input
     editor       = nvim
     excludesfile = ~/.config/git/ignore
-    pager        = less
+    pager        = delta
     whitespace   = trailing-space,space-before-tab,indent-with-non-tab
 
 [color]
@@ -19,6 +19,7 @@
     gpgsign = true
 [diff]
     algorithm = histogram
+    noprefix = true
     tool = nvimdiff
 [difftool]
     prompt = false
@@ -28,6 +29,8 @@
     autocorrect = 1
 [init]
     defaultBranch = main
+[interactive]
+    diffFilter = delta --color-only
 [merge]
     conflictstyle = zdiff3
     tool = nvimdiff
@@ -51,3 +54,8 @@
     noff   = merge --no-ff
     pullff = pull --ff-only
     st     = status --short --branch
+
+[delta]
+    line-numbers = true
+    navigate = true
+    side-by-side = true

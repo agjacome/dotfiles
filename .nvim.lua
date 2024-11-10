@@ -4,7 +4,7 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd('BufWritePost', {
     group   = group,
     pattern = '**.nix',
-    command = [[!silent nix fmt]] -- % && home-manager switch --impure
+    command = [[!nix fmt]] -- % && home-manager switch --impure
 })
 
 -- autocmd('BufWritePost', {

@@ -36,6 +36,7 @@ with lib;
       chezmoi
       comma
       curl
+      delta
       diceware
       direnv
       fd
