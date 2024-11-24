@@ -75,7 +75,7 @@ action = "CreateNewWindow"
 {{- end }}
 
 {{ if .forceLoginShell -}}
-[shell]
+[terminal.shell]
 program = "login"
 args = ["-fp", "{{ .username -}}" ]
 {{- end }}
