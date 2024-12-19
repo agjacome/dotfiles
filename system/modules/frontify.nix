@@ -8,6 +8,7 @@ with lib;
 
   config = mkIf config.systems.frontify.enable {
     homebrew.casks = [
+      "deskpad"
       "orbstack"
       "tableplus"
       "tunnelblick"
