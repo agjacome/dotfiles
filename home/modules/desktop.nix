@@ -74,7 +74,8 @@ in
       ];
 
       fonts = with pkgs; [
-        (nerdfonts.override { fonts = [ "DroidSansMono" "Monofur" ]; })
+        nerd-fonts.droid-sans-mono
+        nerd-fonts.monofur
         noto-fonts
         noto-fonts-emoji
       ];

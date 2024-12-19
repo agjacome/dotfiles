@@ -12,7 +12,7 @@ with lib;
       coreutils-full
       gnused
       mpv
-      (nerdfonts.override { fonts = [ "Monofur" ]; })
+      nerd-fonts.monofur
       pinentry_mac
       raycast
       spotify
