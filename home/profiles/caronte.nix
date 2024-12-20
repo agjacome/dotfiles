@@ -4,6 +4,7 @@
     overlays = [
       overlays.additions
       overlays.nix-gl
+      overlays.stable
     ];
     config = {
       allowUnfree = true;
