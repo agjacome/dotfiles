@@ -74,8 +74,7 @@ in
       ];
 
       fonts = with pkgs; [
-        nerd-fonts.droid-sans-mono
-        (stablepkgs.nerdfonts.override { fonts = [ "Monofur" ]; }) # something seems broken in unstable monofur
+        (stablepkgs.nerdfonts.override { fonts = [ "DroidSansMono" "Monofur" ]; })
         noto-fonts
         noto-fonts-emoji
       ];
