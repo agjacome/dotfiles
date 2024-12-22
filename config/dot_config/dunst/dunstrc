@@ -3,14 +3,14 @@
     follow = keyboard
 
     origin = top-right
-    offset = 50x50
+    offset = (25,30)
     width = 300
-    height = 300
+    height = 50
     background = "#f0c674"
     foreground = "#1d1f21"
     frame_width = 1
     frame_color = "#282a2e"
-    font = DroidSansM Nerd Font 10
+    font = DroidSansM Nerd Font 8
 
     timeout = 3
     idle_threshold = 120
