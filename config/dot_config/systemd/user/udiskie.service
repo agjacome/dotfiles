@@ -1,11 +1,11 @@
 [Unit]
-Description=Udevil devmon service
+Description=Udiskie automounter service
 
 [Service]
 Type=simple
 Restart=always
 RestartSec=0
-ExecStart=/usr/bin/devmon
+ExecStart=/usr/bin/udiskie
 
 [Install]
 WantedBy=default.target
