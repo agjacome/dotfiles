@@ -1,14 +1,13 @@
-{ pkgs, overlays, ... }:
+{ pkgs, nix-gl, overlays, ... }:
+
 {
   nixpkgs = {
     overlays = [
       overlays.additions
-      overlays.nix-gl
       overlays.stable
     ];
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = _: true;
     };
   };
 
@@ -17,5 +16,8 @@
 
   user.name = "agjacome";
 
-  nixgl = pkgs.nixgl.auto.nixGLNvidia;
+  nixGL = {
+    packages = import nix-gl { inherit pkgs; };
+    defaultWrapper = "nvidia";
+  };
 }

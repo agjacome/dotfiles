@@ -24,7 +24,7 @@
     };
   };
 
-  outputs = inputs @ { nixpkgs, home-manager, darwin, ... }:
+  outputs = inputs @ { nixpkgs, stable, home-manager, nix-gl, darwin, ... }:
     let
       inherit (builtins) attrValues;
       inherit (darwin.lib) darwinSystem;
@@ -38,15 +38,10 @@
         "aarch64-linux"
         "aarch64-darwin"
       ];
-
     in
     rec {
       formatter = forAllSystems (system:
         nixpkgs.legacyPackages.${system}.nixpkgs-fmt
-      );
-
-      packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system}; in import ./pkgs { inherit pkgs; }
       );
 
       devShells = forAllSystems (system:
@@ -56,11 +51,10 @@
       overlays = {
         additions = final: _: import ./pkgs { pkgs = final; };
         stable = final: _: {
-          stablepkgs = import inputs.stable {
+          stablepkgs = import stable {
             system = final.system;
           };
         };
-        nix-gl = inputs.nix-gl.overlay;
       };
 
       darwinConfigurations = {
@@ -76,7 +70,7 @@
       homeConfigurations = {
         "caronte" = homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs overlays; };
+          extraSpecialArgs = { inherit inputs nix-gl overlays; };
           modules = homes ++ [
             ./home/profiles/caronte.nix
           ];
