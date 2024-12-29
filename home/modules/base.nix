@@ -71,6 +71,7 @@ with lib;
       tmux
       tor
       tree
+      tree-sitter
       vimv
       zoxide
     ];
