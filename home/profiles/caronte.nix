@@ -13,6 +13,7 @@
 
   homes.base.enable = true;
   homes.desktop.enable = true;
+  homes.gtk.enable = true;
 
   user.name = "agjacome";
 
