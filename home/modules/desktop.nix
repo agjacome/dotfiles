@@ -29,6 +29,7 @@ with lib;
       # gpu-accelerated packages
       (config.lib.nixGL.wrap alacritty)
       (config.lib.nixGL.wrap firefox-devedition)
+      (config.lib.nixGL.wrap ghostty)
       (config.lib.nixGL.wrap mpv)
       (config.lib.nixGL.wrap vivaldi)
 
