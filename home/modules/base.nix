@@ -41,6 +41,7 @@ with lib;
       direnv
       fd
       fish
+      fnm
       fzf
       gh
       git

@@ -10,3 +10,7 @@ end
 if type -q zoxide
     zoxide init fish | source
 end
+
+if type -q fnm
+    fnm env --use-on-cd --corepack-enabled --shell fish | source
+end
