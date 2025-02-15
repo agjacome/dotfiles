@@ -7,8 +7,6 @@ with lib;
   };
 
   config = mkIf config.systems.darwin.enable {
-    services.nix-daemon.enable = true;
-
     environment = {
       systemPath = [ "/opt/homebrew/bin" ];
     };

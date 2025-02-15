@@ -7,6 +7,8 @@ with lib;
   };
 
   config = mkIf config.systems.frontify.enable {
+    ids.gids.nixbld = 30000;
+
     homebrew.casks = [
       "deskpad"
       "orbstack"
