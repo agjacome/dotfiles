@@ -83,11 +83,9 @@ with lib;
 
       caskArgs.no_quarantine = true;
 
-      taps = [ "homebrew/cask-versions" ];
-
       casks = [
         "amethyst"
-        "firefox-developer-edition"
+        "firefox@developer-edition"
         "keycastr"
         "steermouse"
       ];
