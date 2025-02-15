@@ -4,7 +4,7 @@ end
 
 if type -q fzf
     set -gx FZF_DEFAULT_OPTS '--layout=reverse --cycle --ansi --height=100%'
-    set -gx FZF_TMUX 1
+    set -e FZF_TMUX
 end
 
 if type -q zoxide
