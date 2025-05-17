@@ -7,6 +7,9 @@ with lib;
   };
 
   config = mkIf config.homes.desktop.enable {
+
+    nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.05" ];
+
     home.packages = with pkgs; [
       aria2
       clipmenu
