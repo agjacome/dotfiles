@@ -22,6 +22,7 @@ with lib;
       feh
       ffmpeg
       gimp
+      httptoolkit
       screenkey
       spmd
       spotify

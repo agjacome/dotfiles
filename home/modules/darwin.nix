@@ -17,6 +17,7 @@ with lib;
       alacritty
       coreutils-full
       gnused
+      httptoolkit
       mpv
       nerd-fonts.monofur
       pinentry_mac
