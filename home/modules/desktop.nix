@@ -35,7 +35,9 @@ with lib;
       (config.lib.nixGL.wrap vivaldi)
 
       # fonts
-      (stablepkgs.nerdfonts.override { fonts = [ "DroidSansMono" "Monofur" ]; })
+      fontconfig
+      nerd-fonts.droid-sans-mono
+      nerd-fonts.monofur
       noto-fonts
       noto-fonts-emoji
     ];
