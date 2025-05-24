@@ -24,14 +24,22 @@
     };
   };
 
-  outputs = inputs @ { nixpkgs, stable, home-manager, nix-gl, darwin, ... }:
+  outputs =
+    inputs@{
+      nixpkgs,
+      stable,
+      home-manager,
+      nix-gl,
+      darwin,
+      ...
+    }:
     let
       inherit (builtins) attrValues;
       inherit (darwin.lib) darwinSystem;
       inherit (home-manager.lib) homeManagerConfiguration;
 
-      homes = let ms = import ./home/modules; in attrValues ms;
-      systems = let ms = import ./system/modules; in attrValues ms;
+      homes = attrValues (import ./home/modules);
+      systems = attrValues (import ./system/modules);
 
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
@@ -40,20 +48,20 @@
       ];
     in
     rec {
-      formatter = forAllSystems (system:
-        nixpkgs.legacyPackages.${system}.nixpkgs-fmt
-      );
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
-      devShells = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system}; in import ./shell.nix { inherit pkgs; }
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./shell.nix { inherit pkgs; }
       );
 
       overlays = {
         additions = final: _: import ./pkgs { pkgs = final; };
         stable = final: _: {
-          stablepkgs = import stable {
-            system = final.system;
-          };
+          stablepkgs = import stable { system = final.system; };
         };
       };
 
@@ -61,9 +69,7 @@
         "frontify" = darwinSystem {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           system = "aarch64-darwin";
-          modules = systems ++ [
-            ./system/profiles/frontify.nix
-          ];
+          modules = systems ++ [ ./system/profiles/frontify.nix ];
         };
       };
 
@@ -71,16 +77,12 @@
         "caronte" = homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs nix-gl overlays; };
-          modules = homes ++ [
-            ./home/profiles/caronte.nix
-          ];
+          modules = homes ++ [ ./home/profiles/caronte.nix ];
         };
         "frontify" = homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           extraSpecialArgs = { inherit inputs overlays; };
-          modules = homes ++ [
-            ./home/profiles/frontify.nix
-          ];
+          modules = homes ++ [ ./home/profiles/frontify.nix ];
         };
       };
     };

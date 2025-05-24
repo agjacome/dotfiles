@@ -1,4 +1,9 @@
-{ pkgs, nix-gl, overlays, ... }:
+{
+  pkgs,
+  nix-gl,
+  overlays,
+  ...
+}:
 
 {
   nixpkgs = {
