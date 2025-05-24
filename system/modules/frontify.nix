@@ -8,11 +8,10 @@ with lib;
 
   config = mkIf config.systems.frontify.enable {
     ids.gids.nixbld = 30000;
+    system.primaryUser = "albertojacome";
 
     homebrew.casks = [
-      "deskpad"
       "orbstack"
-      "tableplus"
       "tunnelblick"
       "tuple"
     ];

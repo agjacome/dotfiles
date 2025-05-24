@@ -83,7 +83,6 @@ with lib;
 
       casks = [
         "amethyst"
-        "keycastr"
         "steermouse"
       ];
     };
