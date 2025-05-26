@@ -49,6 +49,7 @@
 [alias]
     aa     = add --all
     amend  = commit --amend
+    gc     = !git reflog expire --expire-unreachable=now --all && !git gc --aggressive --prune=now
     dst    = diff --staged
     lg     = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ch) %C(bold blue)%Creset' --abbrev-commit
     noff   = merge --no-ff
