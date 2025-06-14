@@ -21,6 +21,7 @@
   homes.gtk.enable = true;
 
   user.name = "agjacome";
+  user.home = "/home/agjacome";
 
   nixGL = {
     packages = import nix-gl { inherit pkgs; };

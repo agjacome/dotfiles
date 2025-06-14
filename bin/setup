@@ -40,11 +40,16 @@ function setup_nix() {
 
     if command -v pacman &> /dev/null; then
         sudo pacman -Syu --noconfirm nix
-        return
+    else
+        curl -L https://nixos.org/nix/install | sh -s -- --daemon
+        mkdir -p $HOME/.local/state/nix/profiles
     fi
 
-    curl -L https://nixos.org/nix/install | sh -s -- --daemon
-    mkdir -p $HOME/.local/state/nix/profiles
+    echo "trusted-users = root $(whoami)" | sudo tee -a /etc/nix/nix.conf > /dev/null
+
+    if command -v systemctl &> /dev/null && systemctl list-unit-files nix-daemon.service &> /dev/null; then
+        sudo systemctl restart nix-daemon
+    fi
 }
 
 function clone_repository() {

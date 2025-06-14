@@ -9,11 +9,13 @@ with lib;
 {
   options = {
     systems.darwin.enable = mkEnableOption "darwin system";
+
+    user.name = mkOption { type = types.str; };
   };
 
   config = mkIf config.systems.darwin.enable {
-    environment = {
-      systemPath = [ "/opt/homebrew/bin" ];
+    nix.settings = {
+      trusted-users = [ config.user.name ];
     };
 
     system = {
