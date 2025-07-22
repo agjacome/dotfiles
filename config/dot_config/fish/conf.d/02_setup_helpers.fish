@@ -12,5 +12,5 @@ if type -q zoxide
 end
 
 if type -q fnm
-    fnm env --use-on-cd --corepack-enabled --shell fish | source
+    fnm env --use-on-cd --corepack-enabled --log-level quiet --shell fish | source
 end
