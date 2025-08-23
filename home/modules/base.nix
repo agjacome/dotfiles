@@ -8,7 +8,7 @@
 
 with lib;
 {
-  imports = [ inputs.nix-index-database.hmModules.nix-index ];
+  imports = [ inputs.nix-index-database.homeModules.nix-index ];
 
   options = {
     homes.base.enable = mkEnableOption "base home";

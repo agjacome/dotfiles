@@ -30,7 +30,6 @@ with lib;
       streamlink
       tbsm
       ventoy
-      vivaldi-ffmpeg-codecs
       xclip
       xdg-utils
       yt-dlp
@@ -40,6 +39,7 @@ with lib;
       (config.lib.nixGL.wrap alacritty)
       (config.lib.nixGL.wrap mpv)
       (config.lib.nixGL.wrap vivaldi)
+      (config.lib.nixGL.wrap vivaldi-ffmpeg-codecs)
 
       # fonts
       fontconfig
