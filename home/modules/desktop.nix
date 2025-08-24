@@ -15,6 +15,32 @@ with lib;
 
     nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.05" ];
 
+    # downgraded vivaldi to nix 24.11 version
+    nixpkgs.overlays = [
+      (
+        final: prev:
+        let
+          oldpkgs = (
+            import
+              (builtins.fetchTarball {
+                url = "https://github.com/NixOS/nixpkgs/archive/refs/tags/24.11.tar.gz";
+                sha256 = "1gx0hihb7kcddv5h0k7dysp2xhf1ny0aalxhjbpj2lmvj7h9g80a";
+              })
+              {
+                inherit (prev) system;
+                config = {
+                  allowUnfree = true;
+                };
+              }
+          );
+        in
+        {
+          vivaldi = oldpkgs.vivaldi;
+          vivaldi-ffmpeg-codecs = oldpkgs.vivaldi-ffmpeg-codecs;
+        }
+      )
+    ];
+
     home.packages = with pkgs; [
       aria2
       clipmenu
