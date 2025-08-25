@@ -25,8 +25,9 @@ with lib;
         dock = {
           autohide = true;
           autohide-delay = 0.0;
-          autohide-time-modifier = 0.2;
-          expose-animation-duration = 0.2;
+          autohide-time-modifier = 0.0;
+          expose-animation-duration = 0.0;
+          launchanim = false;
           mru-spaces = false;
           orientation = "bottom";
           show-process-indicators = true;
@@ -54,6 +55,10 @@ with lib;
         NSGlobalDomain = {
           KeyRepeat = 1;
           InitialKeyRepeat = 10;
+          NSAutomaticWindowAnimationsEnabled = false;
+          NSWindowResizeTime = 0.001;
+          NSScrollAnimationEnabled = false;
+          NSUseAnimatedFocusRing = false;
         };
 
         CustomUserPreferences = {
@@ -62,6 +67,27 @@ with lib;
             ShowHardDrivesOnDesktop = false;
             ShowRemovableMediaOnDesktop = true;
             _FXSortFoldersFirst = true;
+            DisableAllAnimations = true;
+          };
+
+          "com.apple.spaces" = {
+            "spans-displays" = false;
+          };
+
+          "com.apple.dock" = {
+            expose-animation-duration = 0.0;
+            missioncontrol-animation-duration = 0.0;
+            workspaces-swoosh-animation-off = true;
+            workspaces-edge-delay = 0.0;
+            workspace-auto-swoosh = false;
+            springboard-show-duration = 0.0;
+            springboard-hide-duration = 0.0;
+            springboard-page-duration = 0.0;
+          };
+
+          "com.apple.Accessibility" = {
+            ReduceMotionEnabled = 1;
+            DifferentiateWithoutColor = 1;
           };
         };
       };
