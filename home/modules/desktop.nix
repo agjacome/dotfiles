@@ -13,7 +13,7 @@ with lib;
 
   config = mkIf config.homes.desktop.enable {
 
-    nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.05" ];
+    nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.07" ];
 
     # downgraded vivaldi to nix 24.11 version
     nixpkgs.overlays = [
