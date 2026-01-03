@@ -23,7 +23,7 @@
   user.name = "agjacome";
   user.home = "/home/agjacome";
 
-  nixGL = {
+  targets.genericLinux.nixGL = {
     packages = import nix-gl { inherit pkgs; };
     defaultWrapper = "nvidia";
   };
