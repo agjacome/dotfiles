@@ -39,3 +39,9 @@ Thumbs.db
 
 # lsp stuff
 .phpactor*
+
+# agents
+.claude
+.codex
+.opencode
+
