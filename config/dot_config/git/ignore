@@ -29,7 +29,6 @@ ehthumbs.db
 Thumbs.db
 
 # direnv
-.envrc
 .direnv/
 
 # nvim exrc
