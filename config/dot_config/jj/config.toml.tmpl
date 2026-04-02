@@ -1,0 +1,24 @@
+[user]
+name = "Alberto G. Jácome"
+email = "{{ .gitEmail }}"
+
+[signing]
+behavior = "own"
+backend = "gpg"
+key = "{{ .gitSigningKey }}"
+
+[ui]
+default-command = "log"
+pager = "delta"
+diff-editor = ":builtin"
+
+[merge-tools.nvimdiff]
+program = "nvim"
+merge-args = ["-d", "$left", "$base", "$right", "$output"]
+diff-args = ["-d", "$left", "$right"]
+
+[templates]
+log = 'builtin_log_comfortable'
+
+[git]
+auto-local-bookmark = false
