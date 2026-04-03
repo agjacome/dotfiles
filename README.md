@@ -38,7 +38,6 @@ $ chezmoi init --apply -S .
 
 - Migrate from [dmenu](https://github.com/agjacome/dmenu) to
   [rofi](https://davatorium.github.io/rofi/).
-- Fully migrate from dwm to [xmonad](https://xmonad.org).
 - Play with and fully migrate to [NixOS](https://nixos.org) at some point **btw**.
 - Become rich and retire early to have infinite time to spend in unproductive
   migrations.

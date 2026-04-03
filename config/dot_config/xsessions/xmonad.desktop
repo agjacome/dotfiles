@@ -1,4 +1,0 @@
-[Desktop Entry]
-Name=XMonad
-Exec=bash -c "$HOME/.config/xsessions/xmonad"
-Type=XSession
