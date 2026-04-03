@@ -36,8 +36,10 @@ $ chezmoi init --apply -S .
 
 #### TODO
 
-- Migrate from [dmenu](https://github.com/agjacome/dmenu) to
-  [rofi](https://davatorium.github.io/rofi/).
+- Migrate from [dwm](https://github.com/agjacome/dwm) +
+  [dmenu](https://github.com/agjacome/dmenu) in X11 to
+  [niri](https://github.com/YaLTeR/niri) +
+  [fuzzel](https://codeberg.org/dnkl/fuzzel) in Wayland.
 - Play with and fully migrate to [NixOS](https://nixos.org) at some point **btw**.
 - Become rich and retire early to have infinite time to spend in unproductive
   migrations.
