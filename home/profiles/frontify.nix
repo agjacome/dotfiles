@@ -1,6 +1,10 @@
-{ ... }:
+{ overlays, ... }:
 {
   nixpkgs = {
+    overlays = [
+      overlays.additions
+      overlays.stable
+    ];
     config = {
       allowUnfree = true;
     };
