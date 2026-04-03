@@ -18,6 +18,7 @@ with lib;
     home.packages = with pkgs; [
       aria2
       claude-code
+      detox
       clipmenu
       dunst
       feh
