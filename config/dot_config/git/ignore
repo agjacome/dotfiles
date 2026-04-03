@@ -7,7 +7,6 @@
 *.dmg
 *.exe
 *.gz
-*.gz
 *.iso
 *.jar
 *.log
