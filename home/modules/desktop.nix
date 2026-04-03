@@ -17,6 +17,7 @@ with lib;
 
     home.packages = with pkgs; [
       aria2
+      claude-code
       clipmenu
       dunst
       feh
@@ -47,16 +48,13 @@ with lib;
       nerd-fonts.monofur
       noto-fonts
       noto-fonts-color-emoji
+
+      # gtk theming
+      numix-gtk-theme
+      numix-icon-theme
+      vanilla-dmz
     ];
 
     fonts.fontconfig.enable = true;
-
-    home.pointerCursor = {
-      gtk.enable = true;
-      x11.enable = true;
-      name = "Vanilla-DMZ";
-      size = 64;
-      package = pkgs.vanilla-dmz;
-    };
   };
 }
