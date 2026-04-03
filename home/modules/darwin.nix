@@ -24,10 +24,10 @@ with lib;
       raycast
       spotify
       (tableplus.overrideAttrs (oldAttrs: {
-        version = "608";
+        version = "662";
         src = fetchurl {
-          url = "https://files.tableplus.com/macos/608/TablePlus.dmg";
-          hash = "sha256-wb5ac82u+DJ7hJ+htnW6aipYjzfjW70lISFZtOOxsy0=";
+          url = "https://files.tableplus.com/macos/662/TablePlus.dmg";
+          hash = "sha256-VR0sSTZfRjjv+p4DcYciKBJG5DHIwj4KLhTHPGRsSX0=";
         };
       }))
       unixtools.watch
