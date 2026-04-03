@@ -6,9 +6,9 @@ if test -z $DISPLAY; and ! test -z $XDG_VTNR; and test $XDG_VTNR -le 2
     end
 end
 
-set -f theme_title_display_process yes
-set -f theme_title_display_path yes
-set -f theme_title_display_user no
-set -f theme_title_use_abbreviated_path yes
+set -g theme_title_display_process yes
+set -g theme_title_display_path yes
+set -g theme_title_display_user no
+set -g theme_title_use_abbreviated_path yes
 
-bind \ct $HOME/.local/bin/tmux-session
+bind ctrl-t $HOME/.local/bin/tmux-session
