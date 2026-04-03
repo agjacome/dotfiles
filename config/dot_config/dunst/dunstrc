@@ -30,7 +30,7 @@
     show_indicators = false
 
     dmenu = dmenu -p dunst:
-    browser = vivaldi
+    browser = xdg-open
 
     close   = mod4+grave
     history = mod4+shift+grave
