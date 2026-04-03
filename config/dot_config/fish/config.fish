@@ -1,7 +1,10 @@
 status is-interactive; or return
 
 if test -z $DISPLAY; and ! test -z $XDG_VTNR; and test $XDG_VTNR -le 2
-    if type -q tbsm
+    set -l sessions ~/.config/xsessions/*.desktop
+    if test (count $sessions) -eq 1
+        exec startx ~/.config/xsessions/(basename $sessions .desktop)
+    else if type -q tbsm
         exec tbsm
     end
 end
