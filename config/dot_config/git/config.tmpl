@@ -44,14 +44,10 @@
     enabled = true
 
 [alias]
-    aa     = add --all
     amend  = commit --amend
-    gc     = !git reflog expire --expire-unreachable=now --all && !git gc --aggressive --prune=now
     dst    = diff --staged
+    gc     = !git reflog expire --expire-unreachable=now --all && git gc --aggressive --prune=now
     lg     = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ch) %C(bold blue)%Creset' --abbrev-commit
-    noff   = merge --no-ff
-    pullff = pull --ff-only
-    st     = status --short --branch
 
 [delta]
     line-numbers = true
