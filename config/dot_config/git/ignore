@@ -1,28 +1,18 @@
+# archives & logs
 *.7z
 *.Z
 *.bz2
-*.class
-*.com
-*.dll
-*.dmg
-*.exe
 *.gz
 *.iso
-*.jar
 *.log
-*.o
-*.pyc
 *.rar
-*.so
-*.swp
 *.tar
 *.tbz2
 *.tgz
 *.xz
 *.zip
-.tags
 
-# mac os & windows crap
+# mac os & windows
 .DS_Store*
 ehthumbs.db
 Thumbs.db
@@ -30,16 +20,17 @@ Thumbs.db
 # direnv
 .direnv/
 
-# nvim exrc
+# nvim
+*.swp
 .exrc
 .nvimrc
 .nvim.lua
+.tags
 
-# lsp stuff
+# lsp
 .phpactor*
 
 # agents
 .claude
 .codex
 .opencode
-
