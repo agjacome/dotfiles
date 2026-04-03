@@ -4,6 +4,6 @@ declare -r dir=${1:-./tmp};
 declare -r uid=$(id -u);
 declare -r gid=$(id -g);
 
-[[ -d $dir ]] || mkdir -p $dir;
+[[ -d "$dir" ]] || mkdir -p "$dir";
 
-sudo mount -t tmpfs -o rw,nodev,nosuid,relatime,size=2G,uid=$uid,gid=$gid,mode=700 tmpfs $dir;
+sudo mount -t tmpfs -o "rw,nodev,nosuid,relatime,size=2G,uid=$uid,gid=$gid,mode=700" tmpfs "$dir";
