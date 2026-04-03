@@ -14,6 +14,7 @@ with lib;
   config = mkIf config.homes.gtk.enable {
     gtk = {
       enable = true;
+      gtk4.theme = null;
       gtk2 = {
         configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
       };
