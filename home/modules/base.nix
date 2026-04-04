@@ -71,6 +71,7 @@
       jq
       kalker
       less
+      lua-language-server
       mr
       neovim
       nodejs_20
