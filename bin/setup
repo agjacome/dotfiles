@@ -57,7 +57,7 @@ function clone_repository() {
         return
     fi
 
-    nix-shell -p git --run "\
+    nix --extra-experimental-features "nix-command flakes" shell nixpkgs#git --command bash -c "\
         git clone ${http_remote} ${local} && \
         git -C ${local} remote set-url origin ${ssh_remote}"
 }
@@ -65,7 +65,7 @@ function clone_repository() {
 function setup_home_manager() {
     local -r profile="${1-}"
 
-    nix-shell "${local}/shell.nix" --run "home-manager switch --impure --flake ${local}/#${profile}"
+    nix --extra-experimental-features "nix-command flakes" shell nixpkgs#home-manager --command home-manager switch --impure --flake "${local}/#${profile}"
 }
 
 function setup_chezmoi() {
