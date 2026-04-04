@@ -51,6 +51,7 @@
       comma
       curl
       diceware
+      dos2unix
       fd
       fish
       fzf
@@ -66,6 +67,7 @@
       rclone
       ripgrep
       rsync
+      wget
       speedtest-cli
       tldr
       tmux

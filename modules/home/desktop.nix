@@ -23,6 +23,7 @@
       ffmpeg
       gimp
       ripgrep-all
+      scrot
       screenkey
       spmd
       spotify
