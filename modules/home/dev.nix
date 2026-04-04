@@ -12,11 +12,11 @@
 
   config = lib.mkIf config.homes.dev.enable {
     home.packages = with pkgs; [
+      claude-code
       delta
+      opencode
       direnv
-      fd
       fnm
-      fzf
       gh
       gh-markdown-preview
       git
@@ -29,8 +29,6 @@
       mr
       neovim
       parallel
-      ripgrep
-      tldr
       tree-sitter
       vimv
     ];

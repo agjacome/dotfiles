@@ -51,7 +51,9 @@
       comma
       curl
       diceware
+      fd
       fish
+      fzf
       gnupg
       home-manager
       htop
@@ -62,8 +64,10 @@
       pass
       pinentry-tty
       rclone
+      ripgrep
       rsync
       speedtest-cli
+      tldr
       tmux
       tor
       tree
