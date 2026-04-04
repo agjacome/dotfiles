@@ -48,8 +48,8 @@
       inherit (darwin.lib) darwinSystem;
       inherit (home-manager.lib) homeManagerConfiguration;
 
-      homes = import ./home/modules;
-      systems = import ./system/modules;
+      homeModules = import ./modules/home;
+      darwinModules = import ./modules/darwin;
 
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
@@ -84,7 +84,7 @@
         "frontify" = darwinSystem {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           system = "aarch64-darwin";
-          modules = systems ++ [ ./system/profiles/frontify.nix ];
+          modules = darwinModules ++ [ ./hosts/frontify/system.nix ];
         };
       };
 
@@ -92,12 +92,12 @@
         "caronte" = homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs nix-gl overlays; };
-          modules = homes ++ [ ./home/profiles/caronte.nix ];
+          modules = homeModules ++ [ ./hosts/caronte.nix ];
         };
         "frontify" = homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           extraSpecialArgs = { inherit inputs overlays; };
-          modules = homes ++ [ ./home/profiles/frontify.nix ];
+          modules = homeModules ++ [ ./hosts/frontify/home.nix ];
         };
       };
     };
