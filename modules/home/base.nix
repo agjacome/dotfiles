@@ -47,49 +47,26 @@
       bash
       bc
       cachix
-      cargo
       chezmoi
       comma
       curl
-      delta
       diceware
-      direnv
-      fd
       fish
-      fnm
-      fzf
-      gh
-      gh-markdown-preview
-      git
-      git-annex
-      git-machete
-      gnumake
       gnupg
-      gron
       home-manager
       htop
       imagemagick
-      jq
       kalker
       less
-      lua-language-server
-      mr
-      neovim
-      nodejs_20
       openssh
-      parallel
       pass
       pinentry-tty
       rclone
-      ripgrep
       rsync
       speedtest-cli
-      tldr
       tmux
       tor
       tree
-      tree-sitter
-      vimv
       zoxide
     ];
 

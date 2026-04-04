@@ -11,12 +11,10 @@
   };
 
   config = lib.mkIf config.homes.darwin.enable {
-
     home.packages = with pkgs; [
       alacritty
       coreutils-full
       gnused
-      httptoolkit
       mpv
       nerd-fonts.monofur
       pinentry_mac

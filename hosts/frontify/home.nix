@@ -11,6 +11,7 @@
   };
 
   homes.base.enable = true;
+  homes.dev.enable = true;
   homes.darwin.enable = true;
 
   user.name = "albertojacome";

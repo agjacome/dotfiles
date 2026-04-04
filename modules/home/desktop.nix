@@ -23,7 +23,6 @@
       feh
       ffmpeg
       gimp
-      httptoolkit
       ripgrep-all
       screenkey
       spmd

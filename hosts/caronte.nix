@@ -17,6 +17,7 @@
   };
 
   homes.base.enable = true;
+  homes.dev.enable = true;
   homes.desktop.enable = true;
 
   user.name = "agjacome";
