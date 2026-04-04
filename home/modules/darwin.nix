@@ -5,13 +5,12 @@
   ...
 }:
 
-with lib;
 {
   options = {
-    homes.darwin.enable = mkEnableOption "darwin home";
+    homes.darwin.enable = lib.mkEnableOption "darwin home";
   };
 
-  config = mkIf config.homes.darwin.enable {
+  config = lib.mkIf config.homes.darwin.enable {
 
     home.packages = with pkgs; [
       alacritty

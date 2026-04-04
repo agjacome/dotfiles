@@ -5,13 +5,12 @@
   ...
 }:
 
-with lib;
 {
   options = {
-    homes.desktop.enable = mkEnableOption "desktop home";
+    homes.desktop.enable = lib.mkEnableOption "desktop home";
   };
 
-  config = mkIf config.homes.desktop.enable {
+  config = lib.mkIf config.homes.desktop.enable {
 
     nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.10" ];
 

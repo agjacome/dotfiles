@@ -6,22 +6,21 @@
   ...
 }:
 
-with lib;
 {
   imports = [ inputs.nix-index-database.homeModules.nix-index ];
 
   options = {
-    homes.base.enable = mkEnableOption "base home";
+    homes.base.enable = lib.mkEnableOption "base home";
 
-    user.name = mkOption { type = types.str; };
-    user.home = mkOption { type = types.str; };
+    user.name = lib.mkOption { type = lib.types.str; };
+    user.home = lib.mkOption { type = lib.types.str; };
   };
 
-  config = mkIf config.homes.base.enable {
+  config = lib.mkIf config.homes.base.enable {
     home.username = config.user.name;
     home.homeDirectory = config.user.home;
 
-    nix.package = mkDefault pkgs.nix;
+    nix.package = lib.mkDefault pkgs.nix;
     nix.settings = {
       experimental-features = "nix-command flakes";
 

@@ -1,14 +1,13 @@
 { config, lib, ... }:
 
-with lib;
 {
   options = {
-    systems.frontify.enable = mkEnableOption "frontify system";
+    systems.frontify.enable = lib.mkEnableOption "frontify system";
 
-    user.name = mkOption { type = types.str; };
+    user.name = lib.mkOption { type = lib.types.str; };
   };
 
-  config = mkIf config.systems.frontify.enable {
+  config = lib.mkIf config.systems.frontify.enable {
     ids.gids.nixbld = 30000;
     system.primaryUser = config.user.name;
 

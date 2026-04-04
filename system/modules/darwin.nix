@@ -5,15 +5,14 @@
   ...
 }:
 
-with lib;
 {
   options = {
-    systems.darwin.enable = mkEnableOption "darwin system";
+    systems.darwin.enable = lib.mkEnableOption "darwin system";
 
-    user.name = mkOption { type = types.str; };
+    user.name = lib.mkOption { type = lib.types.str; };
   };
 
-  config = mkIf config.systems.darwin.enable {
+  config = lib.mkIf config.systems.darwin.enable {
     nix.settings = {
       trusted-users = [ config.user.name ];
     };
