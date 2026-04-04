@@ -30,7 +30,6 @@
         };
       }))
       unixtools.watch
-      xclip
       yt-dlp
     ];
   };

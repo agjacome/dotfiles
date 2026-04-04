@@ -3,8 +3,6 @@
 {
   options = {
     systems.frontify.enable = lib.mkEnableOption "frontify system";
-
-    user.name = lib.mkOption { type = lib.types.str; };
   };
 
   config = lib.mkIf config.systems.frontify.enable {

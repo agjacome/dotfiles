@@ -74,19 +74,12 @@
           };
 
           "com.apple.dock" = {
-            expose-animation-duration = 0.0;
-            missioncontrol-animation-duration = 0.0;
-            workspaces-swoosh-animation-off = true;
             workspaces-edge-delay = 0.0;
             workspace-auto-swoosh = false;
-            springboard-show-duration = 0.0;
-            springboard-hide-duration = 0.0;
-            springboard-page-duration = 0.0;
           };
 
           "com.apple.Accessibility" = {
             ReduceMotionEnabled = 1;
-            DifferentiateWithoutColor = 1;
           };
         };
       };
