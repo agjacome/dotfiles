@@ -11,6 +11,8 @@
   };
 
   config = lib.mkIf config.homes.darwin.enable {
+    targets.darwin.copyApps.enable = false;
+    targets.darwin.linkApps.enable = true;
     home.packages = with pkgs; [
       alacritty
       coreutils-full
