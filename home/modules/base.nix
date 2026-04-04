@@ -59,6 +59,7 @@
       fnm
       fzf
       gh
+      gh-markdown-preview
       git
       git-annex
       git-machete
