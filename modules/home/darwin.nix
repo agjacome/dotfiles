@@ -28,7 +28,6 @@
         };
       }))
       unixtools.watch
-      yt-dlp
     ];
   };
 }
