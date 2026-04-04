@@ -12,24 +12,40 @@
 
   config = lib.mkIf config.homes.dev.enable {
     home.packages = with pkgs; [
-      claude-code
+      # editor
+      neovim
+      tree-sitter
+
+      # language servers
+      bash-language-server
+      dockerfile-language-server
+      lua-language-server
+      marksman
+      nixd
+      taplo
+      vscode-langservers-extracted
+      yaml-language-server
+
+      # git
       delta
-      opencode
-      direnv
-      fnm
       gh
       gh-markdown-preview
       git
       git-annex
       git-machete
+      mr
+
+      # ai
+      claude-code
+      opencode
+
+      # tools
+      direnv
+      fnm
       gnumake
       gron
       jq
-      lua-language-server
-      mr
-      neovim
       parallel
-      tree-sitter
       vimv
     ];
   };
