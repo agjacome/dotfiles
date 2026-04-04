@@ -1,6 +1,5 @@
-{
-  base = import ./base.nix;
-  desktop = import ./desktop.nix;
-
-  darwin = import ./darwin.nix;
-}
+[
+  ./base.nix
+  ./desktop.nix
+  ./darwin.nix
+]

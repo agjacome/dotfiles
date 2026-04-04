@@ -45,12 +45,11 @@
       ...
     }:
     let
-      inherit (builtins) attrValues;
       inherit (darwin.lib) darwinSystem;
       inherit (home-manager.lib) homeManagerConfiguration;
 
-      homes = attrValues (import ./home/modules);
-      systems = attrValues (import ./system/modules);
+      homes = import ./home/modules;
+      systems = import ./system/modules;
 
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
@@ -69,7 +68,10 @@
       );
 
       overlays = {
-        additions = final: _: import ./pkgs { pkgs = final; };
+        additions = final: _: {
+          tbsm = final.callPackage ./pkgs/tbsm { };
+          spmd = final.callPackage ./pkgs/spmd { };
+        };
         stable = final: _: {
           stablepkgs = import stable {
             system = final.system;
