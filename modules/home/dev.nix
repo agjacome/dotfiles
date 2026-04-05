@@ -33,6 +33,7 @@
       git
       git-annex
       git-machete
+      jujutsu
       mr
 
       # ai
