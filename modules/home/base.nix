@@ -45,6 +45,7 @@
 
     home.packages = with pkgs; [
       bash
+      bat
       bc
       cachix
       chezmoi
@@ -57,7 +58,7 @@
       fishPlugins.autopair
       fishPlugins.done
       fishPlugins.foreign-env
-      fishPlugins.fzf-fish
+      (fishPlugins.fzf-fish.overrideAttrs { meta.broken = false; })
       fzf
       gnupg
       home-manager
