@@ -54,6 +54,10 @@
       dos2unix
       fd
       fish
+      fishPlugins.autopair
+      fishPlugins.done
+      fishPlugins.foreign-env
+      fishPlugins.fzf-fish
       fzf
       gnupg
       home-manager

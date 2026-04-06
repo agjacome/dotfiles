@@ -88,8 +88,6 @@ function setup_fish() {
     if [[ "$SHELL" != "$(which fish)" ]]; then
         chsh -s "$(which fish)"
     fi
-
-    fish -c "fisher update"
 }
 
 main "$@"
