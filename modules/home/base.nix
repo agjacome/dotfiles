@@ -75,6 +75,8 @@
       speedtest-cli
       tldr
       tmux
+      tmuxPlugins.sensible
+      tmuxPlugins.yank
       tor
       tree
       zoxide
