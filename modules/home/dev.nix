@@ -47,6 +47,7 @@
       gron
       jq
       parallel
+      sqlit-tui
       vimv
     ];
   };
