@@ -1,0 +1,41 @@
+{
+  "model": "claude-opus-4-7",
+  "alwaysThinkingEnabled": true,
+  "autoCompactWindow": 900000,
+  "cleanupPeriodDays": 7,
+  "defaultView": "chat",
+  "fastModePerSessionOptIn": true,
+  "promptSuggestionEnabled": false,
+  "showClearContextOnPlanAccept": false,
+  "showThinkingSummaries": true,
+  "spinnerTipsEnabled": false,
+  "viewMode": "focus",
+  "env": {
+    "BASH_DEFAULT_TIMEOUT_MS": "300000",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "65536",
+    "CLAUDE_CODE_NO_FLICKER": "1",
+    "CLAUDE_CODE_TMUX_TRUECOLOR": "1",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_TELEMETRY": "1"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "caveman@caveman": true
+  }
+}
