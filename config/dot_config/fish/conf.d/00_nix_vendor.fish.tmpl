@@ -1,0 +1,11 @@
+# Fish login shell doesn't source /etc/profile, so XDG_DATA_DIRS stays empty
+# and nix profile's fish vendor dirs are missed. Add them manually so plugins
+# installed via home.packages (foreign-env, fzf-fish, autopair, etc.) load.
+set -l share {{ .nixProfile }}/share/fish
+test -d $share/vendor_functions.d; and set -p fish_function_path $share/vendor_functions.d
+test -d $share/vendor_completions.d; and set -p fish_complete_path $share/vendor_completions.d
+if test -d $share/vendor_conf.d
+    for f in $share/vendor_conf.d/*.fish
+        source $f
+    end
+end
