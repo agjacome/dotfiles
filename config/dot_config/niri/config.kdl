@@ -1,0 +1,47 @@
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+        repeat-delay 300
+        repeat-rate 40
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {}
+    focus-follows-mouse
+}
+
+layout {
+    gaps 4
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        off
+    }
+
+    border {
+        width 2
+        active-color "#f0c674"
+        inactive-color "#282a2e"
+    }
+}
+
+prefer-no-csd
+
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+
+binds {
+    Mod+Return { spawn "alacritty"; }
+    Mod+W      { spawn "vivaldi" "--ozone-platform=wayland"; }
+}

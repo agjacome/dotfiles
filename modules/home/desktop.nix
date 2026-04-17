@@ -16,30 +16,41 @@
 
     home.packages = with pkgs; [
       aria2
-      detox
       clipmenu
+      detox
       dunst
       feh
       ffmpeg
+      fuzzel
       gimp
       ripgrep-all
-      scrot
       screenkey
+      scrot
       spmd
       spotify
       streamlink
       tbsm
       ventoy
+      wl-clipboard
       xclip
       xdg-utils
+      xwayland-satellite
       yt-dlp
       zathura
 
       # gpu-accelerated packages
       (config.lib.nixGL.wrap alacritty)
       (config.lib.nixGL.wrap mpv)
+      (config.lib.nixGL.wrap niri)
       (config.lib.nixGL.wrap vivaldi)
       (config.lib.nixGL.wrap vivaldi-ffmpeg-codecs)
+
+      # niri launcher with nix mesa for EGL_EXT_device_query
+      (writeShellScriptBin "niri-launch" ''
+        export __EGL_VENDOR_LIBRARY_FILENAMES="${pkgs.mesa}/share/glvnd/egl_vendor.d/50_mesa.json"
+        export LD_LIBRARY_PATH="${pkgs.mesa}/lib"
+        exec niri --session 2>>/tmp/niri.log
+      '')
 
       # fonts
       fontconfig

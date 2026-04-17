@@ -1,12 +1,7 @@
 status is-interactive; or return
 
-if test -z $DISPLAY; and ! test -z $XDG_VTNR; and test $XDG_VTNR -le 2
-    set -l sessions ~/.config/xsessions/*.desktop
-    if test (count $sessions) -eq 1
-        exec startx ~/.config/xsessions/(basename $sessions .desktop)
-    else if type -q tbsm
-        exec tbsm
-    end
+if test -z $DISPLAY; and test -z $WAYLAND_DISPLAY; and ! test -z $XDG_VTNR; and test $XDG_VTNR -le 2
+    exec tbsm
 end
 
 set -g theme_title_display_process yes
