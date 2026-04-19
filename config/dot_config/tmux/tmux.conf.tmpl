@@ -30,7 +30,6 @@ bind Escape copy-mode
 bind p paste-buffer
 
 bind -T copy-mode-vi 'v' send-keys -X begin-selection
-bind -T copy-mode-vi 'y' send-keys -X copy-selection-and-cancel
 
 bind A command-prompt "rename-window %%"
 bind c new-window
@@ -39,6 +38,8 @@ bind w list-windows
 
 set -g default-terminal "tmux-256color"
 set -ag terminal-overrides ",alacritty:RGB"
+
+set -g @yank_action 'copy-pipe'
 
 bind r source-file ~/.config/tmux/tmux.conf \; display-message "Reloaded"
 
