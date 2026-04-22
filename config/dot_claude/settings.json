@@ -1,7 +1,6 @@
 {
   "model": "claude-opus-4-7",
   "alwaysThinkingEnabled": true,
-  "autoCompactWindow": 900000,
   "cleanupPeriodDays": 7,
   "defaultView": "chat",
   "fastModePerSessionOptIn": true,
