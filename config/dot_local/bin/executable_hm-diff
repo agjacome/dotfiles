@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+
+profile_dir="$HOME/.local/state/nix/profiles"
+current=$(readlink "$profile_dir/home-manager" | grep -o '[0-9]*')
+
+new=${2:-$current}
+old=${1:-$((new - 1))}
+
+nix store diff-closures \
+  "$profile_dir/home-manager-${old}-link" \
+  "$profile_dir/home-manager-${new}-link"
