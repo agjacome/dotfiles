@@ -43,7 +43,6 @@
       (config.lib.nixGL.wrap mpv)
       (config.lib.nixGL.wrap niri)
       (config.lib.nixGL.wrap vivaldi)
-      (config.lib.nixGL.wrap vivaldi-ffmpeg-codecs)
 
       # niri launcher with nix mesa for EGL_EXT_device_query
       (writeShellScriptBin "niri-launch" ''
