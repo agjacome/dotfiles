@@ -17,7 +17,6 @@
       alacritty
       coreutils-full
       gnused
-      mpv
       nerd-fonts.monofur
       pinentry_mac
       raycast
