@@ -45,11 +45,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777594677,
-        "narHash": "sha256-h90sHwoRJLRvaTpZroTvU2JRHDFj0czUafM8eqLe1RI=",
+        "lastModified": 1777659959,
+        "narHash": "sha256-ax3229dUvNuwTQwo2o68kOQ24dvOlJ/BrVYY4miD1bI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "899c08a15beae5da51a5cecd6b2b994777a948da",
+        "rev": "5c1b74905c7261e8280dcda3623dbe677a1bc158",
         "type": "github"
       },
       "original": {
@@ -66,15 +66,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1762090880,
-        "narHash": "sha256-fbRQzIGPkjZa83MowjbD2ALaJf9y6KMDdJBQMKFeY/8=",
-        "owner": "nix-community",
+        "lastModified": 1777638961,
+        "narHash": "sha256-1rrN+HO+of72qZ8Ves5yUj3lniv181AU9aGiCf/vojU=",
+        "owner": "KeeTraxx",
         "repo": "nixgl",
-        "rev": "b6105297e6f0cd041670c3e8628394d4ee247ed5",
+        "rev": "9fadd736152580916c1e67dbbc8a0c65bebc2071",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "KeeTraxx",
+        "ref": "fix-nvidia-kernel-param",
         "repo": "nixgl",
         "type": "github"
       }
@@ -127,11 +128,11 @@
     },
     "stable": {
       "locked": {
-        "lastModified": 1777622440,
-        "narHash": "sha256-EzolxrCITj43AxtSrm8XWxCgf3ESlXdOCT8n+7fAxq4=",
+        "lastModified": 1777660448,
+        "narHash": "sha256-zc8nX/kHG7BsrJtjKE4Mlxy10w2bEAbQrIAuOtBW3po=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "17f47191dcffb68054c5260f905c360ade03b9f1",
+        "rev": "4c42eb674941ccab1f84a5eac73f175457d998b4",
         "type": "github"
       },
       "original": {

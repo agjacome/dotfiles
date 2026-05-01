@@ -25,7 +25,8 @@
     };
 
     nix-gl = {
-      url = "github:nix-community/nixgl";
+      # url = "github:nix-community/nixgl";
+      url = "github:KeeTraxx/nixgl/fix-nvidia-kernel-param"; # https://github.com/nix-community/nixGL/pull/221
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
