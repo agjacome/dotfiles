@@ -39,6 +39,7 @@
       # ai
       claude-code
       opencode
+      pi-coding-agent
 
       # tools
       direnv
