@@ -38,6 +38,29 @@
         "type": "github"
       }
     },
+    "helium": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": [
+          "flake-utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777607620,
+        "narHash": "sha256-GGMDVvqo1PwAB6/7yZg651VzexqECdliZCKXlM0UDwI=",
+        "owner": "schembriaiden",
+        "repo": "helium-browser-nix-flake",
+        "rev": "10105224eea589de8f0b3292f4e4bca3d52f1ee2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "schembriaiden",
+        "repo": "helium-browser-nix-flake",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -60,7 +83,9 @@
     },
     "nix-gl": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": [
+          "flake-utils"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -119,6 +144,8 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
+        "flake-utils": "flake-utils",
+        "helium": "helium",
         "home-manager": "home-manager",
         "nix-gl": "nix-gl",
         "nix-index-database": "nix-index-database",

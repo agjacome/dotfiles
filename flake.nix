@@ -14,6 +14,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     stable.url = "github:nixos/nixpkgs/release-25.11";
 
+    flake-utils.url = "github:numtide/flake-utils";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,11 +30,18 @@
       # url = "github:nix-community/nixgl";
       url = "github:KeeTraxx/nixgl/fix-nvidia-kernel-param"; # https://github.com/nix-community/nixGL/pull/221
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
 
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    helium = {
+      url = "github:schembriaiden/helium-browser-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.utils.follows = "flake-utils";
     };
   };
 
@@ -61,6 +70,7 @@
 
       overlays = {
         additions = final: _: {
+          helium = inputs.helium.packages.${final.stdenv.hostPlatform.system}.default;
           tbsm = final.callPackage ./pkgs/tbsm { };
           spmd = final.callPackage ./pkgs/spmd { };
         };

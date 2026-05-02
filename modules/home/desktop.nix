@@ -42,6 +42,7 @@
       (config.lib.nixGL.wrap alacritty)
       (config.lib.nixGL.wrap mpv)
       (config.lib.nixGL.wrap niri)
+      (config.lib.nixGL.wrap helium)
       (config.lib.nixGL.wrap vivaldi)
 
       # niri launcher with nix mesa for EGL_EXT_device_query
