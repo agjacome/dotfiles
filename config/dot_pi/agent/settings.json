@@ -19,7 +19,7 @@
   "treeFilterMode": "no-tools",
   "editorPaddingX": 0,
   "compaction": {
-    "enabled": true
+    "enabled": false
   },
   "branchSummary": {
     "skipPrompt": false
