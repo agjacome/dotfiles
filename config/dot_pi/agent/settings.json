@@ -1,0 +1,37 @@
+{
+  "lastChangelogVersion": "0.70.5",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "high",
+  "steeringMode": "one-at-a-time",
+  "followUpMode": "one-at-a-time",
+  "transport": "auto",
+  "enabledModels": [
+    "openai-codex/gpt-5.5"
+  ],
+  "hideThinkingBlock": true,
+  "theme": "dark",
+  "enableSkillCommands": true,
+  "quietStartup": false,
+  "collapseChangelog": true,
+  "enableInstallTelemetry": false,
+  "doubleEscapeAction": "tree",
+  "treeFilterMode": "no-tools",
+  "editorPaddingX": 0,
+  "compaction": {
+    "enabled": true
+  },
+  "branchSummary": {
+    "skipPrompt": false
+  },
+  "retry": {
+    "enabled": true,
+    "maxRetries": 1,
+    "provider": {
+      "maxRetries": 0
+    }
+  },
+  "terminal": {
+    "showTerminalProgress": false
+  }
+}
