@@ -18,6 +18,7 @@
       aria2
       clipmenu
       detox
+      discord
       dunst
       feh
       ffmpeg
