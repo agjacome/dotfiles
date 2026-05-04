@@ -39,9 +39,97 @@ layout {
 
 prefer-no-csd
 
-spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+output "eDP-1" {
+    mode "3840x2160@60.000"
+    scale 1.75
+}
+
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "NIRI_SOCKET"
+spawn-at-startup "dms" "run"
 
 binds {
+    // Apps / shell
     Mod+Return { spawn "alacritty"; }
+    Mod+D      { spawn "dms" "ipc" "launcher" "toggle"; }
+    Mod+Space  { spawn "dms" "ipc" "launcher" "toggle"; }
     Mod+W      { spawn "vivaldi" "--ozone-platform=wayland"; }
+    Mod+O      { toggle-overview; }
+    Mod+Slash  { show-hotkey-overlay; }
+
+    // DMS panels
+    Mod+V      { spawn "dms" "ipc" "clipboard" "toggle"; }
+    Mod+N      { spawn "dms" "ipc" "notifications" "toggle"; }
+    Mod+P      { spawn "dms" "ipc" "powermenu" "toggle"; }
+    Mod+Comma  { spawn "dms" "ipc" "settings" "toggle"; }
+
+    // Window / column control
+    Mod+Q      { close-window; }
+    Mod+F      { fullscreen-window; }
+    Mod+M      { maximize-column; }
+    Mod+C      { center-column; }
+    Mod+R      { switch-preset-column-width; }
+    Mod+Shift+F { toggle-window-floating; }
+
+    // Focus
+    Mod+H      { focus-column-left; }
+    Mod+J      { focus-window-down; }
+    Mod+K      { focus-window-up; }
+    Mod+L      { focus-column-right; }
+    Mod+Left   { focus-column-left; }
+    Mod+Down   { focus-window-down; }
+    Mod+Up     { focus-window-up; }
+    Mod+Right  { focus-column-right; }
+
+    // Move within layout
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
+    Mod+Shift+L     { move-column-right; }
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+
+    // Stack / unstack windows into columns
+    Mod+Ctrl+H { consume-or-expel-window-left; }
+    Mod+Ctrl+L { consume-or-expel-window-right; }
+    Mod+Ctrl+J { expel-window-from-column; }
+    Mod+Ctrl+K { consume-window-into-column; }
+
+    // Workspaces
+    Mod+Page_Down { focus-workspace-down; }
+    Mod+Page_Up   { focus-workspace-up; }
+    Mod+Ctrl+Down { focus-workspace-down; }
+    Mod+Ctrl+Up   { focus-workspace-up; }
+    Mod+Shift+Ctrl+J { move-column-to-workspace-down; }
+    Mod+Shift+Ctrl+K { move-column-to-workspace-up; }
+    Mod+Shift+Ctrl+Down { move-column-to-workspace-down; }
+    Mod+Shift+Ctrl+Up   { move-column-to-workspace-up; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+
+    // Screenshots / lock
+    Print { spawn "dms" "screenshot"; }
+    Mod+Print { spawn "dms" "screenshot" "full"; }
+    Mod+Escape { spawn "dms" "ipc" "lock" "lock"; }
+
+    // Hardware keys through DMS
+    XF86AudioRaiseVolume { spawn "dms" "ipc" "audio" "increment"; }
+    XF86AudioLowerVolume { spawn "dms" "ipc" "audio" "decrement"; }
+    XF86AudioMute        { spawn "dms" "ipc" "audio" "mute"; }
+    XF86AudioMicMute     { spawn "dms" "ipc" "audio" "micmute"; }
+    XF86MonBrightnessUp   { spawn "dms" "ipc" "brightness" "increment"; }
+    XF86MonBrightnessDown { spawn "dms" "ipc" "brightness" "decrement"; }
+    XF86AudioPlay { spawn "dms" "ipc" "mpris" "playPause"; }
+    XF86AudioNext { spawn "dms" "ipc" "mpris" "next"; }
+    XF86AudioPrev { spawn "dms" "ipc" "mpris" "previous"; }
 }

@@ -1,4 +1,4 @@
 [Desktop Entry]
 Name=niri
-Exec=niri-launch
+Exec=/usr/bin/niri-session
 Type=Application

@@ -5,6 +5,25 @@
   ...
 }:
 
+let
+  wrapWaylandGL =
+    pkg:
+    let
+      wrapped = config.lib.nixGL.wrap pkg;
+    in
+    pkgs.runCommand "${pkg.name}-nixgl-wayland" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
+      mkdir -p $out
+      cp -rs --no-preserve=mode ${wrapped}/* $out/
+
+      rm -rf $out/bin
+      mkdir -p $out/bin
+      for bin in ${wrapped}/bin/*; do
+        makeWrapper "$bin" "$out/bin/$(basename "$bin")" \
+          --prefix LD_LIBRARY_PATH : "${pkgs.egl-wayland}/lib" \
+          --set __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS "${pkgs.egl-wayland}/share/egl/egl_external_platform.d"
+      done
+    '';
+in
 {
   options = {
     homes.desktop.enable = lib.mkEnableOption "desktop home";
@@ -40,18 +59,12 @@
       zathura
 
       # gpu-accelerated packages
-      (config.lib.nixGL.wrap alacritty)
+      (wrapWaylandGL alacritty)
+      (wrapWaylandGL dms-shell)
       (config.lib.nixGL.wrap mpv)
-      (config.lib.nixGL.wrap niri)
+      (wrapWaylandGL quickshell)
       (config.lib.nixGL.wrap helium)
       (config.lib.nixGL.wrap vivaldi)
-
-      # niri launcher with nix mesa for EGL_EXT_device_query
-      (writeShellScriptBin "niri-launch" ''
-        export __EGL_VENDOR_LIBRARY_FILENAMES="${pkgs.mesa}/share/glvnd/egl_vendor.d/50_mesa.json"
-        export LD_LIBRARY_PATH="${pkgs.mesa}/lib"
-        exec niri --session 2>>/tmp/niri.log
-      '')
 
       # fonts
       fontconfig
