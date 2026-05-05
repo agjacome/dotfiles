@@ -1,22 +1,42 @@
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "NIRI_SOCKET"
+spawn-at-startup "dms" "run"
+
 input {
     keyboard {
         xkb {
-            layout "us"
+            layout "us,es"
+            options "grp:shift_caps_toggle,ctrl:nocaps"
         }
-        repeat-delay 300
-        repeat-rate 40
+        repeat-delay 175
+        repeat-rate 60
     }
+
     touchpad {
         tap
         natural-scroll
     }
-    mouse {}
-    focus-follows-mouse
+
+    disable-power-key-handling
+    workspace-auto-back-and-forth
+
+    mod-key "Super"
+}
+
+output "eDP-1" {
+    mode "3840x2160@60.000"
+    scale 1.75
+    variable-refresh-rate on-demand=true
+}
+
+output "LG Electronics LG HDR DQHD 0x000A1CC3" {
+    mode "5120x1440@60.000"
+    scale 1.0
 }
 
 layout {
     gaps 4
-    center-focused-column "never"
+    center-focused-column "on-overflow"
+    always-center-single-column
 
     preset-column-widths {
         proportion 0.33333
@@ -24,53 +44,47 @@ layout {
         proportion 0.66667
     }
 
-    default-column-width { proportion 0.5; }
+    default-column-width {
+        proportion 0.5;
+    }
 
     focus-ring {
-        off
-    }
-
-    border {
         width 2
         active-color "#f0c674"
-        inactive-color "#282a2e"
     }
 }
 
-prefer-no-csd
-
-output "eDP-1" {
-    mode "3840x2160@60.000"
-    scale 1.75
+window-rule {
+    match app-id="^scratchpad$"
+    open-floating true
+    default-window-height { proportion 0.4; }
+    default-column-width  { proportion 0.2; }
 }
-
-spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "NIRI_SOCKET"
-spawn-at-startup "dms" "run"
 
 binds {
     // Apps / shell
-    Mod+Return { spawn "alacritty"; }
-    Mod+D      { spawn "dms" "ipc" "launcher" "toggle"; }
-    Mod+Space  { spawn "dms" "ipc" "launcher" "toggle"; }
-    Mod+W      { spawn "vivaldi" "--ozone-platform=wayland"; }
-    Mod+O      { toggle-overview; }
-    Mod+Slash  { show-hotkey-overlay; }
+    Mod+Slash   { show-hotkey-overlay; }
+    Mod+O       { toggle-overview; }
+    Mod+Shift+S { screenshot show-pointer=false; }
+    Mod+Shift+Q { quit; }
 
-    // DMS panels
-    Mod+V      { spawn "dms" "ipc" "clipboard" "toggle"; }
-    Mod+N      { spawn "dms" "ipc" "notifications" "toggle"; }
-    Mod+P      { spawn "dms" "ipc" "powermenu" "toggle"; }
-    Mod+Comma  { spawn "dms" "ipc" "settings" "toggle"; }
+    Mod+Return repeat=false hotkey-overlay-title="Terminal"   { spawn "alacritty"; }
+    Mod+S      repeat=false hotkey-overlay-title="Scratchpad" { spawn "alacritty" "--class" "scratchpad"; }
+    Mod+W      repeat=false hotkey-overlay-title="Browser"    { spawn "vivaldi"; }
 
-    // Window / column control
-    Mod+Q      { close-window; }
-    Mod+F      { fullscreen-window; }
-    Mod+M      { maximize-column; }
-    Mod+C      { center-column; }
-    Mod+R      { switch-preset-column-width; }
+    Mod+Space  hotkey-overlay-title="Launcher"      { spawn "dms" "ipc" "launcher" "toggle"; }
+    Mod+N      hotkey-overlay-title="Notifications" { spawn "dms" "ipc" "notifications" "toggle"; }
+    Mod+V      hotkey-overlay-title="Clipboard"     { spawn "dms" "ipc" "clipboard" "toggle"; }
+    Mod+Comma  hotkey-overlay-title="DMS Settings"  { spawn "dms" "ipc" "settings" "toggle"; }
+
+
+    // Window control
+    Mod+Q       { close-window; }
+    Mod+C       { center-column; }
+    Mod+M       { maximize-column; }
+    Mod+R       { switch-preset-column-width; }
     Mod+Shift+F { toggle-window-floating; }
 
-    // Focus
     Mod+H      { focus-column-left; }
     Mod+J      { focus-window-down; }
     Mod+K      { focus-window-up; }
@@ -80,7 +94,6 @@ binds {
     Mod+Up     { focus-window-up; }
     Mod+Right  { focus-column-right; }
 
-    // Move within layout
     Mod+Shift+H     { move-column-left; }
     Mod+Shift+J     { move-window-down; }
     Mod+Shift+K     { move-window-up; }
@@ -90,7 +103,6 @@ binds {
     Mod+Shift+Up    { move-window-up; }
     Mod+Shift+Right { move-column-right; }
 
-    // Stack / unstack windows into columns
     Mod+Ctrl+H { consume-or-expel-window-left; }
     Mod+Ctrl+L { consume-or-expel-window-right; }
     Mod+Ctrl+J { expel-window-from-column; }
@@ -117,10 +129,6 @@ binds {
     Mod+Shift+4 { move-column-to-workspace 4; }
     Mod+Shift+5 { move-column-to-workspace 5; }
 
-    // Screenshots / lock
-    Print { spawn "dms" "screenshot"; }
-    Mod+Print { spawn "dms" "screenshot" "full"; }
-    Mod+Escape { spawn "dms" "ipc" "lock" "lock"; }
 
     // Hardware keys through DMS
     XF86AudioRaiseVolume { spawn "dms" "ipc" "audio" "increment"; }
@@ -133,3 +141,27 @@ binds {
     XF86AudioNext { spawn "dms" "ipc" "mpris" "next"; }
     XF86AudioPrev { spawn "dms" "ipc" "mpris" "previous"; }
 }
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+animations {
+    off
+}
+
+cursor {
+    xcursor-theme "Vanilla-DMZ"
+    xcursor-size 16
+}
+
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
+
+prefer-no-csd
+
+screenshot-path "~/tmp/screenshot_%Y-%m-%d_%H-%M-%S.png"
