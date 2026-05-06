@@ -6,7 +6,7 @@
 }:
 
 let
-  wrapWaylandGL =
+  waylandGlWrap =
     pkg:
     let
       wrapped = config.lib.nixGL.wrap pkg;
@@ -17,10 +17,11 @@ let
 
       rm -rf $out/bin
       mkdir -p $out/bin
+
       for bin in ${wrapped}/bin/*; do
         makeWrapper "$bin" "$out/bin/$(basename "$bin")" \
           --prefix LD_LIBRARY_PATH : "${pkgs.egl-wayland}/lib" \
-          --set __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS "${pkgs.egl-wayland}/share/egl/egl_external_platform.d"
+          --suffix __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS : "/etc/egl/egl_external_platform.d:/usr/share/egl/egl_external_platform.d:${pkgs.egl-wayland}/share/egl/egl_external_platform.d"
       done
     '';
 in
@@ -59,10 +60,11 @@ in
       zathura
 
       # gpu-accelerated packages
-      (wrapWaylandGL alacritty)
-      (wrapWaylandGL dms-shell)
+      (waylandGlWrap alacritty)
+      (waylandGlWrap dms-shell)
+      (waylandGlWrap quickshell)
+
       (config.lib.nixGL.wrap mpv)
-      (wrapWaylandGL quickshell)
       (config.lib.nixGL.wrap helium)
       (config.lib.nixGL.wrap vivaldi)
 
