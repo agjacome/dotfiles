@@ -1,0 +1,8 @@
+{
+  "maxHistory": 50,
+  "maxEntrySize": 52428800,
+  "autoClearDays": 1,
+  "clearAtStartup": true,
+  "disabled": false,
+  "maxPinned": 5
+}
