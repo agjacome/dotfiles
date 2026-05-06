@@ -2,7 +2,7 @@
   "lastChangelogVersion": "0.70.5",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "low",
   "steeringMode": "one-at-a-time",
   "followUpMode": "one-at-a-time",
   "transport": "auto",
