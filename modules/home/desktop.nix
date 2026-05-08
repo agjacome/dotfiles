@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -40,6 +41,7 @@ in
       detox
       discord
       dunst
+      inputs.dank-pinentry.packages.${pkgs.stdenv.hostPlatform.system}.pinentry-dms
       feh
       ffmpeg
       fuzzel
@@ -80,6 +82,9 @@ in
       numix-icon-theme
       vanilla-dmz
     ];
+
+    home.file.".config/DankMaterialShell/plugins/dankPinentry".source =
+      inputs.dank-pinentry.packages.${pkgs.stdenv.hostPlatform.system}.dms-plugin;
 
     fonts.fontconfig.enable = true;
   };

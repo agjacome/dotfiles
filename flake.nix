@@ -43,6 +43,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
     };
+
+    dank-pinentry = {
+      url = "github:Pacman99/DankPinentry";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
