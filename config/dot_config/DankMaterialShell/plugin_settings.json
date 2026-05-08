@@ -1,0 +1,9 @@
+{
+  "dankPinentry": {
+    "enabled": true
+  },
+  "dmsPass": {
+    "enabled": true,
+    "trigger": "@"
+  }
+}

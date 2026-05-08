@@ -6,6 +6,14 @@
   ...
 }:
 
+let
+  pass = pkgs.pass.overrideAttrs (old: {
+    postPatch = (old.postPatch or "") + ''
+      substituteInPlace src/password-store.sh \
+        --replace-fail 'local copy_cmd=( wl-copy )' 'local copy_cmd=( wl-copy --sensitive )'
+    '';
+  });
+in
 {
   imports = [ inputs.nix-index-database.homeModules.nix-index ];
 

@@ -66,16 +66,17 @@ binds {
     Mod+Slash   { show-hotkey-overlay; }
     Mod+O       { toggle-overview; }
     Mod+Shift+S { screenshot show-pointer=false; }
-    Mod+Shift+Q { quit; }
 
     Mod+Return repeat=false hotkey-overlay-title="Terminal"   { spawn "alacritty"; }
     Mod+S      repeat=false hotkey-overlay-title="Scratchpad" { spawn "alacritty" "--class" "scratchpad"; }
     Mod+W      repeat=false hotkey-overlay-title="Browser"    { spawn "vivaldi"; }
 
-    Mod+Space  hotkey-overlay-title="Launcher"      { spawn "dms" "ipc" "launcher" "toggle"; }
-    Mod+N      hotkey-overlay-title="Notifications" { spawn "dms" "ipc" "notifications" "toggle"; }
-    Mod+V      hotkey-overlay-title="Clipboard"     { spawn "dms" "ipc" "clipboard" "toggle"; }
-    Mod+Comma  hotkey-overlay-title="DMS Settings"  { spawn "dms" "ipc" "settings" "toggle"; }
+    Mod+Space    hotkey-overlay-title="Launcher"      { spawn "dms" "ipc" "launcher" "toggle"; }
+    Mod+N        hotkey-overlay-title="Notifications" { spawn "dms" "ipc" "notifications" "toggle"; }
+    Mod+V        hotkey-overlay-title="Clipboard"     { spawn "dms" "ipc" "clipboard" "toggle"; }
+    Mod+P        hotkey-overlay-title="Pass"          { spawn "dms" "ipc" "launcher" "openQuery" "@"; }
+    Mod+Comma    hotkey-overlay-title="DMS Settings"  { spawn "dms" "ipc" "settings" "toggle"; }
+    Mod+Shift+Q  hotkey-overlay-title="Power"         { spawn "dms" "ipc" "powermenu" "toggle"; }
 
 
     // Window control
