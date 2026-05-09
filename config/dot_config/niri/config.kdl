@@ -35,7 +35,7 @@ output "LG Electronics LG HDR DQHD 0x000A1CC3" {
 }
 
 layout {
-    gaps 4
+    gaps 12
     center-focused-column "on-overflow"
     always-center-single-column
 
@@ -55,88 +55,74 @@ layout {
     }
 }
 
+window-rule {
+    match app-id="^scratchpad$"
+    open-floating true
+    default-window-height { proportion 0.4; }
+    default-column-width  { proportion 0.2; }
+}
+
 binds {
-    // Apps / shell
+    // apps & shell
     Mod+Slash   { show-hotkey-overlay; }
     Mod+O       { toggle-overview; }
     Mod+Shift+S { screenshot show-pointer=false; }
 
-    Mod+Return repeat=false hotkey-overlay-title="Terminal" { spawn "alacritty"; }
-    Mod+W      repeat=false hotkey-overlay-title="Browser"  { spawn "vivaldi"; }
+    Mod+Return repeat=false hotkey-overlay-title="Terminal"   { spawn "alacritty"; }
+    Mod+W      repeat=false hotkey-overlay-title="Browser"    { spawn "vivaldi"; }
+    Mod+S      repeat=false hotkey-overlay-title="Scratchpad" { spawn-sh "~/.config/niri/scratchpad-terminal"; }
 
-    Mod+S      repeat=false hotkey-overlay-title="Show Scratchpad"    { spawn "nirius" "scratchpad-show"; }
-    Mod+Ctrl+S repeat=false hotkey-overlay-title="Send to Scratchpad" { spawn "nirius" "scratchpad-toggle"; }
+    Mod+Space   hotkey-overlay-title="Launcher"      { spawn "dms" "ipc" "launcher" "toggle"; }
+    Mod+N       hotkey-overlay-title="Notifications" { spawn "dms" "ipc" "notifications" "toggle"; }
+    Mod+V       hotkey-overlay-title="Clipboard"     { spawn "dms" "ipc" "clipboard" "toggle"; }
+    Mod+P       hotkey-overlay-title="Pass"          { spawn "dms" "ipc" "launcher" "openQuery" "@"; }
+    Mod+Shift+Q hotkey-overlay-title="Power"         { spawn "dms" "ipc" "powermenu" "toggle"; }
 
-    Mod+Space    hotkey-overlay-title="Launcher"      { spawn "dms" "ipc" "launcher" "toggle"; }
-    Mod+N        hotkey-overlay-title="Notifications" { spawn "dms" "ipc" "notifications" "toggle"; }
-    Mod+V        hotkey-overlay-title="Clipboard"     { spawn "dms" "ipc" "clipboard" "toggle"; }
-    Mod+P        hotkey-overlay-title="Pass"          { spawn "dms" "ipc" "launcher" "openQuery" "@"; }
-    Mod+Comma    hotkey-overlay-title="DMS Settings"  { spawn "dms" "ipc" "settings" "toggle"; }
-    Mod+Shift+Q  hotkey-overlay-title="Power"         { spawn "dms" "ipc" "powermenu" "toggle"; }
+    // windows
+    Mod+Q repeat=false { close-window; }
 
-
-    // Window control
-    Mod+Q       { close-window; }
     Mod+C       { center-column; }
     Mod+M       { maximize-column; }
     Mod+R       { switch-preset-column-width; }
     Mod+Shift+F { toggle-window-floating; }
 
-    Mod+H      { focus-column-left; }
-    Mod+J      { focus-window-down; }
-    Mod+K      { focus-window-up; }
-    Mod+L      { focus-column-right; }
-    Mod+Left   { focus-column-left; }
-    Mod+Down   { focus-window-down; }
-    Mod+Up     { focus-window-up; }
-    Mod+Right  { focus-column-right; }
+    Mod+H       { focus-column-left; }
+    Mod+J       { focus-window-down; }
+    Mod+K       { focus-window-up; }
+    Mod+L       { focus-column-right; }
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+    Mod+Shift+L { move-column-right; }
 
-    Mod+Shift+H     { move-column-left; }
-    Mod+Shift+J     { move-window-down; }
-    Mod+Shift+K     { move-window-up; }
-    Mod+Shift+L     { move-column-right; }
-    Mod+Shift+Left  { move-column-left; }
-    Mod+Shift+Down  { move-window-down; }
-    Mod+Shift+Up    { move-window-up; }
-    Mod+Shift+Right { move-column-right; }
+    Mod+Comma  { consume-or-expel-window-left; }
+    Mod+Period { consume-or-expel-window-right; }
 
-    Mod+Ctrl+H { consume-or-expel-window-left; }
-    Mod+Ctrl+L { consume-or-expel-window-right; }
-    Mod+Ctrl+J { expel-window-from-column; }
-    Mod+Ctrl+K { consume-window-into-column; }
-
-    // Workspaces
-    Mod+Page_Down { focus-workspace-down; }
-    Mod+Page_Up   { focus-workspace-up; }
-    Mod+Ctrl+Down { focus-workspace-down; }
-    Mod+Ctrl+Up   { focus-workspace-up; }
+    // workspaces
+    Mod+Ctrl+J       { focus-workspace-down; }
+    Mod+Ctrl+K       { focus-workspace-up; }
     Mod+Shift+Ctrl+J { move-column-to-workspace-down; }
     Mod+Shift+Ctrl+K { move-column-to-workspace-up; }
-    Mod+Shift+Ctrl+Down { move-column-to-workspace-down; }
-    Mod+Shift+Ctrl+Up   { move-column-to-workspace-up; }
 
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
+    Mod+1       { focus-workspace 1; }
+    Mod+2       { focus-workspace 2; }
+    Mod+3       { focus-workspace 3; }
+    Mod+4       { focus-workspace 4; }
     Mod+Shift+1 { move-column-to-workspace 1; }
     Mod+Shift+2 { move-column-to-workspace 2; }
     Mod+Shift+3 { move-column-to-workspace 3; }
     Mod+Shift+4 { move-column-to-workspace 4; }
-    Mod+Shift+5 { move-column-to-workspace 5; }
 
-
-    // Hardware keys through DMS
-    XF86AudioRaiseVolume { spawn "dms" "ipc" "audio" "increment"; }
-    XF86AudioLowerVolume { spawn "dms" "ipc" "audio" "decrement"; }
-    XF86AudioMute        { spawn "dms" "ipc" "audio" "mute"; }
-    XF86AudioMicMute     { spawn "dms" "ipc" "audio" "micmute"; }
-    XF86MonBrightnessUp   { spawn "dms" "ipc" "brightness" "increment"; }
+    // hardware keys
+    XF86AudioLowerVolume  { spawn "dms" "ipc" "audio" "decrement"; }
+    XF86AudioMicMute      { spawn "dms" "ipc" "audio" "micmute"; }
+    XF86AudioMute         { spawn "dms" "ipc" "audio" "mute"; }
+    XF86AudioNext         { spawn "dms" "ipc" "mpris" "next"; }
+    XF86AudioPlay         { spawn "dms" "ipc" "mpris" "playPause"; }
+    XF86AudioPrev         { spawn "dms" "ipc" "mpris" "previous"; }
+    XF86AudioRaiseVolume  { spawn "dms" "ipc" "audio" "increment"; }
     XF86MonBrightnessDown { spawn "dms" "ipc" "brightness" "decrement"; }
-    XF86AudioPlay { spawn "dms" "ipc" "mpris" "playPause"; }
-    XF86AudioNext { spawn "dms" "ipc" "mpris" "next"; }
-    XF86AudioPrev { spawn "dms" "ipc" "mpris" "previous"; }
+    XF86MonBrightnessUp   { spawn "dms" "ipc" "brightness" "increment"; }
 }
 
 gestures {

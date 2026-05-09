@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+declare -r scratchpad_app_id="scratchpad"
+declare -r scratchpad_match="^${scratchpad_app_id}$"
+
+if nirius scratchpad-show --app-id "$scratchpad_match" >/dev/null 2>&1; then
+    exit 0
+fi
+
+alacritty --class "$scratchpad_app_id" --title "$scratchpad_app_id" >/dev/null 2>&1 &
+
+sleep 0.2
+
+nirius scratchpad-toggle --app-id "$scratchpad_match" >/dev/null 2>&1
+nirius scratchpad-show --app-id "$scratchpad_match" >/dev/null 2>&1
