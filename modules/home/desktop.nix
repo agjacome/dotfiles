@@ -26,13 +26,19 @@ let
       done
     '';
 
+  dmsPluginRegistry = pkgs.fetchFromGitHub {
+    owner = "AvengeMedia";
+    repo = "dms-plugin-registry";
+    rev = "91f5a9998db5b2810f7ee5623e1f2142b89de2ea";
+    hash = "sha256-firHOQ20re/4yzut4lJyNp3QE5nFCtjF5vS475vJJ9A=";
+  };
+
   dmsPassPlugin = pkgs.fetchFromGitHub {
     owner = "LouisKottmann";
     repo = "dms-pass";
     rev = "be247a2029efc0df07d57236bad09754384cfb2f";
     hash = "sha256-40U/OTGTFf3lc4Q01/DYLw9xmRHvALq3GHyTytqcNlY=";
   };
-
 in
 {
   options = {
@@ -91,11 +97,17 @@ in
       vanilla-dmz
     ];
 
+    fonts.fontconfig.enable = true;
+
     # dms plugins
+    home.file.".config/DankMaterialShell/themes/gruvboxMulti" = {
+      source = "${dmsPluginRegistry}/themes/gruvbox-multi";
+      force = true;
+    };
+
     home.file.".config/DankMaterialShell/plugins/dankPinentry".source =
       inputs.dank-pinentry.packages.${pkgs.stdenv.hostPlatform.system}.dms-plugin;
-    home.file.".config/DankMaterialShell/plugins/dmsPass".source = dmsPassPlugin;
 
-    fonts.fontconfig.enable = true;
+    home.file.".config/DankMaterialShell/plugins/dmsPass".source = dmsPassPlugin;
   };
 }
