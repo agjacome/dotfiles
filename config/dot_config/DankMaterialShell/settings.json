@@ -1,7 +1,7 @@
 {
   "currentThemeName": "custom",
   "currentThemeCategory": "registry",
-  "customThemeFile": "{{ .chezmoi.homeDir }}/.config/DankMaterialShell/themes/gruvboxMulti/theme.json",
+  "customThemeFile": "~/.config/DankMaterialShell/themes/gruvboxMulti/theme.json",
   "registryThemeVariants": {
     "amoledBlack": {
       "dark": {
