@@ -60,6 +60,7 @@ in
       ffmpeg
       fuzzel
       gimp
+      nirius
       ripgrep-all
       screenkey
       scrot

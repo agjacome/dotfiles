@@ -1,5 +1,6 @@
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "NIRI_SOCKET"
 spawn-at-startup "dms" "run"
+spawn-at-startup "niriusd"
 
 input {
     keyboard {
@@ -54,22 +55,17 @@ layout {
     }
 }
 
-window-rule {
-    match app-id="^scratchpad$"
-    open-floating true
-    default-window-height { proportion 0.4; }
-    default-column-width  { proportion 0.2; }
-}
-
 binds {
     // Apps / shell
     Mod+Slash   { show-hotkey-overlay; }
     Mod+O       { toggle-overview; }
     Mod+Shift+S { screenshot show-pointer=false; }
 
-    Mod+Return repeat=false hotkey-overlay-title="Terminal"   { spawn "alacritty"; }
-    Mod+S      repeat=false hotkey-overlay-title="Scratchpad" { spawn "alacritty" "--class" "scratchpad"; }
-    Mod+W      repeat=false hotkey-overlay-title="Browser"    { spawn "vivaldi"; }
+    Mod+Return repeat=false hotkey-overlay-title="Terminal" { spawn "alacritty"; }
+    Mod+W      repeat=false hotkey-overlay-title="Browser"  { spawn "vivaldi"; }
+
+    Mod+S      repeat=false hotkey-overlay-title="Show Scratchpad"    { spawn "nirius" "scratchpad-show"; }
+    Mod+Ctrl+S repeat=false hotkey-overlay-title="Send to Scratchpad" { spawn "nirius" "scratchpad-toggle"; }
 
     Mod+Space    hotkey-overlay-title="Launcher"      { spawn "dms" "ipc" "launcher" "toggle"; }
     Mod+N        hotkey-overlay-title="Notifications" { spawn "dms" "ipc" "notifications" "toggle"; }
