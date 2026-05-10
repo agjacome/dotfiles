@@ -216,7 +216,7 @@
   "dankLauncherV2UnloadOnClose": true,
   "useAutoLocation": true,
   "weatherEnabled": true,
-  "networkPreference": "auto",
+  "networkPreference": "wifi",
   "iconTheme": "Numix",
   "cursorSettings": {
     "theme": "Vanilla-DMZ",
@@ -475,7 +475,9 @@
         {
           "id": "controlCenterButton",
           "enabled": true,
+          "showAudioIcon": false,
           "showVpnIcon": false,
+          "showBrightnessIcon": false,
           "showMicIcon": false,
           "showMicPercent": false,
           "showBatteryIcon": true
