@@ -33,5 +33,8 @@
   },
   "terminal": {
     "showTerminalProgress": false
-  }
+  },
+  "packages": [
+    "git:https://github.com/badlogic/pi-diff-review"
+  ]
 }
