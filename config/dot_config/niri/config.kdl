@@ -1,4 +1,11 @@
-spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "NIRI_SOCKET"
+include "environment.kdl" optional=true
+
+spawn-at-startup "dbus-update-activation-environment" "--systemd" \
+    "WAYLAND_DISPLAY" \
+    "XDG_CURRENT_DESKTOP" \
+    "NIRI_SOCKET" \
+    "__EGL_EXTERNAL_PLATFORM_CONFIG_DIRS"
+
 spawn-at-startup "dms" "run"
 spawn-at-startup "niriusd"
 spawn-at-startup "xwayland-satellite"

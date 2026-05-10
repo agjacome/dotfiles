@@ -7,25 +7,6 @@
 }:
 
 let
-  waylandGlWrap =
-    pkg:
-    let
-      wrapped = config.lib.nixGL.wrap pkg;
-    in
-    pkgs.runCommand "${pkg.name}-nixgl-wayland" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
-      mkdir -p $out
-      cp -rs --no-preserve=mode ${wrapped}/* $out/
-
-      rm -rf $out/bin
-      mkdir -p $out/bin
-
-      for bin in ${wrapped}/bin/*; do
-        makeWrapper "$bin" "$out/bin/$(basename "$bin")" \
-          --prefix LD_LIBRARY_PATH : "${pkgs.egl-wayland}/lib" \
-          --suffix __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS : "/etc/egl/egl_external_platform.d:/usr/share/egl/egl_external_platform.d:${pkgs.egl-wayland}/share/egl/egl_external_platform.d"
-      done
-    '';
-
   dmsPluginRegistry = pkgs.fetchFromGitHub {
     owner = "AvengeMedia";
     repo = "dms-plugin-registry";
@@ -53,7 +34,6 @@ in
       aria2
       clipmenu
       detox
-      discord
       dunst
       inputs.dank-pinentry.packages.${pkgs.stdenv.hostPlatform.system}.pinentry-dms
       feh
@@ -71,18 +51,23 @@ in
       ventoy
       wl-clipboard
       xclip
+      xdg-desktop-portal-gnome
       xdg-utils
       xwayland-satellite
       yt-dlp
       zathura
 
-      # gpu-accelerated packages
-      (waylandGlWrap alacritty)
-      (waylandGlWrap dms-shell)
-      (waylandGlWrap quickshell)
+      egl-gbm
+      egl-wayland
+      egl-x11
 
-      (config.lib.nixGL.wrap mpv)
+      # gpu-accelerated packages
+      (config.lib.nixGL.wrap alacritty)
+      (config.lib.nixGL.wrap dms-shell)
       (config.lib.nixGL.wrap helium)
+      (config.lib.nixGL.wrap mpv)
+      (config.lib.nixGL.wrap obs-studio)
+      (config.lib.nixGL.wrap quickshell)
       (config.lib.nixGL.wrap vivaldi)
 
       # fonts
