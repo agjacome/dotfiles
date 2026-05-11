@@ -32,6 +32,7 @@ in
 
     home.packages = with pkgs; [
       aria2
+      cava
       clipmenu
       detox
       dunst
