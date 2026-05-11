@@ -122,13 +122,13 @@ binds {
     Mod+Shift+4 { move-column-to-workspace 4; }
 
     // hardware keys
-    XF86AudioLowerVolume  { spawn "dms" "ipc" "audio" "decrement"; }
-    XF86AudioMicMute      { spawn "dms" "ipc" "audio" "micmute"; }
-    XF86AudioMute         { spawn "dms" "ipc" "audio" "mute"; }
-    XF86AudioNext         { spawn "dms" "ipc" "mpris" "next"; }
-    XF86AudioPlay         { spawn "dms" "ipc" "mpris" "playPause"; }
-    XF86AudioPrev         { spawn "dms" "ipc" "mpris" "previous"; }
-    XF86AudioRaiseVolume  { spawn "dms" "ipc" "audio" "increment"; }
+    XF86AudioLowerVolume repeat=false { spawn "dms" "ipc" "audio" "decrement" "5"; }
+    XF86AudioMicMute     repeat=false { spawn "dms" "ipc" "audio" "micmute"; }
+    XF86AudioMute        repeat=false { spawn "dms" "ipc" "audio" "mute"; }
+    XF86AudioNext        repeat=false { spawn "dms" "ipc" "mpris" "next"; }
+    XF86AudioPlay        repeat=false { spawn "dms" "ipc" "mpris" "playPause"; }
+    XF86AudioPrev        repeat=false { spawn "dms" "ipc" "mpris" "previous"; }
+    XF86AudioRaiseVolume repeat=false { spawn "dms" "ipc" "audio" "increment" "5"; }
     XF86MonBrightnessDown { spawn "dms" "ipc" "brightness" "decrement"; }
     XF86MonBrightnessUp   { spawn "dms" "ipc" "brightness" "increment"; }
 }
