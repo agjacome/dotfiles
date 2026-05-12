@@ -35,6 +35,8 @@
     "showTerminalProgress": false
   },
   "packages": [
-    "git:https://github.com/badlogic/pi-diff-review"
+    "ssh://git@github.com/agjacome/pi-extensions",
+    "npm:@lpirito/pi-diffloop",
+    "npm:pi-web-access"
   ]
 }
