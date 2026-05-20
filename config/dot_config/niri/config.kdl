@@ -66,8 +66,8 @@ layout {
 window-rule {
     match app-id="^scratchpad$"
     open-floating true
-    default-window-height { proportion 0.4; }
-    default-column-width  { proportion 0.2; }
+    default-window-height { fixed 600; }
+    default-column-width  { fixed 1000; }
 }
 
 binds {
