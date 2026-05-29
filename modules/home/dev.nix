@@ -40,9 +40,11 @@
       pi-coding-agent
 
       # tools
+      cloc
       direnv
       fnm
       gnumake
+      graphviz
       gron
       jq
       parallel
