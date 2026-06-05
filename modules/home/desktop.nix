@@ -53,6 +53,7 @@ in
       wl-clipboard
       xclip
       xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
       xdg-utils
       xwayland-satellite
       yt-dlp
