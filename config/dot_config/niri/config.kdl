@@ -21,6 +21,7 @@ input {
     }
 
     touchpad {
+        dwt
         tap
         natural-scroll
     }
@@ -35,6 +36,13 @@ output "eDP-1" {
     mode "3840x2160@60.000"
     scale 1.75
     variable-refresh-rate on-demand=true
+
+
+    layout {
+        default-column-width {
+            proportion 1.0;
+        }
+    }
 }
 
 output "LG Electronics LG HDR DQHD 0x000A1CC3" {
@@ -43,7 +51,7 @@ output "LG Electronics LG HDR DQHD 0x000A1CC3" {
 }
 
 layout {
-    gaps 12
+    gaps 10
     center-focused-column "on-overflow"
     always-center-single-column
 
@@ -145,7 +153,7 @@ animations {
 
 cursor {
     xcursor-theme "Vanilla-DMZ"
-    xcursor-size 16
+    xcursor-size 24
 }
 
 hotkey-overlay {
