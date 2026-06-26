@@ -37,7 +37,6 @@ in
       detox
       dunst
       inputs.dank-pinentry.packages.${pkgs.stdenv.hostPlatform.system}.pinentry-dms
-      feh
       ffmpeg
       fuzzel
       gimp
@@ -48,6 +47,7 @@ in
       spmd
       spotify
       streamlink
+      swayimg
       tbsm
       ventoy
       wl-clipboard

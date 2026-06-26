@@ -78,6 +78,11 @@ window-rule {
     default-column-width  { fixed 1000; }
 }
 
+window-rule {
+    match app-id="^swayimg$"
+    open-floating true
+}
+
 binds {
     // apps & shell
     Mod+Slash   { show-hotkey-overlay; }

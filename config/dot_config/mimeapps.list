@@ -1,4 +1,16 @@
 [Default Applications]
+image/avif=swayimg.desktop
+image/bmp=swayimg.desktop
+image/gif=swayimg.desktop
+image/heic=swayimg.desktop
+image/heif=swayimg.desktop
+image/jpeg=swayimg.desktop
+image/jxl=swayimg.desktop
+image/png=swayimg.desktop
+image/svg+xml=swayimg.desktop
+image/tiff=swayimg.desktop
+image/vnd.microsoft.icon=swayimg.desktop
+image/webp=swayimg.desktop
 text/html=vivaldi-stable.desktop
 x-scheme-handler/http=vivaldi-stable.desktop
 x-scheme-handler/https=vivaldi-stable.desktop
