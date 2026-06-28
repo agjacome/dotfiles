@@ -1,9 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
-
-declare -r is_docked=${1:-$($HOME/.local/bin/_xutils/is-docked)}
-
-declare -r wallpaper=$([[ $is_docked == "true" ]] && echo "$HOME/.wallpapers/docked" || echo "$HOME/.wallpapers/undocked")
-
- feh --no-fehbg --bg-fill "$wallpaper"

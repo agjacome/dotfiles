@@ -1,4 +1,0 @@
-[Desktop Entry]
-Name=DWM
-Exec=bash -c "$HOME/.config/xsessions/dwm"
-Type=XSession

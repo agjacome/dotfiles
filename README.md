@@ -8,8 +8,8 @@
 - Nix [home-manager](https://nix-community.github.io/home-manager/) to manage
   user-centric programs (see `flake.nix`).
 - [Chezmoi](https://www.chezmoi.io) to manage dotfiles (see `config/` dir).
-- Window Manager: [dwm](https://dwm.suckless.org) - see
-  [agjacome/dwm](https://github.com/agjacome/dwm)
+- Window Manager: [niri](https://github.com/YaLTeR/niri)
+- Desktop Shell: [DankMaterialShell](https://danklinux.com/)
 - Shell: [fish](https://fishshell.com)
 - Terminal: [alacritty](https://alacritty.org)
 - Multiplexer: [tmux](https://github.com/tmux/tmux/wiki)
@@ -36,10 +36,6 @@ $ chezmoi init --apply -S .
 
 #### TODO
 
-- Migrate from [dwm](https://github.com/agjacome/dwm) +
-  [dmenu](https://github.com/agjacome/dmenu) in X11 to
-  [niri](https://github.com/YaLTeR/niri) +
-  [fuzzel](https://codeberg.org/dnkl/fuzzel) in Wayland.
 - Play with and fully migrate to [NixOS](https://nixos.org) at some point **btw**.
 - Become rich and retire early to have infinite time to spend in unproductive
   migrations.

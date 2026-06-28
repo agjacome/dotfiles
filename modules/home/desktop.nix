@@ -33,17 +33,13 @@ in
     home.packages = with pkgs; [
       aria2
       cava
-      clipmenu
       detox
-      dunst
       inputs.dank-pinentry.packages.${pkgs.stdenv.hostPlatform.system}.pinentry-dms
       ffmpeg
-      fuzzel
       gimp
       nirius
       ripgrep-all
       screenkey
-      scrot
       spmd
       spotify
       streamlink
@@ -51,7 +47,6 @@ in
       tbsm
       ventoy
       wl-clipboard
-      xclip
       xdg-desktop-portal-gnome
       xdg-desktop-portal-gtk
       xdg-utils
