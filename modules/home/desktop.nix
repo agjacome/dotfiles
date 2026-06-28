@@ -39,7 +39,6 @@ in
       gimp
       nirius
       ripgrep-all
-      screenkey
       spmd
       spotify
       streamlink
