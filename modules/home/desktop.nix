@@ -64,7 +64,7 @@ in
       (config.lib.nixGL.wrap mpv)
       (config.lib.nixGL.wrap obs-studio)
       (config.lib.nixGL.wrap quickshell)
-      (config.lib.nixGL.wrap vivaldi)
+      (config.lib.nixGL.wrap (vivaldi.override { proprietaryCodecs = true; }))
 
       # fonts
       fontconfig
