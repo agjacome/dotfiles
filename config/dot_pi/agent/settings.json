@@ -1,13 +1,17 @@
 {
   "lastChangelogVersion": "0.80.7",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.5",
+  "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "low",
   "steeringMode": "one-at-a-time",
   "followUpMode": "one-at-a-time",
   "transport": "auto",
   "enabledModels": [
-    "openai-codex/gpt-5.5"
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-terra",
+    "openai-codex/gpt-5.6-luna",
+    "openai-codex/gpt-5.5",
+    "openai-codex/gpt-5.4"
   ],
   "hideThinkingBlock": true,
   "theme": "dark",
