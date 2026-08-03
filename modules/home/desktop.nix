@@ -74,8 +74,8 @@ in
       noto-fonts-color-emoji
 
       # gtk theming
-      numix-gtk-theme
-      numix-icon-theme
+      adw-gtk3
+      papirus-icon-theme
       vanilla-dmz
     ];
 

@@ -217,7 +217,7 @@
   "useAutoLocation": true,
   "weatherEnabled": true,
   "networkPreference": "wifi",
-  "iconTheme": "Numix",
+  "iconTheme": "Papirus",
   "cursorSettings": {
     "theme": "Vanilla-DMZ",
     "size": 16,
