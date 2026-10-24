@@ -14,6 +14,6 @@
   homes.dev.enable = true;
   homes.darwin.enable = true;
 
-  user.name = "albertojacome";
-  user.home = "/Users/albertojacome";
+  user.name = "alberto.jacome";
+  user.home = "/Users/alberto.jacome";
 }
