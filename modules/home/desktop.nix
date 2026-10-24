@@ -28,7 +28,7 @@ in
 
   config = lib.mkIf config.homes.desktop.enable {
 
-    nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.17" ];
+    nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.18" ];
 
     home.packages = with pkgs; [
       aria2
