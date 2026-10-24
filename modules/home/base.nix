@@ -59,7 +59,6 @@ in
       chezmoi
       comma
       curl
-      dgop
       diceware
       dos2unix
       fd

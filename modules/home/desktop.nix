@@ -34,6 +34,7 @@ in
       aria2
       cava
       detox
+      dgop
       inputs.dank-pinentry.packages.${pkgs.stdenv.hostPlatform.system}.pinentry-dms
       ffmpeg
       gimp
