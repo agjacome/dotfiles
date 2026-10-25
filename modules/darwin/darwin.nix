@@ -104,8 +104,6 @@
         upgrade = false;
       };
 
-      caskArgs.no_quarantine = true;
-
       casks = [
         "amethyst"
         "steermouse"
