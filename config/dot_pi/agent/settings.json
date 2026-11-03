@@ -33,7 +33,6 @@
   },
   "packages": [
     "ssh://git@github.com/agjacome/pi-extensions",
-    "npm:@lpirito/pi-diffloop",
     "npm:pi-web-access"
   ]
 }
