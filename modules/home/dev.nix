@@ -37,6 +37,7 @@
       mr
 
       # ai
+      claude-code
       pi-coding-agent
 
       # tools

@@ -2,25 +2,29 @@
   "lastChangelogVersion": "1.3.0",
   "defaultProvider": "openai",
   "defaultModel": "gpt-6.1-sol",
-  "defaultThinkingLevel": "max",
-  "steeringMode": "one-at-a-time",
-  "followUpMode": "one-at-a-time",
-  "transport": "auto",
-  "hideThinkingBlock": true,
-  "theme": "dark",
-  "enableSkillCommands": true,
-  "quietStartup": false,
-  "collapseChangelog": true,
-  "enableInstallTelemetry": false,
-  "doubleEscapeAction": "tree",
-  "treeFilterMode": "no-tools",
-  "editorPaddingX": 0,
-  "compaction": {
-    "enabled": false
+  "defaultThinkingLevel": "xhigh",
+  "modelThinkingLevels": {
+    "openai/gpt-6.1-sol": "xhigh",
+    "claude-code/claude-opus-5-5": "xhigh"
   },
   "branchSummary": {
     "skipPrompt": false
   },
+  "cacheWarming": "streaming",
+  "collapseChangelog": true,
+  "compaction": {
+    "enabled": false
+  },
+  "defaultProjectTrust": "always",
+  "doubleEscapeAction": "tree",
+  "editorPaddingX": 0,
+  "enableInstallTelemetry": false,
+  "enableSkillCommands": true,
+  "followUpMode": "all",
+  "hideThinkingBlock": true,
+  "httpIdleTimeoutMs": 300000,
+  "outputPad": 1,
+  "quietStartup": true,
   "retry": {
     "enabled": true,
     "maxRetries": 1,
@@ -28,11 +32,17 @@
       "maxRetries": 0
     }
   },
+  "steeringMode": "all",
   "terminal": {
     "showTerminalProgress": false
   },
+  "theme": "system",
+  "transport": "auto",
+  "treeFilterMode": "no-tools",
+  "tuiMode": "regular",
   "packages": [
     "ssh://git@github.com/agjacome/pi-extensions",
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "https://github.com/earendil-works/pi-claude-code"
   ]
 }
