@@ -34,7 +34,7 @@ in
       aria2
       cava
       detox
-      dgop
+      dux-gop
       inputs.dank-pinentry.packages.${pkgs.stdenv.hostPlatform.system}.pinentry-dms
       ffmpeg
       gimp
@@ -65,7 +65,7 @@ in
       (config.lib.nixGL.wrap mpv)
       (config.lib.nixGL.wrap obs-studio)
       (config.lib.nixGL.wrap quickshell)
-      (config.lib.nixGL.wrap (vivaldi.override { proprietaryCodecs = true; }))
+      (config.lib.nixGL.wrap vivaldi)
 
       # fonts
       fontconfig
